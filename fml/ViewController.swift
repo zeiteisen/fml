@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet weak var tableView: UITableView!
     var dataSouce = [PFObject]()
+    let dateformatter = NSDateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.tableView.reloadData()
             }
         }
+        dateformatter.dateStyle = .LongStyle
+        dateformatter.locale = NSLocale(localeIdentifier: NSLocale.preferredLanguages()[0])
     }
 
     // MARK: - TableViewDelegate
@@ -42,6 +45,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let object = dataSouce[indexPath.row]
         cell.messageLabel.text = object["message"] as? String
         cell.authorLabel.text = object["author"] as? String
+        cell.createdAtLabel.text = dateformatter.stringFromDate(object.createdAt!)
         cell.delegate = self
         return cell
     }

@@ -1,0 +1,66 @@
+
+/* Class = "UILabel"; text = "Erfolg. Dein Beitrag wird geprüft."; ObjectID = "19h-5m-6dz"; */
+"19h-5m-6dz.text" = "Erfolg. Dein Beitrag wird geprüft.";
+
+/* Class = "UIBarButtonItem"; title = "Next"; ObjectID = "1Ci-dv-tAc"; */
+"1Ci-dv-tAc.title" = "Next";
+
+/* Class = "UILabel"; text = "Hans"; ObjectID = "1kV-3h-ibi"; */
+"1kV-3h-ibi.text" = "Hans";
+
+/* Class = "UIButton"; normalTitle = "Comment"; ObjectID = "27e-Dy-oXX"; */
+"27e-Dy-oXX.normalTitle" = "Comment";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "9is-m6-cdp"; */
+"9is-m6-cdp.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Next"; ObjectID = "E5G-Dd-zGa"; */
+"E5G-Dd-zGa.title" = "Next";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "KK4-qb-oOu"; */
+"KK4-qb-oOu.normalTitle" = "Close";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "OEN-Rk-ZcH"; */
+"OEN-Rk-ZcH.normalTitle" = "Save";
+
+/* Class = "UIButton"; normalTitle = ""; ObjectID = "OIf-z3-oFe"; */
+"OIf-z3-oFe.normalTitle" = "";
+
+/* Class = "UILabel"; text = "Gender"; ObjectID = "QYW-nH-j1d"; */
+"QYW-nH-j1d.text" = "Gender";
+
+/* Class = "UIButton"; normalTitle = "Suxxs"; ObjectID = "SFZ-sv-xKa"; */
+"SFZ-sv-xKa.normalTitle" = "Suxxs";
+
+/* Class = "UISegmentedControl"; XHp-Rq-fMV.segmentTitles[0] = "Female"; ObjectID = "XHp-Rq-fMV"; */
+"XHp-Rq-fMV.segmentTitles[0]" = "Female";
+
+/* Class = "UISegmentedControl"; XHp-Rq-fMV.segmentTitles[1] = "Male"; ObjectID = "XHp-Rq-fMV"; */
+"XHp-Rq-fMV.segmentTitles[1]" = "Male";
+
+/* Class = "UIButton"; normalTitle = "Post"; ObjectID = "Z0e-wP-kFh"; */
+"Z0e-wP-kFh.normalTitle" = "Post";
+
+/* Class = "UIButton"; normalTitle = ""; ObjectID = "cbq-kl-f3f"; */
+"cbq-kl-f3f.normalTitle" = "";
+
+/* Class = "UILabel"; text = "100"; ObjectID = "ePi-2C-JSM"; */
+"ePi-2C-JSM.text" = "100";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "iFS-dQ-A9x"; */
+"iFS-dQ-A9x.text" = "Date";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "jo8-Db-THE"; */
+"jo8-Db-THE.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Deserve"; ObjectID = "kp6-zq-iNH"; */
+"kp6-zq-iNH.normalTitle" = "Deserve";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "nmD-ls-Hui"; */
+"nmD-ls-Hui.text" = "Label";
+
+/* Class = "UILabel"; text = "Author"; ObjectID = "uId-9S-uDS"; */
+"uId-9S-uDS.text" = "Author";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "xUD-ax-Gf0"; */
+"xUD-ax-Gf0.title" = "Item";
