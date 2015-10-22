@@ -7,6 +7,7 @@ target 'fml' do
 
 pod 'Parse'
 pod 'SZTextView'
+pod 'SwiftyUserDefaults'
 
 end
 

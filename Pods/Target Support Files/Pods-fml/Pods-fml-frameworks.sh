@@ -87,9 +87,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-fml/Bolts.framework"
   install_framework "Pods-fml/Parse.framework"
   install_framework "Pods-fml/SZTextView.framework"
+  install_framework "Pods-fml/SwiftyUserDefaults.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-fml/Bolts.framework"
   install_framework "Pods-fml/Parse.framework"
   install_framework "Pods-fml/SZTextView.framework"
+  install_framework "Pods-fml/SwiftyUserDefaults.framework"
 fi

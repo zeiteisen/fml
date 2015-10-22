@@ -30,6 +30,8 @@
 		FC1BB1EE1BD40AB500E24ED7 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BB1ED1BD40AB500E24ED7 /* CommentCell.swift */; settings = {ASSET_TAGS = (); }; };
 		FC1BB1F01BD40B8300E24ED7 /* CommentTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BB1EF1BD40B8300E24ED7 /* CommentTableHeaderView.swift */; settings = {ASSET_TAGS = (); }; };
 		FC1BB1F21BD411AA00E24ED7 /* WriteCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BB1F11BD411AA00E24ED7 /* WriteCommentViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		FC5C1BBF1BD97DD600B4AAC0 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C1BBE1BD97DD600B4AAC0 /* DefaultsKeys.swift */; settings = {ASSET_TAGS = (); }; };
+		FC5C1BC11BD98BCD00B4AAC0 /* NSObject+Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C1BC01BD98BCD00B4AAC0 /* NSObject+Delay.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,8 @@
 		FC1BB1ED1BD40AB500E24ED7 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		FC1BB1EF1BD40B8300E24ED7 /* CommentTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableHeaderView.swift; sourceTree = "<group>"; };
 		FC1BB1F11BD411AA00E24ED7 /* WriteCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteCommentViewController.swift; sourceTree = "<group>"; };
+		FC5C1BBE1BD97DD600B4AAC0 /* DefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
+		FC5C1BC01BD98BCD00B4AAC0 /* NSObject+Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Delay.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,9 +180,11 @@
 		FC11BD5A1BD284AB0082F43C /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				FC5C1BC01BD98BCD00B4AAC0 /* NSObject+Delay.swift */,
 				FC0CEA541BD3BFBB00E6DBAD /* String+Replacing.swift */,
 				FC0CEA521BD3BFAF00E6DBAD /* UIAlertController+SimpleAlert.swift */,
 				FC0CEA501BD3BF9400E6DBAD /* String+Localized.swift */,
+				FC5C1BBE1BD97DD600B4AAC0 /* DefaultsKeys.swift */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -309,6 +315,7 @@
 				FC1BB1E81BD3E88E00E24ED7 /* SelectCategoryCell.swift in Sources */,
 				FC1BB1F01BD40B8300E24ED7 /* CommentTableHeaderView.swift in Sources */,
 				FC1BB1F21BD411AA00E24ED7 /* WriteCommentViewController.swift in Sources */,
+				FC5C1BC11BD98BCD00B4AAC0 /* NSObject+Delay.swift in Sources */,
 				FC036A011BD27FF800F9AEAC /* ViewController.swift in Sources */,
 				FC0CEA4D1BD3B80700E6DBAD /* SelectCategoryViewController.swift in Sources */,
 				FC0CEA491BD3B49700E6DBAD /* NewFMLModel.swift in Sources */,
@@ -318,6 +325,7 @@
 				FC0369FF1BD27FF800F9AEAC /* AppDelegate.swift in Sources */,
 				FC0CEA4F1BD3BEFB00E6DBAD /* ConfirmPostViewController.swift in Sources */,
 				FC0CEA4B1BD3B69B00E6DBAD /* AuthorViewController.swift in Sources */,
+				FC5C1BBF1BD97DD600B4AAC0 /* DefaultsKeys.swift in Sources */,
 				FC0CEA531BD3BFAF00E6DBAD /* UIAlertController+SimpleAlert.swift in Sources */,
 				FC11BD5C1BD284BF0082F43C /* Constants.swift in Sources */,
 				FC11BD5E1BD291170082F43C /* ComposeViewController.swift in Sources */,

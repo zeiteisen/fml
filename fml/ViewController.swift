@@ -8,30 +8,83 @@
 
 import UIKit
 import Parse
+import SwiftyUserDefaults
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PostCellDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var dataSouce = [PFObject]()
     let dateformatter = NSDateFormatter()
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
-        let query = PFQuery(className: "Post")
+        dateformatter.dateStyle = .LongStyle
+        dateformatter.locale = NSLocale(localeIdentifier: NSLocale.preferredLanguages()[0])
+        tableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: "updateRemote", forControlEvents: .ValueChanged)
+        if Defaults[.lastUpdated] == nil {
+            loadPosts(false, success: nil)
+        } else {
+            loadPosts(true, success: { () -> () in
+                self.delay(5) {
+                    self.updateRemote()
+                }
+            })
+        }
+    }
+    
+    func loadPosts(locally: Bool, success: (() -> ())?) {
+        let query = PFQuery(className: Constants.parsePostClassName)
         query.addDescendingOrder("createdAt")
+        if locally {
+            query.fromLocalDatastore()
+        }
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             if let error = error {
                 UIAlertController.showAlertWithError(error)
             } else if let objects = objects {
+                if !locally {
+                    Defaults[.lastUpdated] = NSDate(timeIntervalSinceNow: 0)
+                }
+                PFObject.pinAllInBackground(objects)
                 self.dataSouce = objects
                 self.tableView.reloadData()
+                if let success = success {
+                    success()
+                }
             }
         }
-        dateformatter.dateStyle = .LongStyle
-        dateformatter.locale = NSLocale(localeIdentifier: NSLocale.preferredLanguages()[0])
+    }
+    
+    func updateRemote() {
+        if let lastUpdated = Defaults[.lastUpdated] {
+            let query = PFQuery(className: Constants.parsePostClassName)
+            query.whereKey("updatedAt", greaterThan: lastUpdated)
+            query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
+                self.refreshControl.endRefreshing()
+                if let error = error {
+                    UIAlertController.showAlertWithError(error)
+                } else if let objects = objects {
+                    Defaults[.lastUpdated] = NSDate(timeIntervalSinceNow: 0)
+                    PFObject.pinAllInBackground(objects, block: { (success: Bool, error: NSError?) -> Void in
+                        if let error = error {
+                            UIAlertController.showAlertWithError(error)
+                        } else {
+                            self.loadPosts(true, success: { () -> () in
+                            })
+                        }
+                    })
+                    print("delta update \(objects)")
+                }
+            }
+        } else {
+            refreshControl.endRefreshing()
+            print("cannot update because there is no base data")
+        }
     }
 
     // MARK: - TableViewDelegate
