@@ -36,7 +36,10 @@ class SelectCategoryViewController: UIViewController, UITableViewDataSource, UIT
         object["owner"] = PFUser.currentUser()
         object["hidden"] = true
         object["moderation"] = "pending"
-        object.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+        object["countComments"] = 0
+        object["countUpvotes"] = 0
+        object["countDownvotes"] = 0
+        object.saveEventually { (success: Bool, error: NSError?) -> Void in
             if let error = error {
                 UIAlertController.showAlertWithError(error)
             } else {

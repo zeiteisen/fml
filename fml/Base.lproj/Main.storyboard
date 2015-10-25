@@ -140,6 +140,7 @@
                                         <connections>
                                             <outlet property="authorLabel" destination="1kV-3h-ibi" id="GZD-Bb-h17"/>
                                             <outlet property="commentsButton" destination="cbq-kl-f3f" id="VAM-JU-LRN"/>
+                                            <outlet property="commentsLabel" destination="ePi-2C-JSM" id="PUT-MN-5ZT"/>
                                             <outlet property="createdAtLabel" destination="iFS-dQ-A9x" id="6E0-Lf-0m3"/>
                                             <outlet property="deserveItButton" destination="kp6-zq-iNH" id="itB-Ke-zq9"/>
                                             <outlet property="messageLabel" destination="nmD-ls-Hui" id="I3t-Fu-Wiq"/>

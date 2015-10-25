@@ -21,6 +21,7 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var suxxsButton: UIButton!
     @IBOutlet weak var deserveItButton: UIButton!
     @IBOutlet weak var commentsButton: UIButton!
+    @IBOutlet weak var commentsLabel: UILabel!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var createdAtLabel: UILabel!

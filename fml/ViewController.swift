@@ -169,6 +169,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let object = dataSouce[indexPath.row]
         cell.messageLabel.text = object["message"] as? String
         cell.authorLabel.text = object["author"] as? String
+        var countComments = 0
+        if let remoteCountComments = object["countComments"] as? NSNumber {
+            countComments = remoteCountComments.integerValue
+        }
+        cell.commentsLabel.text = "\(countComments)"
         cell.createdAtLabel.text = dateformatter.stringFromDate(object.createdAt!)
         cell.delegate = self
         return cell

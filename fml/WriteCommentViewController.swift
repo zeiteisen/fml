@@ -52,7 +52,9 @@ class WriteCommentViewController: UIViewController, UITextViewDelegate {
         object["post"] = postObject
         object["message"] = textView.text
         object["hidden"] = false
-        object.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+        postObject.incrementKey("countComments")
+        postObject.saveEventually()
+        object.saveEventually { (success: Bool, error: NSError?) -> Void in
             if let error = error {
                 UIAlertController.showAlertWithError(error)
             } else {
