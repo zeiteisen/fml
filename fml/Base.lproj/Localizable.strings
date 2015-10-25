@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  fml
+
+  Created by Hanno Bruns on 25.10.15.
+  Copyright © 2015 zeiteisens. All rights reserved.
+*/
+
+"load_new_posts_button_title" = "#count# new posts";

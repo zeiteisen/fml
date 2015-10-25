@@ -13,6 +13,10 @@
 		FC036A041BD27FF800F9AEAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC036A021BD27FF800F9AEAC /* Main.storyboard */; };
 		FC036A061BD27FF800F9AEAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC036A051BD27FF800F9AEAC /* Assets.xcassets */; };
 		FC036A091BD27FF800F9AEAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC036A071BD27FF800F9AEAC /* LaunchScreen.storyboard */; };
+		FC06BCAF1BDCDC790001C973 /* NSDate+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06BCAE1BDCDC790001C973 /* NSDate+Compare.swift */; settings = {ASSET_TAGS = (); }; };
+		FC06BCB11BDCDDC20001C973 /* Array+RemoveObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06BCB01BDCDDC20001C973 /* Array+RemoveObjects.swift */; settings = {ASSET_TAGS = (); }; };
+		FC06BCB41BDD02590001C973 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FC06BCB61BDD02590001C973 /* Localizable.strings */; };
+		FC06BCB81BDD07490001C973 /* PFConfig+Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06BCB71BDD07490001C973 /* PFConfig+Defaults.swift */; settings = {ASSET_TAGS = (); }; };
 		FC0B152A1BD8294000CD1D5F /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC0B15291BD8294000CD1D5F /* fontawesome-webfont.ttf */; settings = {ASSET_TAGS = (); }; };
 		FC0CEA461BD3B36E00E6DBAD /* SmartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA451BD3B36E00E6DBAD /* SmartButton.swift */; settings = {ASSET_TAGS = (); }; };
 		FC0CEA491BD3B49700E6DBAD /* NewFMLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA481BD3B49700E6DBAD /* NewFMLModel.swift */; settings = {ASSET_TAGS = (); }; };
@@ -46,6 +50,10 @@
 		FC036A081BD27FF800F9AEAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC036A0A1BD27FF800F9AEAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC036A101BD2809300F9AEAC /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		FC06BCAE1BDCDC790001C973 /* NSDate+Compare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Compare.swift"; sourceTree = "<group>"; };
+		FC06BCB01BDCDDC20001C973 /* Array+RemoveObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+RemoveObjects.swift"; sourceTree = "<group>"; };
+		FC06BCB51BDD02590001C973 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FC06BCB71BDD07490001C973 /* PFConfig+Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PFConfig+Defaults.swift"; sourceTree = "<group>"; };
 		FC0B15291BD8294000CD1D5F /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		FC0B152D1BD830C200CD1D5F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		FC0B152E1BD830C200CD1D5F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -130,6 +138,7 @@
 				FC036A051BD27FF800F9AEAC /* Assets.xcassets */,
 				FC036A071BD27FF800F9AEAC /* LaunchScreen.storyboard */,
 				FC036A0A1BD27FF800F9AEAC /* Info.plist */,
+				FC06BCB61BDD02590001C973 /* Localizable.strings */,
 				FC11BD5B1BD284BF0082F43C /* Constants.swift */,
 			);
 			path = fml;
@@ -185,6 +194,9 @@
 				FC0CEA521BD3BFAF00E6DBAD /* UIAlertController+SimpleAlert.swift */,
 				FC0CEA501BD3BF9400E6DBAD /* String+Localized.swift */,
 				FC5C1BBE1BD97DD600B4AAC0 /* DefaultsKeys.swift */,
+				FC06BCAE1BDCDC790001C973 /* NSDate+Compare.swift */,
+				FC06BCB01BDCDDC20001C973 /* Array+RemoveObjects.swift */,
+				FC06BCB71BDD07490001C973 /* PFConfig+Defaults.swift */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -248,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC06BCB41BDD02590001C973 /* Localizable.strings in Resources */,
 				FC036A091BD27FF800F9AEAC /* LaunchScreen.storyboard in Resources */,
 				FC0B152A1BD8294000CD1D5F /* fontawesome-webfont.ttf in Resources */,
 				FC036A061BD27FF800F9AEAC /* Assets.xcassets in Resources */,
@@ -310,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC06BCAF1BDCDC790001C973 /* NSDate+Compare.swift in Sources */,
 				FC0CEA551BD3BFBB00E6DBAD /* String+Replacing.swift in Sources */,
 				FC0CEA461BD3B36E00E6DBAD /* SmartButton.swift in Sources */,
 				FC1BB1E81BD3E88E00E24ED7 /* SelectCategoryCell.swift in Sources */,
@@ -323,12 +337,14 @@
 				FC1BB1EA1BD3F9F300E24ED7 /* PostCell.swift in Sources */,
 				FC1BB1EC1BD402E500E24ED7 /* CommentsViewController.swift in Sources */,
 				FC0369FF1BD27FF800F9AEAC /* AppDelegate.swift in Sources */,
+				FC06BCB11BDCDDC20001C973 /* Array+RemoveObjects.swift in Sources */,
 				FC0CEA4F1BD3BEFB00E6DBAD /* ConfirmPostViewController.swift in Sources */,
 				FC0CEA4B1BD3B69B00E6DBAD /* AuthorViewController.swift in Sources */,
 				FC5C1BBF1BD97DD600B4AAC0 /* DefaultsKeys.swift in Sources */,
 				FC0CEA531BD3BFAF00E6DBAD /* UIAlertController+SimpleAlert.swift in Sources */,
 				FC11BD5C1BD284BF0082F43C /* Constants.swift in Sources */,
 				FC11BD5E1BD291170082F43C /* ComposeViewController.swift in Sources */,
+				FC06BCB81BDD07490001C973 /* PFConfig+Defaults.swift in Sources */,
 				FC1BB1EE1BD40AB500E24ED7 /* CommentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +368,14 @@
 				FC0B152E1BD830C200CD1D5F /* de */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FC06BCB61BDD02590001C973 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC06BCB51BDD02590001C973 /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -448,6 +472,7 @@
 				INFOPLIST_FILE = fml/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = de.zeiteisens.fml;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

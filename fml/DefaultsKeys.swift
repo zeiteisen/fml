@@ -9,5 +9,8 @@
 import SwiftyUserDefaults
 
 extension DefaultsKeys {
-    static let lastUpdated = DefaultsKey<NSDate?>(Constants.lastUpdatedDateKey)
+    static let lastRemoteUpdated = DefaultsKey<NSDate?>(Constants.lastRemoteUpdatedDateKey)
+    static let lastLocalUpdated = DefaultsKey<NSDate?>(Constants.lastLocalUpdatedDateKey)
+    static let countNewPosts = DefaultsKey<Int>(Constants.countNewPosts)
+    static let lastTableViewContentOffsetY = DefaultsKey<Double>(Constants.lastTableViewContentOffsetY)
 }

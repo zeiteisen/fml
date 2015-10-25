@@ -13,6 +13,7 @@ import SwiftyUserDefaults
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PostCellDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loadNewPostsButton: UIButton!
     var dataSouce = [PFObject]()
     let dateformatter = NSDateFormatter()
     let refreshControl = UIRefreshControl()
@@ -25,34 +26,80 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         dateformatter.dateStyle = .LongStyle
         dateformatter.locale = NSLocale(localeIdentifier: NSLocale.preferredLanguages()[0])
         tableView.addSubview(refreshControl)
-        refreshControl.addTarget(self, action: "updateRemote", forControlEvents: .ValueChanged)
-        if Defaults[.lastUpdated] == nil {
-            loadPosts(false, success: nil)
+        refreshControl.addTarget(self, action: "pullToRefreshUpdateRemote", forControlEvents: .ValueChanged)
+        if Defaults[.lastRemoteUpdated] == nil {
+            loadPosts(false, keepScrollPosition: false, success: nil)
         } else {
-            loadPosts(true, success: { () -> () in
-                self.delay(5) {
-                    self.updateRemote()
-                }
+            loadPosts(true, keepScrollPosition: true, success: { () -> () in
+                self.tableView.contentOffset.y = CGFloat(Defaults[.lastTableViewContentOffsetY])
             })
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didEnterBackground:", name: UIApplicationDidEnterBackgroundNotification, object: nil)
+        
+        NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "updateInBackground", userInfo: nil, repeats: true)
+        updateLoadNewPostsButtonState()
+    }
+    
+    func updateLoadNewPostsButtonState() {
+        if Defaults[.countNewPosts] > 0 {
+            loadNewPostsButton.hidden = false
+            var title = "load_new_posts_button_title".localizedString
+            title = title.stringByReplacingString("#count#", with: "\(Defaults[.countNewPosts])")
+            loadNewPostsButton.setTitle(title, forState: .Normal)
+        } else {
+            loadNewPostsButton.hidden = true
         }
     }
     
-    func loadPosts(locally: Bool, success: (() -> ())?) {
+    func updateInBackground() {
+        self.updateRemote({ () -> () in
+            self.loadPosts(true, keepScrollPosition: true, success: nil)
+        })
+    }
+    
+    func pullToRefreshUpdateRemote() {
+        updateRemote { () -> () in
+            self.loadPosts(true, keepScrollPosition: false, success: nil)
+        }
+    }
+    
+    func saveLastTableViewContentOffsetY() {
+        Defaults[.lastTableViewContentOffsetY] = Double(tableView.contentOffset.y)
+    }
+    
+    func didEnterBackground(notification: NSNotification) {
+        saveLastTableViewContentOffsetY()
+    }
+    
+    func loadPosts(locally: Bool, keepScrollPosition: Bool, success: (() -> ())?) {
         let query = PFQuery(className: Constants.parsePostClassName)
         query.addDescendingOrder("createdAt")
         if locally {
             query.fromLocalDatastore()
         }
+        if keepScrollPosition {
+            var lastLocalUpdated = NSDate(timeIntervalSinceNow: 0)
+            if let savedLastLocalUpdated = Defaults[.lastLocalUpdated] {
+                lastLocalUpdated = savedLastLocalUpdated
+            } else {
+                Defaults[.lastLocalUpdated] = lastLocalUpdated
+            }
+            query.whereKey("createdAt", lessThanOrEqualTo: lastLocalUpdated)
+        } else {
+            Defaults[.countNewPosts] = 0
+            Defaults[.lastLocalUpdated] = NSDate(timeIntervalSinceNow: 0)
+        }
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             if let error = error {
                 UIAlertController.showAlertWithError(error)
             } else if let objects = objects {
-                if !locally {
-                    Defaults[.lastUpdated] = NSDate(timeIntervalSinceNow: 0)
-                }
                 PFObject.pinAllInBackground(objects)
                 self.dataSouce = objects
                 self.tableView.reloadData()
+                if !locally {
+                    Defaults[.lastLocalUpdated] = NSDate(timeIntervalSinceNow: 0)
+                }
                 if let success = success {
                     success()
                 }
@@ -60,8 +107,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    func updateRemote() {
-        if let lastUpdated = Defaults[.lastUpdated] {
+    func showNewPostsIndicator(count: Int) {
+        updateLoadNewPostsButtonState()
+    }
+    
+    func updateRemote(completion: (() -> ())?) {
+        if let lastUpdated = Defaults[.lastRemoteUpdated] {
             let query = PFQuery(className: Constants.parsePostClassName)
             query.whereKey("updatedAt", greaterThan: lastUpdated)
             query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
@@ -69,13 +120,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 if let error = error {
                     UIAlertController.showAlertWithError(error)
                 } else if let objects = objects {
-                    Defaults[.lastUpdated] = NSDate(timeIntervalSinceNow: 0)
+                    let lastUpdated = Defaults[.lastRemoteUpdated]
+                    var newPosts = [PFObject]()
+                    for newPost in objects {
+                        if newPost.createdAt > lastUpdated {
+                            newPosts.append(newPost)
+                        }
+                    }
+                    Defaults[.countNewPosts] += newPosts.count
+                    self.showNewPostsIndicator(Defaults[.countNewPosts])
+                    Defaults[.lastRemoteUpdated] = NSDate(timeIntervalSinceNow: 0)
                     PFObject.pinAllInBackground(objects, block: { (success: Bool, error: NSError?) -> Void in
                         if let error = error {
                             UIAlertController.showAlertWithError(error)
                         } else {
-                            self.loadPosts(true, success: { () -> () in
-                            })
+                            if let completion = completion {
+                                completion()
+                            }
                         }
                     })
                     print("delta update \(objects)")
@@ -85,6 +146,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             refreshControl.endRefreshing()
             print("cannot update because there is no base data")
         }
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func loadNewPostsTouched(sender: AnyObject) {
+        loadPosts(true, keepScrollPosition: false) { () -> () in
+            self.tableView.setContentOffset(CGPointZero, animated: true)
+        }
+        Defaults[.countNewPosts] = 0
+        updateLoadNewPostsButtonState()
     }
 
     // MARK: - TableViewDelegate

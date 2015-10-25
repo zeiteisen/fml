@@ -33,7 +33,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="249"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X8G-Uv-9ii" id="QFG-l3-a7a">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="248.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmD-ls-Hui">
@@ -57,7 +57,7 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbq-kl-f3f">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbq-kl-f3f">
                                                     <rect key="frame" x="542" y="185" width="50" height="63"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="50"/>
@@ -71,7 +71,7 @@
                                                         <action selector="commentsTouched:" destination="X8G-Uv-9ii" eventType="touchUpInside" id="J99-PP-I80"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="249" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIf-z3-oFe">
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIf-z3-oFe">
                                                     <rect key="frame" x="547" y="64" width="40" height="119"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="40"/>
@@ -85,7 +85,7 @@
                                                         <action selector="didTouchShare:" destination="X8G-Uv-9ii" eventType="touchUpInside" id="v4n-aa-FKZ"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kp6-zq-iNH" customClass="SmartButton" customModule="fml" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kp6-zq-iNH" customClass="SmartButton" customModule="fml" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="200" width="526" height="34"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -94,14 +94,14 @@
                                                         <action selector="deserveTouched:" destination="X8G-Uv-9ii" eventType="touchUpInside" id="kCP-G6-jAa"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" misplaced="YES" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePi-2C-JSM">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePi-2C-JSM">
                                                     <rect key="frame" x="553" y="207" width="29" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFZ-sv-xKa" customClass="SmartButton" customModule="fml" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFZ-sv-xKa" customClass="SmartButton" customModule="fml" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="107" width="531" height="34"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -153,12 +153,29 @@
                                     <outlet property="delegate" destination="cGT-R0-jFv" id="weF-mZ-QBE"/>
                                 </connections>
                             </tableView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MxA-LT-9Us">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.20392156859999999" green="0.32549019610000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="aAf-Za-9sJ"/>
+                                </constraints>
+                                <state key="normal" title="x new posts button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loadNewPostsTouched:" destination="cGT-R0-jFv" eventType="touchUpInside" id="hnQ-7H-nDA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.92767759628319013" green="1" blue="0.81703412400596809" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="MxA-LT-9Us" secondAttribute="trailing" id="DWu-Je-cNP"/>
                             <constraint firstItem="mMc-FI-MAo" firstAttribute="top" secondItem="njm-tA-wyW" secondAttribute="bottom" id="M9c-20-ENI"/>
                             <constraint firstItem="mMc-FI-MAo" firstAttribute="leading" secondItem="EUP-O1-OaE" secondAttribute="leading" id="T5m-hO-dFa"/>
+                            <constraint firstItem="MxA-LT-9Us" firstAttribute="leading" secondItem="EUP-O1-OaE" secondAttribute="leading" id="bng-ZA-q9a"/>
+                            <constraint firstItem="7qM-0C-Ky6" firstAttribute="top" secondItem="MxA-LT-9Us" secondAttribute="bottom" id="j18-oR-PBZ"/>
                             <constraint firstAttribute="trailing" secondItem="mMc-FI-MAo" secondAttribute="trailing" id="skB-nN-bQG"/>
                             <constraint firstItem="7qM-0C-Ky6" firstAttribute="top" secondItem="mMc-FI-MAo" secondAttribute="bottom" id="wBd-ON-xkW"/>
                         </constraints>
@@ -171,6 +188,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="loadNewPostsButton" destination="MxA-LT-9Us" id="QOg-ip-IGy"/>
                         <outlet property="tableView" destination="mMc-FI-MAo" id="wlD-43-qrz"/>
                     </connections>
                 </viewController>
@@ -393,7 +411,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5R4-sH-EGu" id="Pcg-jz-y6F">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -570,7 +588,7 @@
                                         <rect key="frame" x="0.0" y="156" width="600" height="97"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Evg-mY-Vkw" id="Ub4-vd-4lh">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="97"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="96.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9is-m6-cdp">
