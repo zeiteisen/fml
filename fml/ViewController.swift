@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loadNewPostsButton: UIButton!
     var dataSouce = [PFObject]()
+    var votes = [String : String]()
     let dateformatter = NSDateFormatter()
     let refreshControl = UIRefreshControl()
     
@@ -27,6 +28,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         dateformatter.locale = NSLocale(localeIdentifier: NSLocale.preferredLanguages()[0])
         tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: "pullToRefreshUpdateRemote", forControlEvents: .ValueChanged)
+        updateVotesArray()
         if Defaults[.lastRemoteUpdated] == nil {
             loadPosts(false, keepScrollPosition: false, success: nil)
         } else {
@@ -34,11 +36,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.tableView.contentOffset.y = CGFloat(Defaults[.lastTableViewContentOffsetY])
             })
         }
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didEnterBackground:", name: UIApplicationDidEnterBackgroundNotification, object: nil)
         
         NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "updateInBackground", userInfo: nil, repeats: true)
         updateLoadNewPostsButtonState()
+    }
+    
+    func updateVotesArray() {
+        let query = PFQuery(className: "Vote")
+        query.fromLocalDatastore()
+        query.limit = 1000 // TODO add support for more than 1000 votes
+        query.findObjectsInBackgroundWithBlock { (votes: [PFObject]?, error: NSError?) -> Void in
+            if let error = error {
+                print("searching local vote failed: \(error)")
+            } else if let votes = votes {
+                self.votes.removeAll()
+                for vote in votes {
+                    let votePost = vote["post"] as! PFObject
+                    self.votes[votePost.objectId!] = vote["kind"] as? String
+                }
+            }
+        }
     }
     
     func updateLoadNewPostsButtonState() {
@@ -98,7 +116,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.dataSouce = objects
                 self.tableView.reloadData()
                 if !locally {
-                    Defaults[.lastLocalUpdated] = NSDate(timeIntervalSinceNow: 0)
+                    Defaults[.lastRemoteUpdated] = NSDate(timeIntervalSinceNow: 0)
                 }
                 if let success = success {
                     success()
@@ -148,6 +166,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    func saveVote(kind: String, sender: PostCell) {
+        if let indexPath = tableView.indexPathForCell(sender) {
+            let object = dataSouce[indexPath.row]
+            if let postObjectId = object.objectId {
+                votes[postObjectId] = kind
+            }
+            if kind == Constants.upvote {
+                object.incrementKey(Constants.countUpvotes)
+            } else {
+                object.incrementKey(Constants.countDownvotes)
+            }
+            object.saveEventually()
+            let voteObject = PFObject(className: "Vote")
+            voteObject["owner"] = PFUser.currentUser()
+            voteObject["post"] = object
+            voteObject["kind"] = kind
+            voteObject.pinInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
+                if success {
+                    self.tableView.reloadData()
+                }
+            })
+            voteObject.saveEventually()
+        }
+    }
+    
     // MARK: - Actions
     
     @IBAction func loadNewPostsTouched(sender: AnyObject) {
@@ -167,6 +210,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell", forIndexPath: indexPath) as! PostCell
         let object = dataSouce[indexPath.row]
+        cell.resetState()
         cell.messageLabel.text = object["message"] as? String
         cell.authorLabel.text = object["author"] as? String
         var countComments = 0
@@ -176,6 +220,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.commentsLabel.text = "\(countComments)"
         cell.createdAtLabel.text = dateformatter.stringFromDate(object.createdAt!)
         cell.delegate = self
+        var countUpvotes = 0
+        var countDownvotes = 0
+        if let count = object[Constants.countUpvotes] as? NSNumber {
+            countUpvotes = count.integerValue
+        }
+        if let count = object[Constants.countDownvotes] as? NSNumber {
+            countDownvotes = count.integerValue
+        }
+        cell.setVoteButtonLabels(countUpvotes, deservCount: countDownvotes)
+        
+        if let postObjectId = object.objectId {
+            if let kind = votes[postObjectId] {
+                if kind == Constants.upvote {
+                    cell.setSuxxsSelected()
+                } else {
+                    cell.setDeserveSelected()
+                }
+            }
+        }
         return cell
     }
     
@@ -186,11 +249,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: - PostCellDelegate
     
     func postCellDidTouchSuxxsButton(sender: PostCell) {
-        
+        saveVote(Constants.upvote, sender: sender)
     }
     
     func postCellDidTouchDeserveButton(sender: PostCell) {
-        
+        saveVote(Constants.downvote, sender: sender)
     }
     
     func postCellDidTouchComments(sender: PostCell) {

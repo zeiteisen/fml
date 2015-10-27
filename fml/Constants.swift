@@ -16,4 +16,8 @@ class Constants {
     static let lastLocalUpdatedDateKey = "lastLocalUpdatedDate"
     static let lastTableViewContentOffsetY = "lastTableViewContentOffsetY"
     static let countNewPosts = "countNewPosts"
+    static let upvote = "upvote"
+    static let downvote = "downvote"
+    static let countUpvotes = "countUpvotes"
+    static let countDownvotes = "countDownvotes"
 }

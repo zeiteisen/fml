@@ -26,6 +26,7 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var createdAtLabel: UILabel!
     var delegate: PostCellDelegate?
+    var didVote = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,6 +37,29 @@ class PostCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func resetState() {
+        didVote = false
+        suxxsButton.enabled = true
+        deserveItButton.enabled = true
+        suxxsButton.setTitle("suxxs_button_title".localizedString, forState: .Normal)
+        deserveItButton.setTitle("deserve_button_title".localizedString, forState: .Normal)
+    }
+    
+    func setVoteButtonLabels(suxxsCount: Int, deservCount: Int) {
+        suxxsButton.setTitle("suxxs_button_title".localizedString + " \(suxxsCount)", forState: .Normal)
+        deserveItButton.setTitle("deserve_button_title".localizedString + " \(deservCount)", forState: .Normal)
+    }
+    
+    func setSuxxsSelected() {
+        didVote = true
+        deserveItButton.enabled = false
+    }
+    
+    func setDeserveSelected() {
+        didVote = true
+        suxxsButton.enabled = false
     }
 
     // MARK: - Actions
@@ -49,10 +73,16 @@ class PostCell: UITableViewCell {
     }
     
     @IBAction func deserveTouched(sender: AnyObject) {
-        delegate?.postCellDidTouchDeserveButton(self)
+        if !didVote {
+            setDeserveSelected()
+            delegate?.postCellDidTouchDeserveButton(self)
+        }
     }
     
     @IBAction func suxxsTouched(sender: AnyObject) {
-    delegate?.postCellDidTouchSuxxsButton(self)
+        if !didVote {
+            setSuxxsSelected()
+            delegate?.postCellDidTouchSuxxsButton(self)
+        }
     }
 }
