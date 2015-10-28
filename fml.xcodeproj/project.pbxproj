@@ -13,29 +13,31 @@
 		FC036A041BD27FF800F9AEAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC036A021BD27FF800F9AEAC /* Main.storyboard */; };
 		FC036A061BD27FF800F9AEAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC036A051BD27FF800F9AEAC /* Assets.xcassets */; };
 		FC036A091BD27FF800F9AEAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC036A071BD27FF800F9AEAC /* LaunchScreen.storyboard */; };
-		FC06BCAF1BDCDC790001C973 /* NSDate+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06BCAE1BDCDC790001C973 /* NSDate+Compare.swift */; settings = {ASSET_TAGS = (); }; };
-		FC06BCB11BDCDDC20001C973 /* Array+RemoveObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06BCB01BDCDDC20001C973 /* Array+RemoveObjects.swift */; settings = {ASSET_TAGS = (); }; };
+		FC06BCAF1BDCDC790001C973 /* NSDate+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06BCAE1BDCDC790001C973 /* NSDate+Compare.swift */; };
+		FC06BCB11BDCDDC20001C973 /* Array+RemoveObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06BCB01BDCDDC20001C973 /* Array+RemoveObjects.swift */; };
 		FC06BCB41BDD02590001C973 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FC06BCB61BDD02590001C973 /* Localizable.strings */; };
-		FC06BCB81BDD07490001C973 /* PFConfig+Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06BCB71BDD07490001C973 /* PFConfig+Defaults.swift */; settings = {ASSET_TAGS = (); }; };
-		FC0B152A1BD8294000CD1D5F /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC0B15291BD8294000CD1D5F /* fontawesome-webfont.ttf */; settings = {ASSET_TAGS = (); }; };
-		FC0CEA461BD3B36E00E6DBAD /* SmartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA451BD3B36E00E6DBAD /* SmartButton.swift */; settings = {ASSET_TAGS = (); }; };
-		FC0CEA491BD3B49700E6DBAD /* NewFMLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA481BD3B49700E6DBAD /* NewFMLModel.swift */; settings = {ASSET_TAGS = (); }; };
-		FC0CEA4B1BD3B69B00E6DBAD /* AuthorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA4A1BD3B69B00E6DBAD /* AuthorViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		FC0CEA4D1BD3B80700E6DBAD /* SelectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA4C1BD3B80700E6DBAD /* SelectCategoryViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		FC0CEA4F1BD3BEFB00E6DBAD /* ConfirmPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA4E1BD3BEFB00E6DBAD /* ConfirmPostViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		FC0CEA511BD3BF9400E6DBAD /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA501BD3BF9400E6DBAD /* String+Localized.swift */; settings = {ASSET_TAGS = (); }; };
-		FC0CEA531BD3BFAF00E6DBAD /* UIAlertController+SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA521BD3BFAF00E6DBAD /* UIAlertController+SimpleAlert.swift */; settings = {ASSET_TAGS = (); }; };
-		FC0CEA551BD3BFBB00E6DBAD /* String+Replacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA541BD3BFBB00E6DBAD /* String+Replacing.swift */; settings = {ASSET_TAGS = (); }; };
-		FC11BD5C1BD284BF0082F43C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11BD5B1BD284BF0082F43C /* Constants.swift */; settings = {ASSET_TAGS = (); }; };
-		FC11BD5E1BD291170082F43C /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11BD5D1BD291170082F43C /* ComposeViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		FC1BB1E81BD3E88E00E24ED7 /* SelectCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BB1E71BD3E88E00E24ED7 /* SelectCategoryCell.swift */; settings = {ASSET_TAGS = (); }; };
-		FC1BB1EA1BD3F9F300E24ED7 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BB1E91BD3F9F300E24ED7 /* PostCell.swift */; settings = {ASSET_TAGS = (); }; };
-		FC1BB1EC1BD402E500E24ED7 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BB1EB1BD402E500E24ED7 /* CommentsViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		FC1BB1EE1BD40AB500E24ED7 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BB1ED1BD40AB500E24ED7 /* CommentCell.swift */; settings = {ASSET_TAGS = (); }; };
-		FC1BB1F01BD40B8300E24ED7 /* CommentTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BB1EF1BD40B8300E24ED7 /* CommentTableHeaderView.swift */; settings = {ASSET_TAGS = (); }; };
-		FC1BB1F21BD411AA00E24ED7 /* WriteCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BB1F11BD411AA00E24ED7 /* WriteCommentViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		FC5C1BBF1BD97DD600B4AAC0 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C1BBE1BD97DD600B4AAC0 /* DefaultsKeys.swift */; settings = {ASSET_TAGS = (); }; };
-		FC5C1BC11BD98BCD00B4AAC0 /* NSObject+Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C1BC01BD98BCD00B4AAC0 /* NSObject+Delay.swift */; settings = {ASSET_TAGS = (); }; };
+		FC06BCB81BDD07490001C973 /* PFConfig+Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06BCB71BDD07490001C973 /* PFConfig+Defaults.swift */; };
+		FC0A1DEA1BE14EF9005F4F67 /* ShareTemplate.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC0A1DE91BE14EF9005F4F67 /* ShareTemplate.xib */; };
+		FC0A1DEC1BE151AD005F4F67 /* ShareTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0A1DEB1BE151AD005F4F67 /* ShareTemplate.swift */; };
+		FC0B152A1BD8294000CD1D5F /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC0B15291BD8294000CD1D5F /* fontawesome-webfont.ttf */; };
+		FC0CEA461BD3B36E00E6DBAD /* SmartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA451BD3B36E00E6DBAD /* SmartButton.swift */; };
+		FC0CEA491BD3B49700E6DBAD /* NewFMLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA481BD3B49700E6DBAD /* NewFMLModel.swift */; };
+		FC0CEA4B1BD3B69B00E6DBAD /* AuthorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA4A1BD3B69B00E6DBAD /* AuthorViewController.swift */; };
+		FC0CEA4D1BD3B80700E6DBAD /* SelectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA4C1BD3B80700E6DBAD /* SelectCategoryViewController.swift */; };
+		FC0CEA4F1BD3BEFB00E6DBAD /* ConfirmPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA4E1BD3BEFB00E6DBAD /* ConfirmPostViewController.swift */; };
+		FC0CEA511BD3BF9400E6DBAD /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA501BD3BF9400E6DBAD /* String+Localized.swift */; };
+		FC0CEA531BD3BFAF00E6DBAD /* UIAlertController+SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA521BD3BFAF00E6DBAD /* UIAlertController+SimpleAlert.swift */; };
+		FC0CEA551BD3BFBB00E6DBAD /* String+Replacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA541BD3BFBB00E6DBAD /* String+Replacing.swift */; };
+		FC11BD5C1BD284BF0082F43C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11BD5B1BD284BF0082F43C /* Constants.swift */; };
+		FC11BD5E1BD291170082F43C /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11BD5D1BD291170082F43C /* ComposeViewController.swift */; };
+		FC1BB1E81BD3E88E00E24ED7 /* SelectCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BB1E71BD3E88E00E24ED7 /* SelectCategoryCell.swift */; };
+		FC1BB1EA1BD3F9F300E24ED7 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BB1E91BD3F9F300E24ED7 /* PostCell.swift */; };
+		FC1BB1EC1BD402E500E24ED7 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BB1EB1BD402E500E24ED7 /* CommentsViewController.swift */; };
+		FC1BB1EE1BD40AB500E24ED7 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BB1ED1BD40AB500E24ED7 /* CommentCell.swift */; };
+		FC1BB1F01BD40B8300E24ED7 /* CommentTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BB1EF1BD40B8300E24ED7 /* CommentTableHeaderView.swift */; };
+		FC1BB1F21BD411AA00E24ED7 /* WriteCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BB1F11BD411AA00E24ED7 /* WriteCommentViewController.swift */; };
+		FC5C1BBF1BD97DD600B4AAC0 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C1BBE1BD97DD600B4AAC0 /* DefaultsKeys.swift */; };
+		FC5C1BC11BD98BCD00B4AAC0 /* NSObject+Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C1BC01BD98BCD00B4AAC0 /* NSObject+Delay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		FC06BCB01BDCDDC20001C973 /* Array+RemoveObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+RemoveObjects.swift"; sourceTree = "<group>"; };
 		FC06BCB51BDD02590001C973 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FC06BCB71BDD07490001C973 /* PFConfig+Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PFConfig+Defaults.swift"; sourceTree = "<group>"; };
+		FC0A1DE91BE14EF9005F4F67 /* ShareTemplate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareTemplate.xib; sourceTree = "<group>"; };
+		FC0A1DEB1BE151AD005F4F67 /* ShareTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTemplate.swift; sourceTree = "<group>"; };
 		FC0B15291BD8294000CD1D5F /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		FC0B152D1BD830C200CD1D5F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		FC0B152E1BD830C200CD1D5F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 				FC036A0A1BD27FF800F9AEAC /* Info.plist */,
 				FC06BCB61BDD02590001C973 /* Localizable.strings */,
 				FC11BD5B1BD284BF0082F43C /* Constants.swift */,
+				FC0A1DE91BE14EF9005F4F67 /* ShareTemplate.xib */,
 			);
 			path = fml;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 				FC1BB1E91BD3F9F300E24ED7 /* PostCell.swift */,
 				FC1BB1ED1BD40AB500E24ED7 /* CommentCell.swift */,
 				FC1BB1EF1BD40B8300E24ED7 /* CommentTableHeaderView.swift */,
+				FC0A1DEB1BE151AD005F4F67 /* ShareTemplate.swift */,
 			);
 			name = "View Subclasses";
 			sourceTree = "<group>";
@@ -265,6 +271,7 @@
 				FC0B152A1BD8294000CD1D5F /* fontawesome-webfont.ttf in Resources */,
 				FC036A061BD27FF800F9AEAC /* Assets.xcassets in Resources */,
 				FC036A041BD27FF800F9AEAC /* Main.storyboard in Resources */,
+				FC0A1DEA1BE14EF9005F4F67 /* ShareTemplate.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +335,7 @@
 				FC0CEA461BD3B36E00E6DBAD /* SmartButton.swift in Sources */,
 				FC1BB1E81BD3E88E00E24ED7 /* SelectCategoryCell.swift in Sources */,
 				FC1BB1F01BD40B8300E24ED7 /* CommentTableHeaderView.swift in Sources */,
+				FC0A1DEC1BE151AD005F4F67 /* ShareTemplate.swift in Sources */,
 				FC1BB1F21BD411AA00E24ED7 /* WriteCommentViewController.swift in Sources */,
 				FC5C1BC11BD98BCD00B4AAC0 /* NSObject+Delay.swift in Sources */,
 				FC036A011BD27FF800F9AEAC /* ViewController.swift in Sources */,

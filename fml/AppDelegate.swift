@@ -20,8 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId(Constants.parseApplicationId, clientKey: Constants.parseClientId)
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         PFUser.enableAutomaticUser()
-        if PFUser.currentUser()?.objectId == nil {
-            PFUser.currentUser()?.saveInBackground()
+        let user = PFUser.currentUser()
+        if user?.objectId == nil {
+            user?.saveInBackground()
         }
         return true
     }

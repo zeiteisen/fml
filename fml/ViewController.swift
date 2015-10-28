@@ -18,6 +18,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var votes = [String : String]()
     let dateformatter = NSDateFormatter()
     let refreshControl = UIRefreshControl()
+    var timer: NSTimer?
+    var viewjustloaded = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,17 +31,39 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: "pullToRefreshUpdateRemote", forControlEvents: .ValueChanged)
         updateVotesArray()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didEnterBackground:", name: UIApplicationDidEnterBackgroundNotification, object: nil)
+        
+        scheduleTimer()
+        updateLoadNewPostsButtonState()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopTimer()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         if Defaults[.lastRemoteUpdated] == nil {
             loadPosts(false, keepScrollPosition: false, success: nil)
         } else {
             loadPosts(true, keepScrollPosition: true, success: { () -> () in
-                self.tableView.contentOffset.y = CGFloat(Defaults[.lastTableViewContentOffsetY])
+                if self.viewjustloaded {
+                    self.tableView.contentOffset.y = CGFloat(Defaults[.lastTableViewContentOffsetY])
+                    self.viewjustloaded = false
+                }
             })
         }
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didEnterBackground:", name: UIApplicationDidEnterBackgroundNotification, object: nil)
-        
-        NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "updateInBackground", userInfo: nil, repeats: true)
-        updateLoadNewPostsButtonState()
+        scheduleTimer()
+    }
+    
+    func scheduleTimer() {
+        timer?.invalidate()
+        timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "updateInBackground", userInfo: nil, repeats: true)
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
     }
     
     func updateVotesArray() {
@@ -271,7 +295,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func postCellDidTouchShare(sender: PostCell) {
-        
+        let nib = NSBundle.mainBundle().loadNibNamed("ShareTemplate", owner: self, options: nil)
+        let shareView = nib[0] as! ShareTemplate
+        shareView.messageLabel.text = sender.messageLabel.text
+        shareView.urlLabel.text = "share_url".localizedString
+        let rect = shareView.bounds
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        shareView.layer.renderInContext(context!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        var sharingItems = [AnyObject]()
+        sharingItems.append(image)
+        let activityController = UIActivityViewController(activityItems: sharingItems, applicationActivities: nil)
+        presentViewController(activityController, animated: true, completion: nil)
     }
 }
 

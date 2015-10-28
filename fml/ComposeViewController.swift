@@ -12,15 +12,30 @@ import SZTextView
 class ComposeViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var textView: SZTextView!
+    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var saveButton: SmartButton!
     let model = NewFMLModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        automaticallyAdjustsScrollViewInsets = false
-        textView.becomeFirstResponder()
         setNextButtonEnabled(false)
+        saveButton.enabled = false
+        textView.becomeFirstResponder()
+        automaticallyAdjustsScrollViewInsets = false
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillChangeFrameNotification, object: nil)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() {
+            textViewHeightConstraint.constant = ((view.frame.height - keyboardSize.height) - saveButton.frame.size.height)
+            view.layoutIfNeeded()
+        }
+    }
+
     @IBAction func closeTouched(sender: AnyObject) {
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -44,8 +59,10 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     func textViewDidChange(textView: UITextView) {
         if textView.text.characters.count > 20 {
             setNextButtonEnabled(true)
+            saveButton.enabled = true
         } else {
             setNextButtonEnabled(false)
+            saveButton.enabled = false
         }
     }
     

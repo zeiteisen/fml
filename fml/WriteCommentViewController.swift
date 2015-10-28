@@ -24,19 +24,6 @@ class WriteCommentViewController: UIViewController, UITextViewDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillChangeFrameNotification, object: nil)
     }
     
-//    - (void)keyboardWillShow:(NSNotification *)notification{
-//    NSDictionary* keyboardInfo = [notification userInfo];
-//    NSValue* keyboardFrameEnd = [keyboardInfo valueForKey:UIKeyboardFrameEndUserInfoKey];
-//    CGRect keyboardFrameEndRect = [keyboardFrameEnd CGRectValue];
-//    self.textInputViewBottomContraint.constant = keyboardFrameEndRect.size.height;
-//    [UIView animateWithDuration:.3 animations:^{
-//    [self.view layoutIfNeeded];
-//    }];
-//    if ([self shouldScrollToBottom]) {
-//    [self performSelector:@selector(scrollToBottom) withObject:nil afterDelay:.5];
-//    }
-//    }
-    
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() {
             textViewHeightConstraint.constant = ((view.frame.height - keyboardSize.height) - saveButton.frame.size.height)
@@ -54,7 +41,10 @@ class WriteCommentViewController: UIViewController, UITextViewDelegate {
         object["hidden"] = false
         postObject.incrementKey("countComments")
         postObject.saveEventually()
+        object.pinInBackground()
+        saveButton.enabled = false
         object.saveEventually { (success: Bool, error: NSError?) -> Void in
+            self.saveButton.enabled = true
             if let error = error {
                 UIAlertController.showAlertWithError(error)
             } else {

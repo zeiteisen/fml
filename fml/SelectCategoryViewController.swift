@@ -39,7 +39,9 @@ class SelectCategoryViewController: UIViewController, UITableViewDataSource, UIT
         object["countComments"] = 0
         object["countUpvotes"] = 0
         object["countDownvotes"] = 0
+        postButton.enabled = false
         object.saveEventually { (success: Bool, error: NSError?) -> Void in
+            self.postButton.enabled = true
             if let error = error {
                 UIAlertController.showAlertWithError(error)
             } else {
