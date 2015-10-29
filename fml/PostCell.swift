@@ -24,13 +24,16 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var commentsLabel: UILabel!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var createdAtLabel: UILabel!
     var delegate: PostCellDelegate?
     var didVote = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        if !NSProcessInfo().isOperatingSystemAtLeastVersion(NSOperatingSystemVersion(majorVersion: 9, minorVersion: 0, patchVersion: 0)) {
+            messageLabel.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 24
+        }
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -41,8 +44,12 @@ class PostCell: UITableViewCell {
     
     func resetState() {
         didVote = false
-        suxxsButton.enabled = true
-        deserveItButton.enabled = true
+        suxxsButton.selected = false
+        suxxsButton.userInteractionEnabled = true
+        suxxsButton.alpha = 1.0
+        deserveItButton.selected = false
+        deserveItButton.alpha = 1.0
+        deserveItButton.userInteractionEnabled = true
         suxxsButton.setTitle("suxxs_button_title".localizedString, forState: .Normal)
         deserveItButton.setTitle("deserve_button_title".localizedString, forState: .Normal)
     }
@@ -54,12 +61,18 @@ class PostCell: UITableViewCell {
     
     func setSuxxsSelected() {
         didVote = true
-        deserveItButton.enabled = false
+        suxxsButton.selected = true
+        deserveItButton.alpha = 0.5
+        suxxsButton.userInteractionEnabled = false
+        deserveItButton.userInteractionEnabled = false
     }
     
     func setDeserveSelected() {
         didVote = true
-        suxxsButton.enabled = false
+        suxxsButton.alpha = 0.5
+        deserveItButton.selected = true
+        suxxsButton.userInteractionEnabled = false
+        deserveItButton.userInteractionEnabled = false
     }
 
     // MARK: - Actions

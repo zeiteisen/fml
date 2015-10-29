@@ -31,7 +31,8 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
 
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() {
-            textViewHeightConstraint.constant = ((view.frame.height - keyboardSize.height) - saveButton.frame.size.height)
+            let constant = ((view.frame.height - keyboardSize.height) - saveButton.frame.size.height)
+            textViewHeightConstraint.constant = constant  - textView.frame.origin.y
             view.layoutIfNeeded()
         }
     }

@@ -16,12 +16,14 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     var dataSouce = [PFObject]()
     let dateFormatter = NSDateFormatter()
     var refreshControl = UIRefreshControl()
+    let dateformatter = NSDateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
+        dateformatter.dateStyle = .LongStyle
         refreshControl.addTarget(self, action: "pullToRefreshUpdateRemote", forControlEvents: .ValueChanged)
         tableView.addSubview(refreshControl)
         if let headerView = tableView.tableHeaderView as? CommentTableHeaderView {
@@ -88,6 +90,11 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCellWithIdentifier("CommentCell", forIndexPath: indexPath) as! CommentCell
         let object = dataSouce[indexPath.row]
         cell.messageLabel.text = object["message"] as? String
+        var author = object["author"] as? String
+        if author == nil {
+            author = "anonymous".localizedString
+        }
+        cell.dateLabel.text = dateformatter.stringFromDate(object.createdAt!)
         return cell
     }
     

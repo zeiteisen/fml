@@ -139,6 +139,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 PFObject.pinAllInBackground(objects)
                 self.dataSouce = objects
                 self.tableView.reloadData()
+                self.delay(1) {
+                    self.tableView.reloadData()
+                }
                 if !locally {
                     Defaults[.lastRemoteUpdated] = NSDate(timeIntervalSinceNow: 0)
                 }
@@ -236,13 +239,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let object = dataSouce[indexPath.row]
         cell.resetState()
         cell.messageLabel.text = object["message"] as? String
+        var author = object["author"] as? String
+        if author == nil {
+            author = "anonymous".localizedString
+        }
+        if let female = object["female"] as? NSNumber {
+            if female.boolValue {
+                cell.genderLabel.text = ""
+            } else {
+                cell.genderLabel.text = ""
+            }
+        }
+        cell.createdAtLabel.text = dateformatter.stringFromDate(object.createdAt!)
         cell.authorLabel.text = object["author"] as? String
         var countComments = 0
         if let remoteCountComments = object["countComments"] as? NSNumber {
             countComments = remoteCountComments.integerValue
         }
         cell.commentsLabel.text = "\(countComments)"
-        cell.createdAtLabel.text = dateformatter.stringFromDate(object.createdAt!)
         cell.delegate = self
         var countUpvotes = 0
         var countDownvotes = 0
