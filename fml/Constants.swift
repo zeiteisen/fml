@@ -20,4 +20,7 @@ class Constants {
     static let downvote = "downvote"
     static let countUpvotes = "countUpvotes"
     static let countDownvotes = "countDownvotes"
+    static let commentsRating = "rating"
+    static let lastRemoteCommentUpdatePrefix = "lastCommentUpdatedDateForPostId"
+    static let author = "author"
 }

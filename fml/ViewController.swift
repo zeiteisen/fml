@@ -23,6 +23,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "start_screen_title".localizedString
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
@@ -32,7 +33,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         refreshControl.addTarget(self, action: "pullToRefreshUpdateRemote", forControlEvents: .ValueChanged)
         updateVotesArray()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didEnterBackground:", name: UIApplicationDidEnterBackgroundNotification, object: nil)
-        
         scheduleTimer()
         updateLoadNewPostsButtonState()
     }
@@ -68,6 +68,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func updateVotesArray() {
         let query = PFQuery(className: "Vote")
+        query.whereKeyExists("post")
+        query.whereKeyDoesNotExist("comment")
         query.fromLocalDatastore()
         query.limit = 1000 // TODO add support for more than 1000 votes
         query.findObjectsInBackgroundWithBlock { (votes: [PFObject]?, error: NSError?) -> Void in
@@ -163,7 +165,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
                 self.refreshControl.endRefreshing()
                 if let error = error {
-                    UIAlertController.showAlertWithError(error)
+                    if self.dataSouce.count == 0 {
+                        UIAlertController.showAlertWithError(error)
+                    } else {
+                        print("silent error: update remote failed with error \(error)\nShowing cached content")
+                    }
                 } else if let objects = objects {
                     let lastUpdated = Defaults[.lastRemoteUpdated]
                     var newPosts = [PFObject]()

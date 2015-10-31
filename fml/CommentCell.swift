@@ -8,11 +8,20 @@
 
 import UIKit
 
+protocol CommentCellDelegate {
+    func commentCellDidTouchUpvote(sender: CommentCell)
+    func commentCellDidTouchDownvote(sender: CommentCell)
+}
+
 class CommentCell: UITableViewCell {
 
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var upvoteButton: UIButton!
+    @IBOutlet weak var downvoteButton: UIButton!
+    @IBOutlet weak var ratingLabel: UILabel!
+    var delegate: CommentCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +30,12 @@ class CommentCell: UITableViewCell {
         }
     }
     
-    
+    @IBAction func upvoteTouched(sender: AnyObject) {
+        delegate?.commentCellDidTouchUpvote(self)
+    }
 
+    
+    @IBAction func downvoteTouched(sender: AnyObject) {
+        delegate?.commentCellDidTouchDownvote(self)
+    }
 }

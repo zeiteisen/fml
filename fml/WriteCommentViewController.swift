@@ -39,6 +39,9 @@ class WriteCommentViewController: UIViewController, UITextViewDelegate {
         object["post"] = postObject
         object["message"] = textView.text
         object["hidden"] = false
+        if let author = PFUser.currentUser()![Constants.author] as? String {
+            object[Constants.author] = author
+        }
         postObject.incrementKey("countComments")
         postObject.saveEventually()
         object.pinInBackground()

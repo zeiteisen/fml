@@ -21,4 +21,12 @@ extension PFConfig {
         }
         #endif
     }
+    
+    class func getMinimumTextLength() -> Int {
+        if let value = PFConfig.currentConfig()["MinimumTextLength"] as? NSNumber {
+            return value.integerValue
+        } else {
+            return 20
+        }
+    }
 }

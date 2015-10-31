@@ -8,25 +8,24 @@
 
 import UIKit
 import SZTextView
+import Parse
 
 class ComposeViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var textView: SZTextView!
     @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var saveButton: SmartButton!
+    @IBOutlet weak var countLettersLabel: UILabel!
     let model = NewFMLModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setNextButtonEnabled(false)
         saveButton.enabled = false
+        updateLetterCountLabel()
         textView.becomeFirstResponder()
         automaticallyAdjustsScrollViewInsets = false
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillChangeFrameNotification, object: nil)
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
     }
 
     func keyboardWillShow(notification: NSNotification) {
@@ -35,6 +34,17 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
             textViewHeightConstraint.constant = constant  - textView.frame.origin.y
             view.layoutIfNeeded()
         }
+    }
+    
+    func updateLetterCountLabel() {
+        let count = textView.text.characters.count
+        let min = PFConfig.getMinimumTextLength()
+        if count > min {
+            countLettersLabel.textColor = UIColor.mainColor()
+        } else {
+            countLettersLabel.textColor = UIColor.lightGrayColor()
+        }
+        countLettersLabel.text = "\(count) > \(min)"
     }
 
     @IBAction func closeTouched(sender: AnyObject) {
@@ -58,7 +68,8 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     // MARK: - TextViewDelegate
     
     func textViewDidChange(textView: UITextView) {
-        if textView.text.characters.count > 20 {
+        updateLetterCountLabel()
+        if textView.text.characters.count > PFConfig.getMinimumTextLength() {
             setNextButtonEnabled(true)
             saveButton.enabled = true
         } else {
