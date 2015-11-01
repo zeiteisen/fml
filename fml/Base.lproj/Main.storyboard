@@ -376,61 +376,86 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b15-kt-MxL">
-                                <rect key="frame" x="252" y="84" width="97" height="30"/>
+                                <rect key="frame" x="85" y="84" width="117" height="30"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="2zw-gE-AIM"/>
-                                    <constraint firstAttribute="width" constant="97" id="mdU-Sd-mbW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XHp-Rq-fMV">
-                                <rect key="frame" x="242" y="122" width="117" height="29"/>
+                                <rect key="frame" x="85" y="122" width="117" height="29"/>
                                 <animations/>
                                 <segments>
                                     <segment title="Female"/>
                                     <segment title="Male"/>
                                 </segments>
+                                <connections>
+                                    <action selector="didPickGender:" destination="VfX-dY-AbG" eventType="valueChanged" id="F2P-Ax-gmS"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uId-9S-uDS">
-                                <rect key="frame" x="193" y="89" width="51" height="21"/>
+                                <rect key="frame" x="20" y="89" width="51.5" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYW-nH-j1d">
-                                <rect key="frame" x="177" y="126" width="57" height="21"/>
+                                <rect key="frame" x="20" y="126" width="57" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPX-Kw-3ba" customClass="SmartButton" customModule="fml" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="324" width="600" height="50"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.21960784310000001" green="0.3921568627" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="B6I-Dd-Hgm"/>
+                                </constraints>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <segue destination="Wgd-35-SWM" kind="show" id="uH0-3c-5ej"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="b15-kt-MxL" firstAttribute="centerY" secondItem="uId-9S-uDS" secondAttribute="centerY" id="2o2-kr-vNg"/>
+                            <constraint firstItem="uId-9S-uDS" firstAttribute="leading" secondItem="zR6-XK-xuh" secondAttribute="leadingMargin" id="3ji-si-wsW"/>
+                            <constraint firstItem="LPX-Kw-3ba" firstAttribute="leading" secondItem="zR6-XK-xuh" secondAttribute="leading" id="4Sp-P2-CP3"/>
+                            <constraint firstItem="HnZ-Ua-pTa" firstAttribute="top" secondItem="LPX-Kw-3ba" secondAttribute="bottom" constant="226" id="6hQ-h3-hJk"/>
                             <constraint firstItem="QYW-nH-j1d" firstAttribute="centerY" secondItem="XHp-Rq-fMV" secondAttribute="centerY" id="AN1-Be-Mqx"/>
                             <constraint firstItem="XHp-Rq-fMV" firstAttribute="top" secondItem="b15-kt-MxL" secondAttribute="bottom" constant="8" id="EzE-Wv-HTN"/>
-                            <constraint firstItem="b15-kt-MxL" firstAttribute="centerX" secondItem="zR6-XK-xuh" secondAttribute="centerX" id="QCy-gJ-pTt"/>
-                            <constraint firstItem="b15-kt-MxL" firstAttribute="leading" secondItem="uId-9S-uDS" secondAttribute="trailing" constant="8" id="Y3a-ZK-b0H"/>
+                            <constraint firstItem="b15-kt-MxL" firstAttribute="width" secondItem="XHp-Rq-fMV" secondAttribute="width" id="PkU-E0-kcc"/>
+                            <constraint firstAttribute="trailing" secondItem="LPX-Kw-3ba" secondAttribute="trailing" id="XjW-fD-5pf"/>
+                            <constraint firstItem="b15-kt-MxL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uId-9S-uDS" secondAttribute="trailing" constant="8" id="Y3a-ZK-b0H"/>
+                            <constraint firstItem="QYW-nH-j1d" firstAttribute="leading" secondItem="uId-9S-uDS" secondAttribute="leading" id="eBs-e4-pl4"/>
                             <constraint firstItem="b15-kt-MxL" firstAttribute="top" secondItem="XRT-cf-eq0" secondAttribute="bottom" constant="20" id="fll-9H-eJx"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="XHp-Rq-fMV" secondAttribute="trailing" id="pZ9-3k-Rfs"/>
                             <constraint firstItem="XHp-Rq-fMV" firstAttribute="leading" secondItem="QYW-nH-j1d" secondAttribute="trailing" constant="8" id="qxU-3u-251"/>
-                            <constraint firstItem="XHp-Rq-fMV" firstAttribute="centerX" secondItem="zR6-XK-xuh" secondAttribute="centerX" id="tqx-Bd-Bi3"/>
+                            <constraint firstItem="b15-kt-MxL" firstAttribute="leading" secondItem="XHp-Rq-fMV" secondAttribute="leading" id="wdh-uc-bA4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="X3Z-g0-eS7">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="1Ci-dv-tAc">
                             <connections>
-                                <segue destination="Wgd-35-SWM" kind="show" id="AUc-iG-6Sr"/>
+                                <segue destination="Wgd-35-SWM" kind="show" id="mHf-1Z-uVa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="authorLabel" destination="uId-9S-uDS" id="GKA-SE-QDb"/>
                         <outlet property="authorTextField" destination="b15-kt-MxL" id="djx-8E-Kjf"/>
+                        <outlet property="bottomConstraint" destination="6hQ-h3-hJk" id="5XF-YQ-Iud"/>
+                        <outlet property="genderLabel" destination="QYW-nH-j1d" id="VoY-3r-cYy"/>
                         <outlet property="genderSegment" destination="XHp-Rq-fMV" id="ZTz-m2-sSf"/>
+                        <outlet property="nextBarButton" destination="1Ci-dv-tAc" id="R38-uC-XCo"/>
+                        <outlet property="nextButton" destination="LPX-Kw-3ba" id="6HK-F0-wCx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNp-n6-5Bb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -495,14 +520,22 @@
                             <constraint firstItem="K03-U6-lfv" firstAttribute="top" secondItem="0cj-GE-8CL" secondAttribute="bottom" id="o1h-lX-GdD"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="USx-Am-Zin">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="Hdy-ny-39H">
+                            <connections>
+                                <action selector="postTouched:" destination="Wgd-35-SWM" id="bb8-8K-BoY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="nextBarButton" destination="Hdy-ny-39H" id="s0a-j4-Y9m"/>
                         <outlet property="postButton" destination="Z0e-wP-kFh" id="lsf-eo-Vua"/>
                         <outlet property="tableView" destination="K03-U6-lfv" id="EDv-Nn-h7l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z3V-lm-abi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6124" y="-1038"/>
+            <point key="canvasLocation" x="6164" y="-1038"/>
         </scene>
         <!--Confirm Post View Controller-->
         <scene sceneID="Lv0-22-Gcn">
@@ -546,10 +579,14 @@
                             <constraint firstItem="19h-5m-6dz" firstAttribute="centerY" secondItem="fi9-kJ-5aH" secondAttribute="centerY" id="wZn-fD-7gm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="closeButton" destination="KK4-qb-oOu" id="Qwh-BC-eom"/>
+                        <outlet property="confirmPostMessageLabel" destination="19h-5m-6dz" id="M6H-uc-Jd6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YsA-wE-AB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6798" y="-1038"/>
+            <point key="canvasLocation" x="6838" y="-1038"/>
         </scene>
         <!--Item-->
         <scene sceneID="aaR-wX-a5c">
@@ -794,6 +831,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="xil-Zf-Z7B"/>
+        <segue reference="uH0-3c-5ej"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.21960784310000001" green="0.3921568627" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>

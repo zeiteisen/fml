@@ -14,11 +14,17 @@ class SelectCategoryViewController: UIViewController, UITableViewDataSource, UIT
     var model: NewFMLModel!
     @IBOutlet weak var postButton: SmartButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var nextBarButton: UIBarButtonItem!
     let dataSource = Categories.allValues
     
     override func viewDidLoad() {
         super.viewDidLoad()
         postButton.enabled = false
+        nextBarButton.enabled = false
+        title = "select_category_title".localizedString
+        let nextTitle = "select_category_next_title".localizedString
+        nextBarButton.title = nextTitle
+        postButton.setTitle(nextTitle, forState: .Normal)
     }
     
     // MARK: - Actions
@@ -40,8 +46,10 @@ class SelectCategoryViewController: UIViewController, UITableViewDataSource, UIT
         object["countUpvotes"] = 0
         object["countDownvotes"] = 0
         postButton.enabled = false
+        nextBarButton.enabled = false
         object.saveEventually { (success: Bool, error: NSError?) -> Void in
             self.postButton.enabled = true
+            self.nextBarButton.enabled = true
             if let error = error {
                 UIAlertController.showAlertWithError(error)
             } else {
@@ -63,6 +71,7 @@ class SelectCategoryViewController: UIViewController, UITableViewDataSource, UIT
 //        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         model.category = dataSource[indexPath.row]
         postButton.enabled = true
+        nextBarButton.enabled = true
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

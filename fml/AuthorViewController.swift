@@ -14,10 +14,28 @@ class AuthorViewController: UIViewController {
     var model: NewFMLModel!
     @IBOutlet weak var authorTextField: UITextField!
     @IBOutlet weak var genderSegment: UISegmentedControl!
+    @IBOutlet weak var nextButton: SmartButton!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var nextBarButton: UIBarButtonItem!
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var genderLabel: UILabel!
     let user = PFUser.currentUser()!
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        authorLabel.text = "author_label".localizedString
+        genderLabel.text = "gender_label".localizedString
+        genderSegment.setTitle("segment_female".localizedString, forSegmentAtIndex: 0)
+        genderSegment.setTitle("segment_male".localizedString, forSegmentAtIndex: 1)
+        title = "author_title".localizedString
+        authorTextField.placeholder = "autor_textfield_placeholder".localizedString
+        let nextButtonTitle = "author_next_button_title".localizedString
+        nextButton.setTitle(nextButtonTitle, forState: .Normal)
+        nextBarButton.title = nextButtonTitle
         if let author = user["author"] as? String {
             authorTextField.text = author
         }
@@ -30,9 +48,37 @@ class AuthorViewController: UIViewController {
         } else {
             genderSegment.selectedSegmentIndex = UISegmentedControlNoSegment
         }
+        setNextButtonState()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillChangeFrameNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "textFieldDidChange", name: UITextFieldTextDidChangeNotification, object: nil)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        authorTextField.becomeFirstResponder()
+    }
+    
+    func setNextButtonState() {
+        if genderSegment.selectedSegmentIndex != UISegmentedControlNoSegment && authorTextField.text?.characters.count > 0 {
+            nextButton.enabled = true
+            nextBarButton.enabled = true
+        } else {
+            nextButton.enabled = false
+            nextBarButton.enabled = false
+        }
+    }
+    
+    func textFieldDidChange() {
+        setNextButtonState()
     }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() {
+            bottomConstraint.constant = keyboardSize.height
+            view.layoutIfNeeded()
+        }
+    }
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if genderSegment.selectedSegmentIndex == 0 {
             model.gender = .Female
@@ -44,10 +90,13 @@ class AuthorViewController: UIViewController {
         model.author = authorTextField.text!
         user["author"] = model.author
         user.saveInBackground()
-        // Get the new view controller using segue.destinationViewController.
         let vc = segue.destinationViewController as! SelectCategoryViewController
         vc.model = model
-        // Pass the selected object to the new view controller.
     }
 
+    // MARK: - Actions
+    
+    @IBAction func didPickGender(sender: AnyObject) {
+        setNextButtonState()
+    }
 }

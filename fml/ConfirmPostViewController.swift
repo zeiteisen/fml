@@ -10,9 +10,15 @@ import UIKit
 
 class ConfirmPostViewController: UIViewController {
     
+    @IBOutlet weak var confirmPostMessageLabel: UILabel!
+    @IBOutlet weak var closeButton: SmartButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBarHidden = true
+        title = "confirm_post_title".localizedString
+        closeButton.setTitle("close_button_title".localizedString, forState: .Normal)
+        confirmPostMessageLabel.text = "confirm_post_message".localizedString
         // Do any additional setup after loading the view.
     }
     

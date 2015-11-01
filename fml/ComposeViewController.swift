@@ -20,6 +20,9 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "compose_title".localizedString
+        saveButton.setTitle("compose_next_button_title".localizedString, forState: .Normal)
+        textView.placeholder = "compose_textview_placeholder".localizedString
         setNextButtonEnabled(false)
         saveButton.enabled = false
         updateLetterCountLabel()
