@@ -30,6 +30,8 @@ class VoteButton: UIButton {
         setButtonDefault()
         setTitleColor(UIColor.mainColor(), forState: .Normal)
         setTitleColor(UIColor.complementColor(), forState: .Selected)
+        titleLabel?.adjustsFontSizeToFitWidth = true
+        titleLabel?.minimumScaleFactor = 0.5
     }
     
     func setButtonDefault() {

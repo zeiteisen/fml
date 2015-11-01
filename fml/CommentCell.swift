@@ -25,8 +25,8 @@ class CommentCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        if !NSProcessInfo().isOperatingSystemAtLeastVersion(NSOperatingSystemVersion(majorVersion: 9, minorVersion: 0, patchVersion: 0)) {
-            messageLabel.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 24
+        if !NSProcessInfo().isOperatingSystemAtLeastVersion(NSOperatingSystemVersion(majorVersion: 9, minorVersion: 0, patchVersion: 0)) { // iOS 8 bug fix
+            messageLabel.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 50
         }
     }
     

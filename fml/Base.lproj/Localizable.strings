@@ -6,12 +6,10 @@
   Copyright © 2015 zeiteisens. All rights reserved.
 */
 
-"load_new_posts_button_title" = "#count# new posts";
-"suxxs_button_title" = "Ja dein Leben ist ****";
-"deserve_button_title" = "Selbst schuld";
+"load_new_posts_button_title" = "#count# neuer FMLs";
 "compose_title" = "Neuer FML";
 "compose_next_button_title" = "Weiter";
-"compose_textview_placeholder" = "Heute,\n\nJeder FML beginnt mit Heute, und ended mit fml";
+"compose_textview_placeholder" = "Heute, da habe ich ein FML geschrieben und vergessen, dass es mit \"Heute\" beginnt und mit \"FML\" enden soll. FML";
 "author_label" = "Autor";
 "gender_label" = "Geschlecht";
 "segment_female" = "Weiblich";
@@ -23,4 +21,21 @@
 "select_category_next_title" = "Weiter";
 "confirm_post_title" = "Gespeichert!";
 "close_button_title" = "Schließen";
-"confirm_post_message" = "Danke für dein Beitrag. Er wurde erfolgreich gespeichert.\n\nAlle FMLs werden geprüft. Wenn Dein FML freigeschaltet wird, erhälts du eine Push Notification.";
+"confirm_post_message" = "Danke für deinen Beitrag. Er wurde erfolgreich gespeichert.\n\nAlle FMLs werden geprüft. Wenn Dein FML freigeschaltet wird, erhältst du eine Push Notification.";
+"Unknown" = "Unbekannt";
+"Love" = "Liebe";
+"Animals" = "Tiere";
+"Money" = "Geld";
+"Kids" = "Kinder";
+"Work" = "Arbeit";
+"Health" = "Gesundheit";
+"Intimacy" = "Intim";
+"Miscellaneous" = "Sonstiges";
+"start_screen_title" = "fmeinleben";
+"suxxs_button_title" = "Stimmt, dein Leben ist scheiße";
+"deserve_button_title" = "Selbst schuld";
+"comments_title" = "Kommentare";
+"write_comment_button_title" = "Kommentar schreiben";
+"write_comment_title" = "Kommentieren";
+"save_comment_button_title" = "Senden";
+"share_url" = "fmeinleben.de";

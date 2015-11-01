@@ -95,8 +95,9 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kp6-zq-iNH" customClass="VoteButton" customModule="fml" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="198" width="519" height="34"/>
+                                                    <rect key="frame" x="8" y="200.5" width="519" height="29"/>
                                                     <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="Deserve">
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     </state>
@@ -111,9 +112,10 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFZ-sv-xKa" customClass="VoteButton" customModule="fml" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="151" width="519" height="34"/>
+                                                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFZ-sv-xKa" customClass="VoteButton" customModule="fml" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="152.5" width="519" height="29"/>
                                                     <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="Suxxs">
                                                         <color key="titleColor" red="0.094470643359999995" green="0.093416393520000002" blue="0.119140625" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
@@ -191,6 +193,7 @@
                             </button>
                         </subviews>
                         <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="MxA-LT-9Us" secondAttribute="trailing" id="DWu-Je-cNP"/>
                             <constraint firstItem="mMc-FI-MAo" firstAttribute="top" secondItem="njm-tA-wyW" secondAttribute="bottom" id="M9c-20-ENI"/>
@@ -292,6 +295,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="countLettersLabel" destination="F4E-3X-7aL" id="GMc-s4-bbt"/>
+                        <outlet property="nextBarButton" destination="E5G-Dd-zGa" id="jeI-ey-h4T"/>
                         <outlet property="saveButton" destination="0Iw-HU-d9l" id="MR9-Z3-CHv"/>
                         <outlet property="textView" destination="qFV-Lt-A3V" id="5y7-Tn-lQq"/>
                         <outlet property="textViewHeightConstraint" destination="D8k-Iy-MbZ" id="KCP-9d-Krx"/>
@@ -562,7 +566,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Erfolg. Dein Beitrag wird geprüft." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19h-5m-6dz">
-                                <rect key="frame" x="175" y="290" width="251" height="20"/>
+                                <rect key="frame" x="175" y="60" width="251" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -572,11 +576,14 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="19h-5m-6dz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fi9-kJ-5aH" secondAttribute="leadingMargin" id="D8Y-Ec-mig"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="19h-5m-6dz" secondAttribute="trailing" id="Lwi-4N-bEi"/>
+                            <constraint firstItem="KK4-qb-oOu" firstAttribute="top" relation="greaterThanOrEqual" secondItem="19h-5m-6dz" secondAttribute="bottom" constant="8" id="SyT-66-p0G"/>
                             <constraint firstAttribute="trailing" secondItem="KK4-qb-oOu" secondAttribute="trailing" id="WND-oY-krI"/>
+                            <constraint firstItem="19h-5m-6dz" firstAttribute="top" secondItem="I5F-SD-lf7" secondAttribute="bottom" constant="40" id="Zs5-mV-oeR"/>
                             <constraint firstItem="qPq-ge-4rr" firstAttribute="top" secondItem="KK4-qb-oOu" secondAttribute="bottom" id="bSq-CG-cFO"/>
                             <constraint firstItem="19h-5m-6dz" firstAttribute="centerX" secondItem="fi9-kJ-5aH" secondAttribute="centerX" id="d5o-sk-sax"/>
                             <constraint firstItem="KK4-qb-oOu" firstAttribute="leading" secondItem="fi9-kJ-5aH" secondAttribute="leading" id="lyj-uC-Pfe"/>
-                            <constraint firstItem="19h-5m-6dz" firstAttribute="centerY" secondItem="fi9-kJ-5aH" secondAttribute="centerY" id="wZn-fD-7gm"/>
                         </constraints>
                     </view>
                     <connections>
@@ -685,7 +692,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9is-m6-cdp">
-                                                    <rect key="frame" x="8" y="33" width="536" height="20.5"/>
+                                                    <rect key="frame" x="8" y="41" width="536" height="20.5"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -761,7 +768,7 @@
                                                 <constraint firstItem="BNp-Ig-MSK" firstAttribute="top" secondItem="3Qo-xC-5eN" secondAttribute="bottom" constant="8" id="FZA-8q-gWm"/>
                                                 <constraint firstItem="BNp-Ig-MSK" firstAttribute="leading" secondItem="9is-m6-cdp" secondAttribute="trailing" constant="8" id="HYd-JL-5pv"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="3Qo-xC-5eN" secondAttribute="trailing" id="Kuc-qA-iGS"/>
-                                                <constraint firstItem="9is-m6-cdp" firstAttribute="top" secondItem="Thn-Iv-L3G" secondAttribute="bottom" constant="8" id="M3y-Y7-oo9"/>
+                                                <constraint firstItem="9is-m6-cdp" firstAttribute="top" secondItem="Thn-Iv-L3G" secondAttribute="bottom" constant="16" id="M3y-Y7-oo9"/>
                                                 <constraint firstItem="3Qo-xC-5eN" firstAttribute="top" secondItem="Ub4-vd-4lh" secondAttribute="topMargin" id="QSj-AN-fHn"/>
                                                 <constraint firstItem="aRk-3m-xSZ" firstAttribute="trailing" secondItem="Ub4-vd-4lh" secondAttribute="trailingMargin" id="Rr6-KS-VbB"/>
                                                 <constraint firstItem="kdw-ue-D4B" firstAttribute="trailing" secondItem="Ub4-vd-4lh" secondAttribute="trailingMargin" id="TdL-je-AZV"/>
@@ -821,6 +828,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="commentButton" destination="27e-Dy-oXX" id="Al5-8D-zgx"/>
                         <outlet property="tableView" destination="Yv5-Jp-Q4X" id="zwH-5W-GjE"/>
                     </connections>
                 </viewController>

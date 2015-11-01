@@ -117,7 +117,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func loadPosts(locally: Bool, keepScrollPosition: Bool, success: (() -> ())?) {
-        let query = PFQuery(className: Constants.parsePostClassName)
+        let query = getQuery()
         query.addDescendingOrder("createdAt")
         if locally {
             query.fromLocalDatastore()
@@ -141,7 +141,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 PFObject.pinAllInBackground(objects)
                 self.dataSouce = objects
                 self.tableView.reloadData()
-                self.delay(1) {
+//                if self.dataSouce.count == 0 {
+//                    UIAlertController.showAlertWithTitle("fuck you", message: "", handler: { (action: UIAlertAction!) -> Void in
+//                        
+//                    })
+//                }
+                self.delay(1) { // ios 8 bug fix
                     self.tableView.reloadData()
                 }
                 if !locally {
@@ -158,9 +163,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         updateLoadNewPostsButtonState()
     }
     
+    func getQuery() -> PFQuery {
+        let query = PFQuery(className: Constants.parsePostClassName)
+        query.whereKey("lang", equalTo: NSBundle.mainBundle().getPrefrerredLang())
+        query.whereKey("hidden", equalTo: NSNumber(bool: false))
+        return query
+    }
+    
     func updateRemote(completion: (() -> ())?) {
         if let lastUpdated = Defaults[.lastRemoteUpdated] {
-            let query = PFQuery(className: Constants.parsePostClassName)
+            let query = getQuery()
             query.whereKey("updatedAt", greaterThan: lastUpdated)
             query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
                 self.refreshControl.endRefreshing()

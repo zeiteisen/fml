@@ -13,15 +13,19 @@ import SwiftyUserDefaults
 class CommentsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CommentCellDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var commentButton: SmartButton!
     var postObject: PFObject!
     var dataSouce = [PFObject]()
     let dateFormatter = NSDateFormatter()
     var refreshControl = UIRefreshControl()
     let dateformatter = NSDateFormatter()
     var votes = [PFObject : String]()
+    var viewjustloaded = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "comments_title".localizedString
+        commentButton.setTitle("write_comment_button_title".localizedString, forState: .Normal);
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
@@ -39,8 +43,12 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        updateVotesArray()
-        updateLocalComments()
+        if !viewjustloaded {
+            updateVotesArray()
+            updateLocalComments()
+        } else {
+            viewjustloaded = false
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -57,6 +65,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     func getCommentsQuery() -> PFQuery {
         let query = PFQuery(className: "Comment")
         query.whereKey("post", equalTo: postObject)
+        query.whereKey("hidden", equalTo: NSNumber(bool: false)) // TODO move hidden check to local query but not remote. fix this for viewController too!
 //        query.orderByDescending("createdAt")
         query.orderByDescending(Constants.commentsRating)
         return query
@@ -64,7 +73,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func updateRemoteComments(completion: (() -> ())?) {
         let query = getCommentsQuery()
-        if let postObjectId = postObject.objectId {
+        if let postObjectId = postObject.objectId { // TODO Bug doesn't update changes on server, because hidden is set to true
             if let lastUpdated = Defaults.objectForKey(Constants.lastRemoteCommentUpdatePrefix + postObjectId) as? NSDate {
                 query.whereKey("updatedAt", greaterThan: lastUpdated)
             }
@@ -74,11 +83,17 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
             if let error = error {
                 UIAlertController.showAlertWithError(error)
             } else if let objects = objects {
-                PFObject.pinAllInBackground(objects)
+                print("new comments \(objects)")
                 if let postObjectId = self.postObject.objectId {
                     Defaults[Constants.lastRemoteCommentUpdatePrefix + postObjectId] = NSDate(timeIntervalSinceNow: 0)
                 }
-                completion?()
+                PFObject.pinAllInBackground(objects, block: { (success: Bool, error: NSError?) -> Void in
+                    if let error = error {
+                        print("error pinning new comments \(error)")
+                    } else {
+                        completion?()
+                    }
+                })
             }
         }
     }

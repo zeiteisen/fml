@@ -19,6 +19,8 @@ class WriteCommentViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "write_comment_title".localizedString
+        saveButton.setTitle("save_comment_button_title".localizedString, forState: .Normal)
         saveButton.enabled = false
         textView.becomeFirstResponder()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillChangeFrameNotification, object: nil)
@@ -47,12 +49,12 @@ class WriteCommentViewController: UIViewController, UITextViewDelegate {
         object.pinInBackground()
         saveButton.enabled = false
         object.saveEventually { (success: Bool, error: NSError?) -> Void in
-            self.saveButton.enabled = true
             if let error = error {
                 UIAlertController.showAlertWithError(error)
             } else {
                 self.navigationController?.popViewControllerAnimated(true)
             }
+            self.saveButton.enabled = true
         }
     }
     

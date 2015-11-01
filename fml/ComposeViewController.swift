@@ -16,12 +16,15 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var saveButton: SmartButton!
     @IBOutlet weak var countLettersLabel: UILabel!
+    @IBOutlet weak var nextBarButton: UIBarButtonItem!
     let model = NewFMLModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "compose_title".localizedString
-        saveButton.setTitle("compose_next_button_title".localizedString, forState: .Normal)
+        let nextButtonTitle = "compose_next_button_title".localizedString;
+        saveButton.setTitle(nextButtonTitle, forState: .Normal)
+        nextBarButton.title = nextButtonTitle
         textView.placeholder = "compose_textview_placeholder".localizedString
         setNextButtonEnabled(false)
         saveButton.enabled = false

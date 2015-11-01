@@ -45,6 +45,7 @@ class SelectCategoryViewController: UIViewController, UITableViewDataSource, UIT
         object["countComments"] = 0
         object["countUpvotes"] = 0
         object["countDownvotes"] = 0
+        object["lang"] = NSBundle.mainBundle().getPrefrerredLang()
         postButton.enabled = false
         nextBarButton.enabled = false
         object.saveEventually { (success: Bool, error: NSError?) -> Void in
@@ -68,7 +69,6 @@ class SelectCategoryViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         model.category = dataSource[indexPath.row]
         postButton.enabled = true
         nextBarButton.enabled = true

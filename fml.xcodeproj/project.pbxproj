@@ -13,6 +13,7 @@
 		FC036A041BD27FF800F9AEAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC036A021BD27FF800F9AEAC /* Main.storyboard */; };
 		FC036A061BD27FF800F9AEAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC036A051BD27FF800F9AEAC /* Assets.xcassets */; };
 		FC036A091BD27FF800F9AEAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC036A071BD27FF800F9AEAC /* LaunchScreen.storyboard */; };
+		FC03CEE71BE66484004CCFB7 /* NSBundle+Lang.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC03CEE61BE66484004CCFB7 /* NSBundle+Lang.swift */; };
 		FC06BCAF1BDCDC790001C973 /* NSDate+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06BCAE1BDCDC790001C973 /* NSDate+Compare.swift */; };
 		FC06BCB11BDCDDC20001C973 /* Array+RemoveObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06BCB01BDCDDC20001C973 /* Array+RemoveObjects.swift */; };
 		FC06BCB41BDD02590001C973 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FC06BCB61BDD02590001C973 /* Localizable.strings */; };
@@ -54,6 +55,7 @@
 		FC036A081BD27FF800F9AEAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC036A0A1BD27FF800F9AEAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC036A101BD2809300F9AEAC /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		FC03CEE61BE66484004CCFB7 /* NSBundle+Lang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+Lang.swift"; sourceTree = "<group>"; };
 		FC06BCAE1BDCDC790001C973 /* NSDate+Compare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Compare.swift"; sourceTree = "<group>"; };
 		FC06BCB01BDCDDC20001C973 /* Array+RemoveObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+RemoveObjects.swift"; sourceTree = "<group>"; };
 		FC06BCB51BDD02590001C973 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				FC06BCB01BDCDDC20001C973 /* Array+RemoveObjects.swift */,
 				FC06BCB71BDD07490001C973 /* PFConfig+Defaults.swift */,
 				FC0D54B91BE2A85800990527 /* UIColor+Default.swift */,
+				FC03CEE61BE66484004CCFB7 /* NSBundle+Lang.swift */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				FC0CEA4F1BD3BEFB00E6DBAD /* ConfirmPostViewController.swift in Sources */,
 				FC0CEA4B1BD3B69B00E6DBAD /* AuthorViewController.swift in Sources */,
 				FC0D54B81BE2A1CE00990527 /* VoteButton.swift in Sources */,
+				FC03CEE71BE66484004CCFB7 /* NSBundle+Lang.swift in Sources */,
 				FC5C1BBF1BD97DD600B4AAC0 /* DefaultsKeys.swift in Sources */,
 				FC0CEA531BD3BFAF00E6DBAD /* UIAlertController+SimpleAlert.swift in Sources */,
 				FC0D54BA1BE2A85800990527 /* UIColor+Default.swift in Sources */,
