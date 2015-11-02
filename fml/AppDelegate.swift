@@ -4,7 +4,16 @@
 //
 //  Created by Hanno Bruns on 17.10.15.
 //  Copyright © 2015 zeiteisens. All rights reserved.
-//
+// A8eZrWg0pcx1Qcmsnmhv5oVWbr1WlvqWg1oa8Oji
+// TODOs
+/*
+ Kommentar Platzhalter nicht übersetzt
+ Auf iOS 8.1 iPhone 4S mach der autorefresh auf der Startseite einen Sprung nach ganz oben in der Tabelle.
+ Best bewertete Kommentare sind nicht ganz oben.
+ Kommentar schreiben Button highligted nicht.
+ iOS 8.1 iPhone 4S Author Screen buggt die Tastatur. Wenn man zurück geht, dann ist die Tastatur nicht da aber der Platz ist belegt...
+ Pull to refresh indicator ist vor der Tabelle
+*/
 
 import UIKit
 import Parse

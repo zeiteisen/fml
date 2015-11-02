@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add FML</title>
+  </head>
+  <body>
+	<p><%- status %></p>
+    <h1>Add FML</h1>
+    <form method="post" action="/add_fml">
+      <p>The FML</p>
+    	<textarea name="message" cols="50" rows="10" tabindex="1"></textarea>
+      <p>Author</p>
+      <p><input name="author"></input></p>
+      <p>Category</p>
+        <select name="category" size="7">
+        <option>Love</option>
+        <option>Animals</option>
+        <option>Money</option>
+        <option>Kids</option>
+        <option>Health</option>
+        <option>Intimacy</option>
+        <option>Miscellaneous</option>
+        </select>
+      <p>Lang</p>
+        <select name="lang" size="3">
+        <option selected>de</option>
+        <option>nl</option>
+        <option>dk</option>
+        </select>
+      <p>Gender</p>
+        <fieldset>
+          <input type="radio" name="female" value="true">Female<br> 
+          <input type="radio" name="female" value="false">Male<br> 
+        </fieldset>
+      <p>
+        <input class="button" type="submit" value="Add to database" tabindex="2">
+      </p>
+    </form>
+  </body>
+</html>

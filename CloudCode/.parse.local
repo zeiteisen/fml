@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "_default": {
+      "link": "fml"
+    },
+    "fml": {
+      "applicationId": "U2PKO5A8WKaVlW7UlncucZEnQw7etM7kmFXr91eW"
+    }
+  }
+}
