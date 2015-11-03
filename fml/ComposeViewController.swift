@@ -29,9 +29,13 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         setNextButtonEnabled(false)
         saveButton.enabled = false
         updateLetterCountLabel()
-        textView.becomeFirstResponder()
         automaticallyAdjustsScrollViewInsets = false
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        textView.becomeFirstResponder()
     }
 
     func keyboardWillShow(notification: NSNotification) {

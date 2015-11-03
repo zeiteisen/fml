@@ -56,6 +56,12 @@ class AuthorViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         authorTextField.becomeFirstResponder()
+        if !NSProcessInfo.iOS9OrGreater() {
+            delay(1) {
+                self.authorTextField.resignFirstResponder()
+                self.authorTextField.becomeFirstResponder()
+            }
+        }
     }
     
     func setNextButtonState() {

@@ -9,7 +9,7 @@
 "load_new_posts_button_title" = "#count# neuer FMLs";
 "compose_title" = "Neuer FML";
 "compose_next_button_title" = "Weiter";
-"compose_textview_placeholder" = "Heute, da habe ich ein FML geschrieben und vergessen, dass es mit \"Heute\" beginnt und mit \"FML\" enden soll. FML";
+"compose_textview_placeholder" = "Heute habe ich ein FML geschrieben und vergessen, dass es mit \"Heute\" beginnt und mit \"FML\" enden soll. FML";
 "author_label" = "Autor";
 "gender_label" = "Geschlecht";
 "segment_female" = "Weiblich";
@@ -39,3 +39,4 @@
 "write_comment_title" = "Kommentieren";
 "save_comment_button_title" = "Senden";
 "share_url" = "fmeinleben.de";
+"write_comment_placeholder" = "Jetzt Kommentar schreiben";

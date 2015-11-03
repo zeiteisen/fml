@@ -37,6 +37,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         updateLoadNewPostsButtonState()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        refreshControl.superview?.sendSubviewToBack(refreshControl)
+    }
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         stopTimer()
@@ -140,14 +145,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             } else if let objects = objects {
                 PFObject.pinAllInBackground(objects)
                 self.dataSouce = objects
-                self.tableView.reloadData()
-//                if self.dataSouce.count == 0 {
-//                    UIAlertController.showAlertWithTitle("fuck you", message: "", handler: { (action: UIAlertAction!) -> Void in
-//                        
-//                    })
+                self.reloadData()
 //                }
-                self.delay(1) { // ios 8 bug fix
-                    self.tableView.reloadData()
+                if !NSProcessInfo.iOS9OrGreater() { // ios 8 bug fix
+                    self.reloadData()
                 }
                 if !locally {
                     Defaults[.lastRemoteUpdated] = NSDate(timeIntervalSinceNow: 0)
@@ -156,6 +157,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     success()
                 }
             }
+        }
+    }
+    
+    func reloadData() {
+        if NSProcessInfo.iOS9OrGreater() { // another iOS8 bug
+            tableView.reloadData()
+        } else {
+            let contentOffset = tableView.contentOffset
+            tableView.reloadData()
+            tableView.layoutIfNeeded()
+            tableView.contentOffset = contentOffset
         }
     }
     
@@ -229,7 +241,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             voteObject["kind"] = kind
             voteObject.pinInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
                 if success {
-                    self.tableView.reloadData()
+                    self.reloadData()
                 }
             })
             voteObject.saveEventually()

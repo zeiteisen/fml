@@ -23,6 +23,7 @@ class WriteCommentViewController: UIViewController, UITextViewDelegate {
         saveButton.setTitle("save_comment_button_title".localizedString, forState: .Normal)
         saveButton.enabled = false
         textView.becomeFirstResponder()
+        textView.placeholder = "write_comment_placeholder".localizedString
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillChangeFrameNotification, object: nil)
     }
     
@@ -41,6 +42,7 @@ class WriteCommentViewController: UIViewController, UITextViewDelegate {
         object["post"] = postObject
         object["message"] = textView.text
         object["hidden"] = false
+        object["rating"] = 0
         if let author = PFUser.currentUser()![Constants.author] as? String {
             object[Constants.author] = author
         }

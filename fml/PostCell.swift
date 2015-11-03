@@ -31,7 +31,7 @@ class PostCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        if !NSProcessInfo().isOperatingSystemAtLeastVersion(NSOperatingSystemVersion(majorVersion: 9, minorVersion: 0, patchVersion: 0)) {
+        if !NSProcessInfo.iOS9OrGreater() {
             messageLabel.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 24
         }
     }

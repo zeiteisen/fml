@@ -41,6 +41,12 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        sizeHeaderForFit()
+        refreshControl.superview?.sendSubviewToBack(refreshControl)
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if !viewjustloaded {
@@ -49,11 +55,6 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         } else {
             viewjustloaded = false
         }
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        sizeHeaderForFit()
     }
     
     func pullToRefreshUpdateRemote() {
@@ -65,15 +66,13 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     func getCommentsQuery() -> PFQuery {
         let query = PFQuery(className: "Comment")
         query.whereKey("post", equalTo: postObject)
-        query.whereKey("hidden", equalTo: NSNumber(bool: false)) // TODO move hidden check to local query but not remote. fix this for viewController too!
-//        query.orderByDescending("createdAt")
         query.orderByDescending(Constants.commentsRating)
         return query
     }
     
     func updateRemoteComments(completion: (() -> ())?) {
         let query = getCommentsQuery()
-        if let postObjectId = postObject.objectId { // TODO Bug doesn't update changes on server, because hidden is set to true
+        if let postObjectId = postObject.objectId {
             if let lastUpdated = Defaults.objectForKey(Constants.lastRemoteCommentUpdatePrefix + postObjectId) as? NSDate {
                 query.whereKey("updatedAt", greaterThan: lastUpdated)
             }
@@ -100,6 +99,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func updateLocalComments() {
         let query = getCommentsQuery()
+        query.whereKey("hidden", equalTo: NSNumber(bool: false))
         query.fromLocalDatastore()
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             if let objects = objects {

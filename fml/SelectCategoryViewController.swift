@@ -25,6 +25,7 @@ class SelectCategoryViewController: UIViewController, UITableViewDataSource, UIT
         let nextTitle = "select_category_next_title".localizedString
         nextBarButton.title = nextTitle
         postButton.setTitle(nextTitle, forState: .Normal)
+        tableView.tableFooterView = UIView()
     }
     
     // MARK: - Actions

@@ -33,6 +33,7 @@
 		FC0D54BA1BE2A85800990527 /* UIColor+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0D54B91BE2A85800990527 /* UIColor+Default.swift */; };
 		FC11BD5C1BD284BF0082F43C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11BD5B1BD284BF0082F43C /* Constants.swift */; };
 		FC11BD5E1BD291170082F43C /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11BD5D1BD291170082F43C /* ComposeViewController.swift */; };
+		FC14C0301BE95578009ACDC0 /* NSProcessInfo+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC14C02F1BE95578009ACDC0 /* NSProcessInfo+Version.swift */; };
 		FC1BB1E81BD3E88E00E24ED7 /* SelectCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BB1E71BD3E88E00E24ED7 /* SelectCategoryCell.swift */; };
 		FC1BB1EA1BD3F9F300E24ED7 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BB1E91BD3F9F300E24ED7 /* PostCell.swift */; };
 		FC1BB1EC1BD402E500E24ED7 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BB1EB1BD402E500E24ED7 /* CommentsViewController.swift */; };
@@ -77,6 +78,7 @@
 		FC0D54B91BE2A85800990527 /* UIColor+Default.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Default.swift"; sourceTree = "<group>"; };
 		FC11BD5B1BD284BF0082F43C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FC11BD5D1BD291170082F43C /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		FC14C02F1BE95578009ACDC0 /* NSProcessInfo+Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSProcessInfo+Version.swift"; sourceTree = "<group>"; };
 		FC1BB1E71BD3E88E00E24ED7 /* SelectCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCategoryCell.swift; sourceTree = "<group>"; };
 		FC1BB1E91BD3F9F300E24ED7 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		FC1BB1EB1BD402E500E24ED7 /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				FC06BCB71BDD07490001C973 /* PFConfig+Defaults.swift */,
 				FC0D54B91BE2A85800990527 /* UIColor+Default.swift */,
 				FC03CEE61BE66484004CCFB7 /* NSBundle+Lang.swift */,
+				FC14C02F1BE95578009ACDC0 /* NSProcessInfo+Version.swift */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				FC5C1BBF1BD97DD600B4AAC0 /* DefaultsKeys.swift in Sources */,
 				FC0CEA531BD3BFAF00E6DBAD /* UIAlertController+SimpleAlert.swift in Sources */,
 				FC0D54BA1BE2A85800990527 /* UIColor+Default.swift in Sources */,
+				FC14C0301BE95578009ACDC0 /* NSProcessInfo+Version.swift in Sources */,
 				FC11BD5C1BD284BF0082F43C /* Constants.swift in Sources */,
 				FC11BD5E1BD291170082F43C /* ComposeViewController.swift in Sources */,
 				FC06BCB81BDD07490001C973 /* PFConfig+Defaults.swift in Sources */,
