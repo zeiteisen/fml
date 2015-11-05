@@ -105,6 +105,11 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
             if let objects = objects {
                 self.dataSouce = objects
                 self.tableView.reloadData()
+                if objects.count == 0 { // no local comments, reset the last updated at
+                    if let postObjectId = self.postObject.objectId {
+                        Defaults[Constants.lastRemoteCommentUpdatePrefix + postObjectId] = NSDate(timeIntervalSinceReferenceDate: 0)
+                    }
+                }
             }
         }
     }

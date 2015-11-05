@@ -49,16 +49,9 @@ class SelectCategoryViewController: UIViewController, UITableViewDataSource, UIT
         object["lang"] = NSBundle.mainBundle().getPrefrerredLang()
         postButton.enabled = false
         nextBarButton.enabled = false
-        object.saveEventually { (success: Bool, error: NSError?) -> Void in
-            self.postButton.enabled = true
-            self.nextBarButton.enabled = true
-            if let error = error {
-                UIAlertController.showAlertWithError(error)
-            } else {
-                let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ConfirmPostViewController") as! ConfirmPostViewController
-                self.navigationController?.showViewController(vc, sender: self)
-            }
-        }
+        object.saveEventually()
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ConfirmPostViewController") as! ConfirmPostViewController
+        self.navigationController?.showViewController(vc, sender: self)
     }
     
     // MARK: - TableViewDelegate

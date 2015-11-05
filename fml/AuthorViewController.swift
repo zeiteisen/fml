@@ -95,7 +95,7 @@ class AuthorViewController: UIViewController {
         }
         model.author = authorTextField.text!
         user["author"] = model.author
-        user.saveInBackground()
+        user.saveEventually()
         let vc = segue.destinationViewController as! SelectCategoryViewController
         vc.model = model
     }

@@ -5,6 +5,7 @@ use_frameworks!
 
 target 'fml' do
 
+pod 'Reachability', '~> 3.2'
 pod 'Parse'
 pod 'SZTextView'
 pod 'SwiftyUserDefaults'

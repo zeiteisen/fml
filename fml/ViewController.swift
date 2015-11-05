@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import SwiftyUserDefaults
+import Reachability
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PostCellDelegate {
 
@@ -72,6 +73,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func updateVotesArray() {
+        // TODO remote download the votes from the user. Use Case: App reinstall, Local Datastore may get deleted. Worst case scenario: User can vote multiple times. Minor case... fml saves votes locally with coockies.
         let query = PFQuery(className: "Vote")
         query.whereKeyExists("post")
         query.whereKeyDoesNotExist("comment")
@@ -102,9 +104,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func updateInBackground() {
-        self.updateRemote({ () -> () in
-            self.loadPosts(true, keepScrollPosition: true, success: nil)
-        })
+        let reach = Reachability.reachabilityForInternetConnection()
+        let networkStatus = reach.currentReachabilityStatus()
+        if (networkStatus != .NotReachable) {
+            self.updateRemote({ () -> () in
+                self.loadPosts(true, keepScrollPosition: true, success: nil)
+            })
+        }
     }
     
     func pullToRefreshUpdateRemote() {
@@ -146,11 +152,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 PFObject.pinAllInBackground(objects)
                 self.dataSouce = objects
                 self.reloadData()
-//                }
                 if !NSProcessInfo.iOS9OrGreater() { // ios 8 bug fix
                     self.reloadData()
                 }
-                if !locally {
+                if locally {
+                    if objects.count == 0 { // no data in local storage. reset last remote updated
+                        Defaults[.lastRemoteUpdated] = NSDate(timeIntervalSinceReferenceDate: 0)
+                    }
+                } else {
                     Defaults[.lastRemoteUpdated] = NSDate(timeIntervalSinceNow: 0)
                 }
                 if let success = success {
@@ -161,14 +170,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func reloadData() {
-        if NSProcessInfo.iOS9OrGreater() { // another iOS8 bug
-            tableView.reloadData()
-        } else {
-            let contentOffset = tableView.contentOffset
-            tableView.reloadData()
-            tableView.layoutIfNeeded()
-            tableView.contentOffset = contentOffset
-        }
+        let contentOffset = tableView.contentOffset
+        tableView.reloadData()
+        tableView.layoutIfNeeded()
+        tableView.contentOffset = contentOffset
+//        if NSProcessInfo.iOS9OrGreater() { // another iOS8 bug
+//            tableView.reloadData()
+//        } else {
+//            let contentOffset = tableView.contentOffset
+//            tableView.reloadData()
+//            tableView.layoutIfNeeded()
+//            tableView.contentOffset = contentOffset
+//        }
     }
     
     func showNewPostsIndicator(count: Int) {
@@ -239,7 +252,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             voteObject["owner"] = PFUser.currentUser()
             voteObject["post"] = object
             voteObject["kind"] = kind
-            voteObject.pinInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
+            voteObject.pinInBackgroundWithName("Votes", block: { (success: Bool, error: NSError?) -> Void in
                 if success {
                     self.reloadData()
                 }
