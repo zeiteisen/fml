@@ -17,7 +17,7 @@ class VoteButton: UIButton {
         
         didSet {
             if selected {
-                backgroundColor = UIColor.complementColor()
+                backgroundColor = UIColor.accentColor()
                 layer.borderWidth = 0
             } else {
                 setButtonDefault()
@@ -28,16 +28,16 @@ class VoteButton: UIButton {
     override func awakeFromNib() {
         super.awakeFromNib()
         setButtonDefault()
-        setTitleColor(UIColor.mainColor(), forState: .Normal)
-        setTitleColor(UIColor.secondaryColor(), forState: .Selected)
+        setTitleColor(UIColor.textColor(), forState: .Normal)
+        setTitleColor(UIColor.backgroundColor(), forState: .Selected)
         titleLabel?.adjustsFontSizeToFitWidth = true
         titleLabel?.minimumScaleFactor = 0.5
     }
     
     func setButtonDefault() {
-        backgroundColor = UIColor.secondaryColor()
+        backgroundColor = UIColor.backgroundColor()
         layer.cornerRadius = 10
-        layer.borderColor = UIColor.complementColor().CGColor
+        layer.borderColor = UIColor.accentColor().CGColor
         layer.borderWidth = 1.0
     }
 

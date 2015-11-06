@@ -12,6 +12,7 @@ import SwiftyUserDefaults
 
 class CommentsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CommentCellDelegate {
 
+    @IBOutlet weak var writeCommentBarButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var commentButton: SmartButton!
     var postObject: PFObject!
@@ -25,7 +26,9 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "comments_title".localizedString
+        view.backgroundColor = UIColor.backgroundColor()
         commentButton.setTitle("write_comment_button_title".localizedString, forState: .Normal);
+        writeCommentBarButton.title = "write_comment_button_title".localizedString
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100

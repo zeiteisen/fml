@@ -13,15 +13,16 @@ import Parse
 class ComposeViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var textView: SZTextView!
-    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var saveButton: SmartButton!
     @IBOutlet weak var countLettersLabel: UILabel!
     @IBOutlet weak var nextBarButton: UIBarButtonItem!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     let model = NewFMLModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "compose_title".localizedString
+        view.backgroundColor = UIColor.backgroundColor()
         let nextButtonTitle = "compose_next_button_title".localizedString;
         saveButton.setTitle(nextButtonTitle, forState: .Normal)
         nextBarButton.title = nextButtonTitle
@@ -40,8 +41,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
 
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() {
-            let constant = ((view.frame.height - keyboardSize.height) - saveButton.frame.size.height)
-            textViewHeightConstraint.constant = constant  - textView.frame.origin.y
+            bottomConstraint.constant = keyboardSize.height
             view.layoutIfNeeded()
         }
     }
@@ -50,7 +50,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         let count = textView.text.characters.count
         let min = PFConfig.getMinimumTextLength()
         if count > min {
-            countLettersLabel.textColor = UIColor.mainColor()
+            countLettersLabel.textColor = UIColor.textColor()
         } else {
             countLettersLabel.textColor = UIColor.lightGrayColor()
         }

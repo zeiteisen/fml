@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		C9BE94670F6E9D222E3D5A3D /* Pods_fml.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E09029F9084EBCD98B6CA20 /* Pods_fml.framework */; };
+		FC022C621BED563100DA652A /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC022C611BED563100DA652A /* Label.swift */; };
+		FC022C641BED582200DA652A /* GrayLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC022C631BED582200DA652A /* GrayLabel.swift */; };
+		FC022C661BED589D00DA652A /* GenderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC022C651BED589D00DA652A /* GenderLabel.swift */; };
+		FC022C681BED592600DA652A /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC022C671BED592600DA652A /* ShareButton.swift */; };
+		FC022C6A1BED5E2800DA652A /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC022C691BED5E2800DA652A /* TextView.swift */; };
+		FC022C6C1BED63A500DA652A /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC022C6B1BED63A500DA652A /* TextField.swift */; };
+		FC022C6E1BED63EB00DA652A /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC022C6D1BED63EB00DA652A /* SegmentedControl.swift */; };
 		FC0369FF1BD27FF800F9AEAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0369FE1BD27FF800F9AEAC /* AppDelegate.swift */; };
 		FC036A011BD27FF800F9AEAC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC036A001BD27FF800F9AEAC /* ViewController.swift */; };
 		FC036A041BD27FF800F9AEAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC036A021BD27FF800F9AEAC /* Main.storyboard */; };
@@ -51,6 +58,13 @@
 		882A5778799BA35E2586D726 /* Pods-fml.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fml.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fml/Pods-fml.debug.xcconfig"; sourceTree = "<group>"; };
 		8E09029F9084EBCD98B6CA20 /* Pods_fml.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fml.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F174AFE68E9CFAC9B1E9F06 /* Pods-fml.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fml.release.xcconfig"; path = "Pods/Target Support Files/Pods-fml/Pods-fml.release.xcconfig"; sourceTree = "<group>"; };
+		FC022C611BED563100DA652A /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		FC022C631BED582200DA652A /* GrayLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrayLabel.swift; sourceTree = "<group>"; };
+		FC022C651BED589D00DA652A /* GenderLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderLabel.swift; sourceTree = "<group>"; };
+		FC022C671BED592600DA652A /* ShareButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareButton.swift; sourceTree = "<group>"; };
+		FC022C691BED5E2800DA652A /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		FC022C6B1BED63A500DA652A /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		FC022C6D1BED63EB00DA652A /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		FC0369FB1BD27FF800F9AEAC /* fml.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fml.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC0369FE1BD27FF800F9AEAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC036A001BD27FF800F9AEAC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +200,13 @@
 				FC0D54B71BE2A1CE00990527 /* VoteButton.swift */,
 				FC06B6971BEAB64C0016CB2D /* FontAwesomeLabel.swift */,
 				FC06B6991BEABAA10016CB2D /* FontAwesomeButton.swift */,
+				FC022C611BED563100DA652A /* Label.swift */,
+				FC022C631BED582200DA652A /* GrayLabel.swift */,
+				FC022C651BED589D00DA652A /* GenderLabel.swift */,
+				FC022C671BED592600DA652A /* ShareButton.swift */,
+				FC022C691BED5E2800DA652A /* TextView.swift */,
+				FC022C6B1BED63A500DA652A /* TextField.swift */,
+				FC022C6D1BED63EB00DA652A /* SegmentedControl.swift */,
 			);
 			name = "View Subclasses";
 			sourceTree = "<group>";
@@ -360,6 +381,7 @@
 				FC0CEA551BD3BFBB00E6DBAD /* String+Replacing.swift in Sources */,
 				FC0CEA461BD3B36E00E6DBAD /* SmartButton.swift in Sources */,
 				FC1BB1E81BD3E88E00E24ED7 /* SelectCategoryCell.swift in Sources */,
+				FC022C6E1BED63EB00DA652A /* SegmentedControl.swift in Sources */,
 				FC1BB1F01BD40B8300E24ED7 /* CommentTableHeaderView.swift in Sources */,
 				FC0A1DEC1BE151AD005F4F67 /* ShareTemplate.swift in Sources */,
 				FC1BB1F21BD411AA00E24ED7 /* WriteCommentViewController.swift in Sources */,
@@ -367,16 +389,21 @@
 				FC036A011BD27FF800F9AEAC /* ViewController.swift in Sources */,
 				FC0CEA4D1BD3B80700E6DBAD /* SelectCategoryViewController.swift in Sources */,
 				FC0CEA491BD3B49700E6DBAD /* NewFMLModel.swift in Sources */,
+				FC022C681BED592600DA652A /* ShareButton.swift in Sources */,
+				FC022C661BED589D00DA652A /* GenderLabel.swift in Sources */,
 				FC0CEA511BD3BF9400E6DBAD /* String+Localized.swift in Sources */,
 				FC1BB1EA1BD3F9F300E24ED7 /* PostCell.swift in Sources */,
+				FC022C6C1BED63A500DA652A /* TextField.swift in Sources */,
 				FC1BB1EC1BD402E500E24ED7 /* CommentsViewController.swift in Sources */,
 				FC0369FF1BD27FF800F9AEAC /* AppDelegate.swift in Sources */,
 				FC06BCB11BDCDDC20001C973 /* Array+RemoveObjects.swift in Sources */,
 				FC0CEA4F1BD3BEFB00E6DBAD /* ConfirmPostViewController.swift in Sources */,
+				FC022C621BED563100DA652A /* Label.swift in Sources */,
 				FC0CEA4B1BD3B69B00E6DBAD /* AuthorViewController.swift in Sources */,
 				FC0D54B81BE2A1CE00990527 /* VoteButton.swift in Sources */,
 				FC03CEE71BE66484004CCFB7 /* NSBundle+Lang.swift in Sources */,
 				FC5C1BBF1BD97DD600B4AAC0 /* DefaultsKeys.swift in Sources */,
+				FC022C6A1BED5E2800DA652A /* TextView.swift in Sources */,
 				FC0CEA531BD3BFAF00E6DBAD /* UIAlertController+SimpleAlert.swift in Sources */,
 				FC0D54BA1BE2A85800990527 /* UIColor+Default.swift in Sources */,
 				FC14C0301BE95578009ACDC0 /* NSProcessInfo+Version.swift in Sources */,
@@ -384,6 +411,7 @@
 				FC06B6981BEAB64C0016CB2D /* FontAwesomeLabel.swift in Sources */,
 				FC11BD5C1BD284BF0082F43C /* Constants.swift in Sources */,
 				FC11BD5E1BD291170082F43C /* ComposeViewController.swift in Sources */,
+				FC022C641BED582200DA652A /* GrayLabel.swift in Sources */,
 				FC06BCB81BDD07490001C973 /* PFConfig+Defaults.swift in Sources */,
 				FC1BB1EE1BD40AB500E24ED7 /* CommentCell.swift in Sources */,
 			);
@@ -517,6 +545,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = de.zeiteisens.fml;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "fml/fml-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -528,14 +557,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hanno Bruns (4J9U9M79Y8)";
 				INFOPLIST_FILE = fml/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.zeiteisens.fml;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "beb0ee6c-8c57-4a00-9f34-8297b2ad51d1";
+				PROVISIONING_PROFILE = "7971834a-12a4-4fc6-808b-f8e0b7c29ace";
 				SWIFT_OBJC_BRIDGING_HEADER = "fml/fml-Bridging-Header.h";
 			};
 			name = Release;

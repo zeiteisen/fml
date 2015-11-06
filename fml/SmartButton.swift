@@ -1,9 +1,10 @@
 import UIKit
 
 class SmartButton: UIButton {
-    var originalBackgroundColor = UIColor.blueColor() // make it blue so the bug is visible
+    var originalBackgroundColor = UIColor.greenColor() // make it green so the bug is visible
     
     override func awakeFromNib() {
+        backgroundColor = UIColor.shareColor()
         titleLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
         titleLabel?.textAlignment = NSTextAlignment.Center
 //        layer.cornerRadius = 10

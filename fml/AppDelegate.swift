@@ -12,6 +12,7 @@
 
 import UIKit
 import Parse
+import LaunchKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,13 +20,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        LaunchKit.launchWithToken("eUjQ6vHyPCz6s1BbVibXGMb7zmjLETRpHAKSv0fpTpGz")
         Parse.enableLocalDatastore()
         Parse.setApplicationId(Constants.parseApplicationId, clientKey: Constants.parseClientId)
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         PFUser.enableAutomaticUser()
         let user = PFUser.currentUser()
         if user?.objectId == nil {
-            user?.saveInBackground()
+            user?.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
+                if success {
+                    LaunchKit.sharedInstance().setUserIdentifier(user?.objectId, email: user?.email, name: user?.objectForKey("author") as? String)
+                }
+            })
+        } else {
+            LaunchKit.sharedInstance().setUserIdentifier(user?.objectId, email: user?.email, name: user?.objectForKey("author") as? String)
+            if (LKAppUserIsSuper()) {
+                user?.setObject(true, forKey: "superuser")
+                user?.saveEventually()
+            } else {
+                user?.setObject(false, forKey: "superuser")
+                user?.saveEventually()
+            }
         }
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)

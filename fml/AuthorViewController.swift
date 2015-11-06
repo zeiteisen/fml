@@ -27,6 +27,7 @@ class AuthorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.backgroundColor()
         authorLabel.text = "author_label".localizedString
         genderLabel.text = "gender_label".localizedString
         genderSegment.setTitle("segment_female".localizedString, forSegmentAtIndex: 0)

@@ -12,7 +12,12 @@ class SelectCategoryCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        backgroundColor = UIColor.backgroundColor()
+        var fontSize : CGFloat = 14.0
+        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+            fontSize = 30.0
+        }
+        textLabel?.font = UIFont.systemFontOfSize(fontSize)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

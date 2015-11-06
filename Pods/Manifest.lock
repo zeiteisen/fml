@@ -1,5 +1,6 @@
 PODS:
   - Bolts/Tasks (1.3.0)
+  - LaunchKit (1.0.3)
   - Parse (1.9.0):
     - Bolts/Tasks (>= 1.3.0)
   - Reachability (3.2)
@@ -7,6 +8,7 @@ PODS:
   - SZTextView (1.2.1)
 
 DEPENDENCIES:
+  - LaunchKit
   - Parse
   - Reachability (~> 3.2)
   - SwiftyUserDefaults
@@ -14,6 +16,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Bolts: 805a4a87413e49d4a0c2b7d469084cbc46b09342
+  LaunchKit: b274e4eea82dcbf737bf0557e397edcbf13843e4
   Parse: 712efbc476d4f47b0f96b70db7e53101575753aa
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SwiftyUserDefaults: 1266e9734c68bcfbac8294ee84173dc8ba6db312

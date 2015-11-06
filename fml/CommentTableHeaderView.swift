@@ -15,6 +15,7 @@ class CommentTableHeaderView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         label.preferredMaxLayoutWidth = label.bounds.width
+        backgroundColor = UIColor.backgroundColor()
     }
 
 }

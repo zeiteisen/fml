@@ -19,6 +19,8 @@ class SelectCategoryViewController: UIViewController, UITableViewDataSource, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.backgroundColor()
+        tableView.backgroundColor = UIColor.backgroundColor()
         postButton.enabled = false
         nextBarButton.enabled = false
         title = "select_category_title".localizedString

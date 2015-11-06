@@ -13,14 +13,18 @@ import SZTextView
 class WriteCommentViewController: UIViewController, UITextViewDelegate {
 
     var postObject: PFObject!
+    @IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var textView: SZTextView!
     @IBOutlet weak var saveButton: SmartButton!
-    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
+//    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.backgroundColor()
         title = "write_comment_title".localizedString
         saveButton.setTitle("save_comment_button_title".localizedString, forState: .Normal)
+        saveBarButton.title = "save_comment_button_title".localizedString
         saveButton.enabled = false
         textView.becomeFirstResponder()
         textView.placeholder = "write_comment_placeholder".localizedString
@@ -29,8 +33,11 @@ class WriteCommentViewController: UIViewController, UITextViewDelegate {
     
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() {
-            textViewHeightConstraint.constant = ((view.frame.height - keyboardSize.height) - saveButton.frame.size.height)
+            bottomConstraint.constant = keyboardSize.height
             view.layoutIfNeeded()
+            
+//            textViewHeightConstraint.constant = ((view.frame.height - keyboardSize.height) - saveButton.frame.size.height)
+//            view.layoutIfNeeded()
         }
     }
 

@@ -9,6 +9,7 @@ pod 'Reachability', '~> 3.2'
 pod 'Parse'
 pod 'SZTextView'
 pod 'SwiftyUserDefaults'
+pod 'LaunchKit'
 
 end
 

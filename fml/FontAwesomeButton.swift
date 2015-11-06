@@ -21,4 +21,10 @@ class FontAwesomeButton : UIButton {
             titleLabel?.font = UIFont(name: "FontAwesome", size: iPhoneFontSize)
         }
     }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setTitleColor(UIColor.textColor(), forState: .Normal)
+        setTitleColor(UIColor.accentColor(), forState: .Selected)
+    }
 }

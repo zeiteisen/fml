@@ -85,6 +85,7 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-fml/Bolts.framework"
+  install_framework "Pods-fml/LaunchKit.framework"
   install_framework "Pods-fml/Parse.framework"
   install_framework "Pods-fml/Reachability.framework"
   install_framework "Pods-fml/SZTextView.framework"
@@ -92,6 +93,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-fml/Bolts.framework"
+  install_framework "Pods-fml/LaunchKit.framework"
   install_framework "Pods-fml/Parse.framework"
   install_framework "Pods-fml/Reachability.framework"
   install_framework "Pods-fml/SZTextView.framework"

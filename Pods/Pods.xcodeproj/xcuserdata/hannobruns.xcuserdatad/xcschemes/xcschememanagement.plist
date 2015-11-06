@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>LaunchKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,7 +42,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>13F2F5EDC18F8BFB76D2D18C3DEA05BC</key>
+		<key>0F1ABCFF060C45930BC49BDB28FBC276</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6BD8B378B008C814077B05A63813DF08</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,12 +57,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>962EC7AE92058913994E1BAF0724056B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9C9E4DEC1B8453D6B71B984E6A20CCC8</key>
+		<key>B2465CF77C2CE7971DBDA179D9A05AC0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +67,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DE90862A0FEA5ACB3116755CECD4A3E5</key>
+		<key>EC160E66EDD28770F6507BF40358C407</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FDD3D35CD23D8460232E4688C6ACC96A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

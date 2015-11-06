@@ -17,6 +17,7 @@ class ConfirmPostViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBarHidden = true
         title = "confirm_post_title".localizedString
+        view.backgroundColor = UIColor.backgroundColor()
         closeButton.setTitle("close_button_title".localizedString, forState: .Normal)
         confirmPostMessageLabel.text = "confirm_post_message".localizedString
         // Do any additional setup after loading the view.
