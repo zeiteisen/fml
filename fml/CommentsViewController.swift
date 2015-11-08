@@ -28,7 +28,6 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         title = "comments_title".localizedString
         view.backgroundColor = UIColor.backgroundColor()
         commentButton.setTitle("write_comment_button_title".localizedString, forState: .Normal);
-        writeCommentBarButton.title = "write_comment_button_title".localizedString
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100

@@ -24,7 +24,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "start_screen_title".localizedString
+        let titleView = UIImageView(image: UIImage(named: "Icon"))
+        titleView.contentMode = UIViewContentMode.ScaleAspectFit
+        var rect = titleView.frame
+        rect.size.height = (navigationController?.navigationBar.frame.height)!
+        titleView.frame = rect
+        titleView.bounds = CGRectInset(titleView.frame, 3.0, 3.0)
+        navigationItem.titleView = titleView
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
@@ -365,6 +371,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         var sharingItems = [AnyObject]()
         sharingItems.append(image)
         let activityController = UIActivityViewController(activityItems: sharingItems, applicationActivities: nil)
+        activityController.popoverPresentationController?.sourceView = sender.shareButton
         presentViewController(activityController, animated: true, completion: nil)
     }
 }

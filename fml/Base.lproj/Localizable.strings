@@ -31,9 +31,8 @@
 "Health" = "Gesundheit";
 "Intimacy" = "Intim";
 "Miscellaneous" = "Sonstiges";
-"start_screen_title" = "fmeinleben";
-"suxxs_button_title" = "Stimmt, dein Leben ist scheiße";
-"deserve_button_title" = "Selbst schuld";
+"suxxs_button_title" = "dein Leben.";
+"deserve_button_title" = "Selbst schuld.";
 "comments_title" = "Kommentare";
 "write_comment_button_title" = "Kommentar schreiben";
 "write_comment_title" = "Kommentieren";

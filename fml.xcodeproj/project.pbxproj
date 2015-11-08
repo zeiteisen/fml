@@ -30,6 +30,7 @@
 		FC0A1DEA1BE14EF9005F4F67 /* ShareTemplate.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC0A1DE91BE14EF9005F4F67 /* ShareTemplate.xib */; };
 		FC0A1DEC1BE151AD005F4F67 /* ShareTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0A1DEB1BE151AD005F4F67 /* ShareTemplate.swift */; };
 		FC0B152A1BD8294000CD1D5F /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC0B15291BD8294000CD1D5F /* fontawesome-webfont.ttf */; };
+		FC0B93AB1BEF7389006E8117 /* RoundTopCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0B93AA1BEF7389006E8117 /* RoundTopCornerView.swift */; };
 		FC0CEA461BD3B36E00E6DBAD /* SmartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA451BD3B36E00E6DBAD /* SmartButton.swift */; };
 		FC0CEA491BD3B49700E6DBAD /* NewFMLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA481BD3B49700E6DBAD /* NewFMLModel.swift */; };
 		FC0CEA4B1BD3B69B00E6DBAD /* AuthorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA4A1BD3B69B00E6DBAD /* AuthorViewController.swift */; };
@@ -38,7 +39,6 @@
 		FC0CEA511BD3BF9400E6DBAD /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA501BD3BF9400E6DBAD /* String+Localized.swift */; };
 		FC0CEA531BD3BFAF00E6DBAD /* UIAlertController+SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA521BD3BFAF00E6DBAD /* UIAlertController+SimpleAlert.swift */; };
 		FC0CEA551BD3BFBB00E6DBAD /* String+Replacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA541BD3BFBB00E6DBAD /* String+Replacing.swift */; };
-		FC0D54B81BE2A1CE00990527 /* VoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0D54B71BE2A1CE00990527 /* VoteButton.swift */; };
 		FC0D54BA1BE2A85800990527 /* UIColor+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0D54B91BE2A85800990527 /* UIColor+Default.swift */; };
 		FC11BD5C1BD284BF0082F43C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11BD5B1BD284BF0082F43C /* Constants.swift */; };
 		FC11BD5E1BD291170082F43C /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11BD5D1BD291170082F43C /* ComposeViewController.swift */; };
@@ -85,6 +85,7 @@
 		FC0B15291BD8294000CD1D5F /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		FC0B152D1BD830C200CD1D5F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		FC0B152E1BD830C200CD1D5F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FC0B93AA1BEF7389006E8117 /* RoundTopCornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundTopCornerView.swift; sourceTree = "<group>"; };
 		FC0CEA451BD3B36E00E6DBAD /* SmartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartButton.swift; sourceTree = "<group>"; };
 		FC0CEA481BD3B49700E6DBAD /* NewFMLModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFMLModel.swift; sourceTree = "<group>"; };
 		FC0CEA4A1BD3B69B00E6DBAD /* AuthorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorViewController.swift; sourceTree = "<group>"; };
@@ -93,7 +94,6 @@
 		FC0CEA501BD3BF9400E6DBAD /* String+Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		FC0CEA521BD3BFAF00E6DBAD /* UIAlertController+SimpleAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+SimpleAlert.swift"; sourceTree = "<group>"; };
 		FC0CEA541BD3BFBB00E6DBAD /* String+Replacing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Replacing.swift"; sourceTree = "<group>"; };
-		FC0D54B71BE2A1CE00990527 /* VoteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteButton.swift; sourceTree = "<group>"; };
 		FC0D54B91BE2A85800990527 /* UIColor+Default.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Default.swift"; sourceTree = "<group>"; };
 		FC11BD5B1BD284BF0082F43C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FC11BD5D1BD291170082F43C /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
@@ -197,7 +197,6 @@
 				FC1BB1ED1BD40AB500E24ED7 /* CommentCell.swift */,
 				FC1BB1EF1BD40B8300E24ED7 /* CommentTableHeaderView.swift */,
 				FC0A1DEB1BE151AD005F4F67 /* ShareTemplate.swift */,
-				FC0D54B71BE2A1CE00990527 /* VoteButton.swift */,
 				FC06B6971BEAB64C0016CB2D /* FontAwesomeLabel.swift */,
 				FC06B6991BEABAA10016CB2D /* FontAwesomeButton.swift */,
 				FC022C611BED563100DA652A /* Label.swift */,
@@ -207,6 +206,7 @@
 				FC022C691BED5E2800DA652A /* TextView.swift */,
 				FC022C6B1BED63A500DA652A /* TextField.swift */,
 				FC022C6D1BED63EB00DA652A /* SegmentedControl.swift */,
+				FC0B93AA1BEF7389006E8117 /* RoundTopCornerView.swift */,
 			);
 			name = "View Subclasses";
 			sourceTree = "<group>";
@@ -391,6 +391,7 @@
 				FC0CEA491BD3B49700E6DBAD /* NewFMLModel.swift in Sources */,
 				FC022C681BED592600DA652A /* ShareButton.swift in Sources */,
 				FC022C661BED589D00DA652A /* GenderLabel.swift in Sources */,
+				FC0B93AB1BEF7389006E8117 /* RoundTopCornerView.swift in Sources */,
 				FC0CEA511BD3BF9400E6DBAD /* String+Localized.swift in Sources */,
 				FC1BB1EA1BD3F9F300E24ED7 /* PostCell.swift in Sources */,
 				FC022C6C1BED63A500DA652A /* TextField.swift in Sources */,
@@ -400,7 +401,6 @@
 				FC0CEA4F1BD3BEFB00E6DBAD /* ConfirmPostViewController.swift in Sources */,
 				FC022C621BED563100DA652A /* Label.swift in Sources */,
 				FC0CEA4B1BD3B69B00E6DBAD /* AuthorViewController.swift in Sources */,
-				FC0D54B81BE2A1CE00990527 /* VoteButton.swift in Sources */,
 				FC03CEE71BE66484004CCFB7 /* NSBundle+Lang.swift in Sources */,
 				FC5C1BBF1BD97DD600B4AAC0 /* DefaultsKeys.swift in Sources */,
 				FC022C6A1BED5E2800DA652A /* TextView.swift in Sources */,

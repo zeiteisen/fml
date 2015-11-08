@@ -13,16 +13,16 @@ extension UIColor {
         return UIColor(red: 0.094, green: 0.094, blue: 0.094, alpha: 1.00)
     }
     
-    class func subtleTextColor() -> UIColor {
-        return UIColor.darkGrayColor()
-    }
+//    class func subtleTextColor() -> UIColor {
+//        return UIColor.whiteColor()
+//    }
     
     class func accentColor() -> UIColor {
         return UIColor(red: 0.910, green: 0.345, blue: 0.329, alpha: 1.00)
     }
     
     class func backgroundColor() -> UIColor {
-        return UIColor(red: 0.996, green: 0.988, blue: 0.925, alpha: 1.00)
+        return UIColor.whiteColor()
     }
     
     class func shareColor() -> UIColor {

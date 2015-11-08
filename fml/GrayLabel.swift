@@ -12,7 +12,7 @@ class GrayLabel: UILabel {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        textColor = UIColor.subtleTextColor()
+        textColor = UIColor.backgroundColor()
     }
 
 }

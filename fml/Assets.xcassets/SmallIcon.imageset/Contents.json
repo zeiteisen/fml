@@ -2,22 +2,25 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "iPhone5_logo.png",
+      "filename" : "iPhone5_F.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "iPhone6_Logo.png",
+      "filename" : "iPhone6_F.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "iPhone6Plus_Logo.png",
+      "filename" : "iPhone6Plus_F.png",
       "scale" : "3x"
     }
   ],
   "info" : {
     "version" : 1,
     "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
   }
 }
