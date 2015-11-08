@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 protocol PostCellDelegate {
     func postCellDidTouchSuxxsButton(sender: PostCell)
@@ -42,6 +43,7 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var createdAtLabel: UILabel!
     var delegate: PostCellDelegate?
     var didVote = false
+    let dateformatter = NSDateFormatter()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -73,15 +75,49 @@ class PostCell: UITableViewCell {
         shareButton.imageView?.contentMode = .ScaleAspectFit
         commentsButton.imageView?.contentMode = .ScaleAspectFit
         
+        dateformatter.dateStyle = .LongStyle
+        dateformatter.locale = NSLocale(localeIdentifier: NSLocale.preferredLanguages()[0])
+        
         resetState()
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func updateWithParseObject(object: PFObject, voteKind: String?) {
+        resetState()
+        messageLabel.text = object["message"] as? String
+        var author = object["author"] as? String
+        if author == nil {
+            author = "anonymous".localizedString
+        }
+        if let female = object["female"] as? NSNumber {
+            if female.boolValue {
+                genderLabel.text = ""
+            } else {
+                genderLabel.text = ""
+            }
+        }
+        createdAtLabel.text = dateformatter.stringFromDate(object.createdAt!)
+        authorLabel.text = object["author"] as? String
+        var countComments = 0
+        if let remoteCountComments = object["countComments"] as? NSNumber {
+            countComments = remoteCountComments.integerValue
+        }
+        commentsLabel.text = "\(countComments)"
+        var countUpvotes = 0
+        var countDownvotes = 0
+        if let count = object[Constants.countUpvotes] as? NSNumber {
+            countUpvotes = count.integerValue
+        }
+        if let count = object[Constants.countDownvotes] as? NSNumber {
+            countDownvotes = count.integerValue
+        }
+        setVoteButtonLabels(countUpvotes, deservCount: countDownvotes)
+        if voteKind == Constants.upvote {
+            setSuxxsSelected()
+        } else if voteKind == Constants.downvote {
+            setDeserveSelected()
+        }
     }
-    
+
     func resetState() {
         didVote = false
         suxxsContainerView.userInteractionEnabled = true

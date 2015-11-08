@@ -17,13 +17,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var loadNewPostsButton: UIButton!
     var dataSouce = [PFObject]()
     var votes = [String : String]()
-    let dateformatter = NSDateFormatter()
     let refreshControl = UIRefreshControl()
     var timer: NSTimer?
     var viewjustloaded = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let nib = UINib(nibName: "PostCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "PostCell")
         let titleView = UIImageView(image: UIImage(named: "Icon"))
         titleView.contentMode = UIViewContentMode.ScaleAspectFit
         var rect = titleView.frame
@@ -34,12 +35,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
-        dateformatter.dateStyle = .LongStyle
-        dateformatter.locale = NSLocale(localeIdentifier: NSLocale.preferredLanguages()[0])
         tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: "pullToRefreshUpdateRemote", forControlEvents: .ValueChanged)
         updateVotesArray()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didEnterBackground:", name: UIApplicationDidEnterBackgroundNotification, object: nil)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didEnterBackground:", name: UIApplicationDidEnterBackgroundNotification, object: nil)
         scheduleTimer()
         updateLoadNewPostsButtonState()
     }
@@ -285,46 +284,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell", forIndexPath: indexPath) as! PostCell
-        let object = dataSouce[indexPath.row]
-        cell.resetState()
-        cell.messageLabel.text = object["message"] as? String
-        var author = object["author"] as? String
-        if author == nil {
-            author = "anonymous".localizedString
-        }
-        if let female = object["female"] as? NSNumber {
-            if female.boolValue {
-                cell.genderLabel.text = ""
-            } else {
-                cell.genderLabel.text = ""
-            }
-        }
-        cell.createdAtLabel.text = dateformatter.stringFromDate(object.createdAt!)
-        cell.authorLabel.text = object["author"] as? String
-        var countComments = 0
-        if let remoteCountComments = object["countComments"] as? NSNumber {
-            countComments = remoteCountComments.integerValue
-        }
-        cell.commentsLabel.text = "\(countComments)"
         cell.delegate = self
-        var countUpvotes = 0
-        var countDownvotes = 0
-        if let count = object[Constants.countUpvotes] as? NSNumber {
-            countUpvotes = count.integerValue
-        }
-        if let count = object[Constants.countDownvotes] as? NSNumber {
-            countDownvotes = count.integerValue
-        }
-        cell.setVoteButtonLabels(countUpvotes, deservCount: countDownvotes)
-        
+        let object = dataSouce[indexPath.row]
         if let postObjectId = object.objectId {
-            if let kind = votes[postObjectId] {
-                if kind == Constants.upvote {
-                    cell.setSuxxsSelected()
-                } else {
-                    cell.setDeserveSelected()
-                }
-            }
+            cell.updateWithParseObject(object, voteKind: votes[postObjectId])
         }
         return cell
     }

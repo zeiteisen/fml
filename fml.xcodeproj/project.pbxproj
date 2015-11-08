@@ -31,6 +31,7 @@
 		FC0A1DEC1BE151AD005F4F67 /* ShareTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0A1DEB1BE151AD005F4F67 /* ShareTemplate.swift */; };
 		FC0B152A1BD8294000CD1D5F /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC0B15291BD8294000CD1D5F /* fontawesome-webfont.ttf */; };
 		FC0B93AB1BEF7389006E8117 /* RoundTopCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0B93AA1BEF7389006E8117 /* RoundTopCornerView.swift */; };
+		FC0B93B71BEFB552006E8117 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC0B93B51BEFB552006E8117 /* PostCell.xib */; };
 		FC0CEA461BD3B36E00E6DBAD /* SmartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA451BD3B36E00E6DBAD /* SmartButton.swift */; };
 		FC0CEA491BD3B49700E6DBAD /* NewFMLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA481BD3B49700E6DBAD /* NewFMLModel.swift */; };
 		FC0CEA4B1BD3B69B00E6DBAD /* AuthorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA4A1BD3B69B00E6DBAD /* AuthorViewController.swift */; };
@@ -86,6 +87,7 @@
 		FC0B152D1BD830C200CD1D5F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		FC0B152E1BD830C200CD1D5F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		FC0B93AA1BEF7389006E8117 /* RoundTopCornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundTopCornerView.swift; sourceTree = "<group>"; };
+		FC0B93B51BEFB552006E8117 /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		FC0CEA451BD3B36E00E6DBAD /* SmartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartButton.swift; sourceTree = "<group>"; };
 		FC0CEA481BD3B49700E6DBAD /* NewFMLModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFMLModel.swift; sourceTree = "<group>"; };
 		FC0CEA4A1BD3B69B00E6DBAD /* AuthorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				FC0CEA451BD3B36E00E6DBAD /* SmartButton.swift */,
 				FC1BB1E71BD3E88E00E24ED7 /* SelectCategoryCell.swift */,
 				FC1BB1E91BD3F9F300E24ED7 /* PostCell.swift */,
+				FC0B93B51BEFB552006E8117 /* PostCell.xib */,
 				FC1BB1ED1BD40AB500E24ED7 /* CommentCell.swift */,
 				FC1BB1EF1BD40B8300E24ED7 /* CommentTableHeaderView.swift */,
 				FC0A1DEB1BE151AD005F4F67 /* ShareTemplate.swift */,
@@ -315,6 +318,7 @@
 				FC06BCB41BDD02590001C973 /* Localizable.strings in Resources */,
 				FC78C9091BEC09E70055C89A /* InfoPlist.strings in Resources */,
 				FC036A091BD27FF800F9AEAC /* LaunchScreen.storyboard in Resources */,
+				FC0B93B71BEFB552006E8117 /* PostCell.xib in Resources */,
 				FC0B152A1BD8294000CD1D5F /* fontawesome-webfont.ttf in Resources */,
 				FC036A061BD27FF800F9AEAC /* Assets.xcassets in Resources */,
 				FC036A041BD27FF800F9AEAC /* Main.storyboard in Resources */,

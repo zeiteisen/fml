@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 protocol CommentCellDelegate {
     func commentCellDidTouchUpvote(sender: CommentCell)
@@ -22,6 +23,7 @@ class CommentCell: UITableViewCell {
     @IBOutlet weak var downvoteButton: UIButton!
     @IBOutlet weak var ratingLabel: UILabel!
     var delegate: CommentCellDelegate?
+    let dateFormatter = NSDateFormatter()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,8 +31,34 @@ class CommentCell: UITableViewCell {
             messageLabel.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 50
         }
         backgroundColor = UIColor.backgroundColor()
+        dateFormatter.dateStyle = .LongStyle
     }
     
+    func updateWithParseObject(object: PFObject, upvoteKind: String?) {
+        var rating = 0
+        if let remoteRating = object[Constants.commentsRating] as? NSNumber {
+            rating = remoteRating.integerValue
+        }
+        ratingLabel.text = "\(rating)"
+        messageLabel.text = object["message"] as? String
+        var author = "anonymous".localizedString
+        if let remoteAuthor = object[Constants.author] as? String {
+            author = remoteAuthor
+        }
+        authorLabel.text = author
+        dateLabel.text = dateFormatter.stringFromDate(object.createdAt!)
+        
+        upvoteButton.userInteractionEnabled = true
+        downvoteButton.userInteractionEnabled = true
+        upvoteButton.selected = false
+        downvoteButton.selected = false
+        if upvoteKind == Constants.upvote {
+            upvoteButton.selected = true
+        } else if upvoteKind == Constants.downvote {
+            downvoteButton.selected = true
+        }
+    }
+
     @IBAction func upvoteTouched(sender: AnyObject) {
         delegate?.commentCellDidTouchUpvote(self)
     }
