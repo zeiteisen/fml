@@ -64,6 +64,15 @@ class PostCell: UITableViewCell {
         deserveItLabel.text = "deserve_button_title".localizedString
         
         
+        layer.masksToBounds = false
+        layer.shadowOffset = CGSizeMake(1, 1)
+        layer.shadowRadius = 1
+        layer.shadowColor = UIColor.textColor().CGColor
+        layer.shadowOpacity = 0.5
+        
+        shareButton.imageView?.contentMode = .ScaleAspectFit
+        commentsButton.imageView?.contentMode = .ScaleAspectFit
+        
         resetState()
     }
 
