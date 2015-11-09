@@ -47,6 +47,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        sizeHeaderForFit()
         refreshControl.superview?.sendSubviewToBack(refreshControl)
     }
     
@@ -126,6 +127,17 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    func sizeHeaderForFit() {
+        let headerView = tableView.tableHeaderView!
+        headerView.setNeedsLayout()
+        headerView.layoutIfNeeded()
+        let height = headerView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
+        var frame = headerView.frame
+        frame.size.height = height
+        headerView.frame = frame
+        tableView.tableHeaderView = headerView
     }
     
     func saveVote(kind: String, sender: CommentCell) {

@@ -21,6 +21,9 @@
 		FC036A061BD27FF800F9AEAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC036A051BD27FF800F9AEAC /* Assets.xcassets */; };
 		FC036A091BD27FF800F9AEAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC036A071BD27FF800F9AEAC /* LaunchScreen.storyboard */; };
 		FC03CEE71BE66484004CCFB7 /* NSBundle+Lang.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC03CEE61BE66484004CCFB7 /* NSBundle+Lang.swift */; };
+		FC04FB961BF13A9F008D6312 /* VoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC04FB951BF13A9F008D6312 /* VoteView.xib */; };
+		FC04FB981BF13C06008D6312 /* NibDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC04FB971BF13C06008D6312 /* NibDesignable.swift */; };
+		FC04FB9A1BF13C36008D6312 /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC04FB991BF13C36008D6312 /* VoteView.swift */; };
 		FC06B6981BEAB64C0016CB2D /* FontAwesomeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06B6971BEAB64C0016CB2D /* FontAwesomeLabel.swift */; };
 		FC06B69A1BEABAA10016CB2D /* FontAwesomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06B6991BEABAA10016CB2D /* FontAwesomeButton.swift */; };
 		FC06BCAF1BDCDC790001C973 /* NSDate+Compare.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06BCAE1BDCDC790001C973 /* NSDate+Compare.swift */; };
@@ -75,6 +78,9 @@
 		FC036A0A1BD27FF800F9AEAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC036A101BD2809300F9AEAC /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FC03CEE61BE66484004CCFB7 /* NSBundle+Lang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+Lang.swift"; sourceTree = "<group>"; };
+		FC04FB951BF13A9F008D6312 /* VoteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoteView.xib; sourceTree = "<group>"; };
+		FC04FB971BF13C06008D6312 /* NibDesignable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibDesignable.swift; sourceTree = "<group>"; };
+		FC04FB991BF13C36008D6312 /* VoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
 		FC06B6971BEAB64C0016CB2D /* FontAwesomeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesomeLabel.swift; sourceTree = "<group>"; };
 		FC06B6991BEABAA10016CB2D /* FontAwesomeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesomeButton.swift; sourceTree = "<group>"; };
 		FC06BCAE1BDCDC790001C973 /* NSDate+Compare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Compare.swift"; sourceTree = "<group>"; };
@@ -193,6 +199,7 @@
 		FC0CEA441BD3B36300E6DBAD /* View Subclasses */ = {
 			isa = PBXGroup;
 			children = (
+				FC04FB971BF13C06008D6312 /* NibDesignable.swift */,
 				FC0CEA451BD3B36E00E6DBAD /* SmartButton.swift */,
 				FC1BB1E71BD3E88E00E24ED7 /* SelectCategoryCell.swift */,
 				FC1BB1E91BD3F9F300E24ED7 /* PostCell.swift */,
@@ -210,6 +217,8 @@
 				FC022C6B1BED63A500DA652A /* TextField.swift */,
 				FC022C6D1BED63EB00DA652A /* SegmentedControl.swift */,
 				FC0B93AA1BEF7389006E8117 /* RoundTopCornerView.swift */,
+				FC04FB991BF13C36008D6312 /* VoteView.swift */,
+				FC04FB951BF13A9F008D6312 /* VoteView.xib */,
 			);
 			name = "View Subclasses";
 			sourceTree = "<group>";
@@ -320,6 +329,7 @@
 				FC036A091BD27FF800F9AEAC /* LaunchScreen.storyboard in Resources */,
 				FC0B93B71BEFB552006E8117 /* PostCell.xib in Resources */,
 				FC0B152A1BD8294000CD1D5F /* fontawesome-webfont.ttf in Resources */,
+				FC04FB961BF13A9F008D6312 /* VoteView.xib in Resources */,
 				FC036A061BD27FF800F9AEAC /* Assets.xcassets in Resources */,
 				FC036A041BD27FF800F9AEAC /* Main.storyboard in Resources */,
 				FC0A1DEA1BE14EF9005F4F67 /* ShareTemplate.xib in Resources */,
@@ -403,9 +413,11 @@
 				FC0369FF1BD27FF800F9AEAC /* AppDelegate.swift in Sources */,
 				FC06BCB11BDCDDC20001C973 /* Array+RemoveObjects.swift in Sources */,
 				FC0CEA4F1BD3BEFB00E6DBAD /* ConfirmPostViewController.swift in Sources */,
+				FC04FB9A1BF13C36008D6312 /* VoteView.swift in Sources */,
 				FC022C621BED563100DA652A /* Label.swift in Sources */,
 				FC0CEA4B1BD3B69B00E6DBAD /* AuthorViewController.swift in Sources */,
 				FC03CEE71BE66484004CCFB7 /* NSBundle+Lang.swift in Sources */,
+				FC04FB981BF13C06008D6312 /* NibDesignable.swift in Sources */,
 				FC5C1BBF1BD97DD600B4AAC0 /* DefaultsKeys.swift in Sources */,
 				FC022C6A1BED5E2800DA652A /* TextView.swift in Sources */,
 				FC0CEA531BD3BFAF00E6DBAD /* UIAlertController+SimpleAlert.swift in Sources */,

@@ -9,6 +9,8 @@
         <mutableArray key="fontawesome-webfont.ttf">
             <string>FontAwesome</string>
             <string>FontAwesome</string>
+            <string>FontAwesome</string>
+            <string>FontAwesome</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -240,7 +242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJs-f7-8nG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5402" y="-344"/>
+            <point key="canvasLocation" x="4623" y="-344"/>
         </scene>
         <!--Author View Controller-->
         <scene sceneID="wii-UH-vbt">
@@ -564,9 +566,120 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="b6z-BC-8p0">
+                                    <rect key="frame" x="0.0" y="64" width="600" height="229"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMK-46-JYv" customClass="Label" customModule="fml" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="40" width="584" height="20.5"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            </variation>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czd-98-Sfz">
+                                            <rect key="frame" x="517" y="76.5" width="75" height="152.5"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="75" id="TrJ-iF-hNV">
+                                                    <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                                                </constraint>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="40"/>
+                                            <state key="normal" image="ShareIcon">
+                                                <color key="titleColor" red="0.21960784310000001" green="0.3921568627" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvG-SS-MA2">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="32"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Hans" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZK-gd-jPT" customClass="GrayLabel" customModule="fml" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="0.0" width="33.5" height="32"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=regular">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jie-Rb-rNY" customClass="GenderLabel" customModule="fml" customModuleProvider="target">
+                                                    <rect key="frame" x="49" y="9" width="10" height="14"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="14"/>
+                                                    <color key="textColor" red="0.91372549020000005" green="0.34509803919999998" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="iPhoneFontSize">
+                                                            <real key="value" value="14"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="iPadFontSize">
+                                                            <real key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSm-Mz-ea8" customClass="GrayLabel" customModule="fml" customModuleProvider="target">
+                                                    <rect key="frame" x="561.5" y="0.0" width="30.5" height="32"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=regular">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="gSm-Mz-ea8" firstAttribute="top" secondItem="pvG-SS-MA2" secondAttribute="top" id="6pT-jP-R9o"/>
+                                                <constraint firstItem="zZK-gd-jPT" firstAttribute="top" secondItem="pvG-SS-MA2" secondAttribute="top" id="T08-li-gRk"/>
+                                                <constraint firstItem="Jie-Rb-rNY" firstAttribute="leading" secondItem="zZK-gd-jPT" secondAttribute="trailing" constant="7.5" id="Waw-S9-dsZ"/>
+                                                <constraint firstItem="Jie-Rb-rNY" firstAttribute="centerY" secondItem="zZK-gd-jPT" secondAttribute="centerY" id="k2G-UG-cZb"/>
+                                                <constraint firstAttribute="bottom" secondItem="zZK-gd-jPT" secondAttribute="bottom" id="l1K-9C-wgk"/>
+                                                <constraint firstAttribute="height" constant="32" id="sJb-aI-Ge9">
+                                                    <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                                                </constraint>
+                                                <constraint firstAttribute="trailing" secondItem="gSm-Mz-ea8" secondAttribute="trailing" constant="8" id="vI8-Nn-wSN">
+                                                    <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                                                </constraint>
+                                                <constraint firstItem="zZK-gd-jPT" firstAttribute="leading" secondItem="pvG-SS-MA2" secondAttribute="leading" constant="8" id="vnt-Xb-IVP">
+                                                    <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                                                </constraint>
+                                                <constraint firstAttribute="bottom" secondItem="gSm-Mz-ea8" secondAttribute="bottom" id="vpb-Ny-ZKp"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <animations/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="czd-98-Sfz" secondAttribute="trailing" constant="8" id="1La-dG-i4O">
+                                            <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                                        </constraint>
+                                        <constraint firstAttribute="trailing" secondItem="UMK-46-JYv" secondAttribute="trailing" constant="8" id="22A-Ed-S40">
+                                            <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                                        </constraint>
+                                        <constraint firstItem="UMK-46-JYv" firstAttribute="top" secondItem="pvG-SS-MA2" secondAttribute="bottom" constant="8" id="Cbl-HQ-mkv">
+                                            <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                                        </constraint>
+                                        <constraint firstItem="UMK-46-JYv" firstAttribute="leading" secondItem="b6z-BC-8p0" secondAttribute="leading" constant="8" id="HQ2-QE-Ak1">
+                                            <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                                        </constraint>
+                                        <constraint firstAttribute="bottom" secondItem="czd-98-Sfz" secondAttribute="bottom" id="JdC-Si-qD9"/>
+                                        <constraint firstItem="pvG-SS-MA2" firstAttribute="leading" secondItem="b6z-BC-8p0" secondAttribute="leading" id="SqY-JI-Bdg"/>
+                                        <constraint firstAttribute="trailing" secondItem="pvG-SS-MA2" secondAttribute="trailing" id="cQb-Wq-rBn"/>
+                                        <constraint firstItem="pvG-SS-MA2" firstAttribute="top" secondItem="b6z-BC-8p0" secondAttribute="top" id="e41-bm-Y8U"/>
+                                        <constraint firstItem="czd-98-Sfz" firstAttribute="top" secondItem="UMK-46-JYv" secondAttribute="bottom" constant="16" id="xxb-3i-IsC"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="162" id="Evg-mY-Vkw" customClass="CommentCell" customModule="fml" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="162"/>
+                                        <rect key="frame" x="0.0" y="321" width="600" height="162"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Evg-mY-Vkw" id="Ub4-vd-4lh">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="161.5"/>
@@ -756,9 +869,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jtK-yg-dOR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4710" y="-344"/>
+            <point key="canvasLocation" x="3931" y="-344"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ShareIcon" width="75" height="51"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xil-Zf-Z7B"/>
         <segue reference="uH0-3c-5ej"/>
