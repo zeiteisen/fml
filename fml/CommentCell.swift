@@ -16,6 +16,7 @@ protocol CommentCellDelegate {
 
 class CommentCell: UITableViewCell {
 
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -30,8 +31,10 @@ class CommentCell: UITableViewCell {
         if !NSProcessInfo().isOperatingSystemAtLeastVersion(NSOperatingSystemVersion(majorVersion: 9, minorVersion: 0, patchVersion: 0)) { // iOS 8 bug fix
             messageLabel.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 50
         }
-        backgroundColor = UIColor.backgroundColor()
+        backgroundColor = UIColor.clearColor()
+        contentView.backgroundColor = UIColor.clearColor()
         dateFormatter.dateStyle = .LongStyle
+        containerView.layer.cornerRadius = 5
     }
     
     func updateWithParseObject(object: PFObject, upvoteKind: String?) {
@@ -48,14 +51,17 @@ class CommentCell: UITableViewCell {
         authorLabel.text = author
         dateLabel.text = dateFormatter.stringFromDate(object.createdAt!)
         
-        upvoteButton.userInteractionEnabled = true
-        downvoteButton.userInteractionEnabled = true
+        upvoteButton.userInteractionEnabled = false
+        downvoteButton.userInteractionEnabled = false
         upvoteButton.selected = false
         downvoteButton.selected = false
         if upvoteKind == Constants.upvote {
             upvoteButton.selected = true
         } else if upvoteKind == Constants.downvote {
             downvoteButton.selected = true
+        } else {
+            upvoteButton.userInteractionEnabled = true
+            downvoteButton.userInteractionEnabled = true
         }
     }
 

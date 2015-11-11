@@ -45,7 +45,7 @@ class PostCell: UITableViewCell {
         suxxsButton.button.addTarget(self, action: "suxxsTouched:", forControlEvents: .TouchUpInside)
         deserveItButton.button.addTarget(self, action: "deserveTouched:", forControlEvents: .TouchUpInside)
         
-        deserveItButton.fImageView.removeFromSuperview()
+        deserveItButton.fImageView?.removeFromSuperview()
         
         layer.masksToBounds = false
         layer.shadowOffset = CGSizeMake(1, 1)

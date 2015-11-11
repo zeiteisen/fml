@@ -38,7 +38,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: "pullToRefreshUpdateRemote", forControlEvents: .ValueChanged)
         updateVotesArray()
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didEnterBackground:", name: UIApplicationDidEnterBackgroundNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didEnterBackground:", name: UIApplicationDidEnterBackgroundNotification, object: nil)
         scheduleTimer()
         updateLoadNewPostsButtonState()
     }
@@ -175,18 +175,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func reloadData() {
-        let contentOffset = tableView.contentOffset
-        tableView.reloadData()
-        tableView.layoutIfNeeded()
-        tableView.contentOffset = contentOffset
-//        if NSProcessInfo.iOS9OrGreater() { // another iOS8 bug
-//            tableView.reloadData()
-//        } else {
-//            let contentOffset = tableView.contentOffset
-//            tableView.reloadData()
-//            tableView.layoutIfNeeded()
-//            tableView.contentOffset = contentOffset
-//        }
+//        let contentOffset = tableView.contentOffset
+//        tableView.reloadData()
+//        tableView.layoutIfNeeded()
+//        tableView.contentOffset = contentOffset
+        if NSProcessInfo.iOS9OrGreater() { // another iOS8 bug
+            tableView.reloadData()
+        } else {
+            let contentOffset = tableView.contentOffset
+            tableView.reloadData()
+            tableView.layoutIfNeeded()
+            tableView.contentOffset = contentOffset
+        }
     }
     
     func showNewPostsIndicator(count: Int) {
@@ -311,6 +311,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let indexPath = indexPath {
             let postObject = dataSouce[indexPath.row]
             let vc = storyboard?.instantiateViewControllerWithIdentifier("CommentsViewController") as! CommentsViewController
+            vc.voteKind = votes[postObject.objectId!]
             vc.postObject = postObject
             navigationController?.showViewController(vc, sender: self)
         } else {

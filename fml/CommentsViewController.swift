@@ -17,32 +17,42 @@ class CommentModel {
 
 class CommentsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CommentCellDelegate {
 
+    @IBOutlet weak var postAuthorLabel: Label!
+    @IBOutlet weak var postGenderLabel: GenderLabel!
+    @IBOutlet weak var postCreatedAtLabel: Label!
+    @IBOutlet weak var postMessageLabel: Label!
+    @IBOutlet weak var postSuxxsButton: VoteView!
+    @IBOutlet weak var postDeserveItButton: VoteView!
+    @IBOutlet weak var postShareButton: UIButton!
+    @IBOutlet weak var topCommentsLabel: UILabel!
     @IBOutlet weak var writeCommentBarButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var commentButton: SmartButton!
     var postObject: PFObject!
+    var voteKind: String?
     var dataSouce = [CommentModel]()
     var refreshControl = UIRefreshControl()
     let dateformatter = NSDateFormatter()
+    let postDateFormatter = NSDateFormatter()
     var votes = [PFObject : String]()
     var viewjustloaded = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nib = UINib(nibName: "PostCell", bundle: nil)
-        tableView.registerNib(nib, forCellReuseIdentifier: "PostCell")
         title = "comments_title".localizedString
-        view.backgroundColor = UIColor.backgroundColor()
+        topCommentsLabel.text = "top_comments_label".localizedString
         commentButton.setTitle("write_comment_button_title".localizedString, forState: .Normal);
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
+        tableView.backgroundColor = UIColor.clearColor()
         refreshControl.addTarget(self, action: "pullToRefreshUpdateRemote", forControlEvents: .ValueChanged)
         tableView.addSubview(refreshControl)
         updateVotesArray()
         updateRemoteComments { () -> () in
             self.updateLocalComments()
         }
+        setupPostContent()
     }
     
     override func viewDidLayoutSubviews() {
@@ -58,6 +68,51 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
             updateLocalComments()
         } else {
             viewjustloaded = false
+        }
+    }
+    
+    func setupPostContent() {
+        postSuxxsButton.label.text = "suxxs_button_title".localizedString
+        postDeserveItButton.label.text = "deserve_button_title".localizedString
+        postSuxxsButton.button.addTarget(self, action: "suxxsTouched:", forControlEvents: .TouchUpInside)
+        postDeserveItButton.button.addTarget(self, action: "deserveTouched:", forControlEvents: .TouchUpInside)
+        postDeserveItButton.fImageView?.removeFromSuperview()
+        postDateFormatter.dateStyle = .LongStyle
+        postDateFormatter.locale = NSLocale(localeIdentifier: NSLocale.preferredLanguages()[0])
+        postMessageLabel.text = postObject["message"] as? String
+        var author = postObject["author"] as? String
+        if author == nil {
+            author = "anonymous".localizedString
+        }
+        if let female = postObject["female"] as? NSNumber {
+            if female.boolValue {
+                postGenderLabel.text = ""
+            } else {
+                postGenderLabel.text = ""
+            }
+        }
+        postCreatedAtLabel.text = postDateFormatter.stringFromDate(postObject.createdAt!)
+        postAuthorLabel.text = postObject["author"] as? String
+        var countUpvotes = 0
+        var countDownvotes = 0
+        if let count = postObject[Constants.countUpvotes] as? NSNumber {
+            countUpvotes = count.integerValue
+        }
+        if let count = postObject[Constants.countDownvotes] as? NSNumber {
+            countDownvotes = count.integerValue
+        }
+        postSuxxsButton.countVotesLabel.text = "\(countUpvotes)"
+        postDeserveItButton.countVotesLabel.text = "\(countDownvotes)"
+        postSuxxsButton.resetView()
+        postDeserveItButton.resetView()
+        if let vote = voteKind {
+            if vote == Constants.upvote {
+                postSuxxsButton.selectView()
+                postDeserveItButton.disableView()
+            } else if voteKind == Constants.downvote {
+                postDeserveItButton.selectView()
+                postSuxxsButton.disableView()
+            }
         }
     }
     
@@ -114,10 +169,6 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
                 }
                 
                 self.dataSouce.removeAll()
-                let model = CommentModel()
-                model.parseObject = self.postObject
-                model.reuseIdentifier = "PostCell"
-                self.dataSouce.append(model)
                 for object in objects {
                     let model = CommentModel()
                     model.parseObject = object
@@ -152,7 +203,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
             commentObject.parseObject.saveEventually()
             let voteObject = PFObject(className: "Vote")
             voteObject["owner"] = PFUser.currentUser()
-            voteObject["comment"] = commentObject
+            voteObject["comment"] = commentObject.parseObject
             voteObject["post"] = postObject
             voteObject["kind"] = kind
             voteObject.pinInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
@@ -217,5 +268,26 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func commentCellDidTouchDownvote(sender: CommentCell) {
         saveVote(Constants.downvote, sender: sender)
+    }
+    
+    // PostActions
+    @IBAction func sharePostTouched(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func deserveTouched(sender: AnyObject) {
+//        if !didVote {
+//            setDeserveSelected()
+//            delegate?.postCellDidTouchDeserveButton(self)
+//        }
+        print("deserve")
+    }
+    
+    @IBAction func suxxsTouched(sender: AnyObject) {
+        print("suxxs")
+//        if !didVote {
+//            setSuxxsSelected()
+//            delegate?.postCellDidTouchSuxxsButton(self)
+//        }
     }
 }

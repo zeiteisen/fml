@@ -10,7 +10,7 @@ import UIKit
 
 @IBDesignable class VoteView : NibDesignable {
 
-    @IBOutlet weak var fImageView: UIImageView!
+    @IBOutlet weak var fImageView: UIImageView?
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var labelBackgroundView: UIView!
     @IBOutlet weak var countVotesBackgroundView: UIView!
@@ -37,13 +37,14 @@ import UIKit
         layer.borderColor = UIColor.textColor().CGColor
         layer.borderWidth = 2
         labelBackgroundView.backgroundColor = UIColor.backgroundColor()
+        setNormal()
     }
     
     func selectView() {
         userInteractionEnabled = false
         button.selected = false
         countVotesBackgroundView.backgroundColor = UIColor.accentColor()
-        fImageView.tintColor = UIColor.backgroundColor()
+        fImageView?.tintColor = UIColor.backgroundColor()
         label.textColor = UIColor.backgroundColor()
         layer.borderColor = UIColor.textColor().CGColor
         layer.borderWidth = 0
