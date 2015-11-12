@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loadNewPostsButton: UIButton!
     var dataSouce = [PFObject]()
-    var votes = [String : String]()
+//    var votes = [String : String]()
     let refreshControl = UIRefreshControl()
     var timer: NSTimer?
     var viewjustloaded = true
@@ -37,7 +37,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.estimatedRowHeight = 200
         tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: "pullToRefreshUpdateRemote", forControlEvents: .ValueChanged)
-        updateVotesArray()
+//        updateVotesArray()
+        VoteManager.sharedInstance
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didEnterBackground:", name: UIApplicationDidEnterBackgroundNotification, object: nil)
         scheduleTimer()
         updateLoadNewPostsButtonState()
@@ -77,25 +78,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         timer?.invalidate()
     }
     
-    func updateVotesArray() {
-        // TODO remote download the votes from the user. Use Case: App reinstall, Local Datastore may get deleted. Worst case scenario: User can vote multiple times. Minor case... fml saves votes locally with coockies.
-        let query = PFQuery(className: "Vote")
-        query.whereKeyExists("post")
-        query.whereKeyDoesNotExist("comment")
-        query.fromLocalDatastore()
-        query.limit = 1000 // TODO add support for more than 1000 votes
-        query.findObjectsInBackgroundWithBlock { (votes: [PFObject]?, error: NSError?) -> Void in
-            if let error = error {
-                print("searching local vote failed: \(error)")
-            } else if let votes = votes {
-                self.votes.removeAll()
-                for vote in votes {
-                    let votePost = vote["post"] as! PFObject
-                    self.votes[votePost.objectId!] = vote["kind"] as? String
-                }
-            }
-        }
-    }
+//    func updateVotesArray() {
+//        // TODO remote download the votes from the user. Use Case: App reinstall, Local Datastore may get deleted. Worst case scenario: User can vote multiple times. Minor case... fml saves votes locally with coockies.
+//        let query = PFQuery(className: "Vote")
+//        query.whereKeyExists("post")
+//        query.whereKeyDoesNotExist("comment")
+//        query.fromLocalDatastore()
+//        query.limit = 1000 // TODO add support for more than 1000 votes
+//        query.findObjectsInBackgroundWithBlock { (votes: [PFObject]?, error: NSError?) -> Void in
+//            if let error = error {
+//                print("searching local vote failed: \(error)")
+//            } else if let votes = votes {
+//                self.votes.removeAll()
+//                for vote in votes {
+//                    let votePost = vote["post"] as! PFObject
+//                    self.votes[votePost.objectId!] = vote["kind"] as? String
+//                }
+//            }
+//        }
+//    }
     
     func updateLoadNewPostsButtonState() {
         if Defaults[.countNewPosts] > 0 {
@@ -244,25 +245,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func saveVote(kind: String, sender: PostCell) {
         if let indexPath = tableView.indexPathForCell(sender) {
             let object = dataSouce[indexPath.row]
-            if let postObjectId = object.objectId {
-                votes[postObjectId] = kind
-            }
-            if kind == Constants.upvote {
-                object.incrementKey(Constants.countUpvotes)
-            } else {
-                object.incrementKey(Constants.countDownvotes)
-            }
-            object.saveEventually()
-            let voteObject = PFObject(className: "Vote")
-            voteObject["owner"] = PFUser.currentUser()
-            voteObject["post"] = object
-            voteObject["kind"] = kind
-            voteObject.pinInBackgroundWithName("Votes", block: { (success: Bool, error: NSError?) -> Void in
-                if success {
-                    self.reloadData()
-                }
+            VoteManager.sharedInstance.saveVote(kind, post: object, completion: { () -> () in
+                self.reloadData()
             })
-            voteObject.saveEventually()
+//            if let postObjectId = object.objectId {
+//                votes[postObjectId] = kind
+//            }
+//            if kind == Constants.upvote {
+//                object.incrementKey(Constants.countUpvotes)
+//            } else {
+//                object.incrementKey(Constants.countDownvotes)
+//            }
+//            object.saveEventually()
+//            let voteObject = PFObject(className: "Vote")
+//            voteObject["owner"] = PFUser.currentUser()
+//            voteObject["post"] = object
+//            voteObject["kind"] = kind
+//            voteObject.pinInBackgroundWithName("Votes", block: { (success: Bool, error: NSError?) -> Void in
+//                if success {
+//                    self.reloadData()
+//                }
+//            })
+//            voteObject.saveEventually()
         }
     }
     
@@ -287,7 +291,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.delegate = self
         let object = dataSouce[indexPath.row]
         if let postObjectId = object.objectId {
-            cell.updateWithParseObject(object, voteKind: votes[postObjectId])
+            cell.updateWithParseObject(object, voteKind: VoteManager.sharedInstance.votes[postObjectId])
         }
         return cell
     }
@@ -311,7 +315,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let indexPath = indexPath {
             let postObject = dataSouce[indexPath.row]
             let vc = storyboard?.instantiateViewControllerWithIdentifier("CommentsViewController") as! CommentsViewController
-            vc.voteKind = votes[postObject.objectId!]
             vc.postObject = postObject
             navigationController?.showViewController(vc, sender: self)
         } else {
@@ -322,21 +325,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func postCellDidTouchShare(sender: PostCell) {
-        let nib = NSBundle.mainBundle().loadNibNamed("ShareTemplate", owner: self, options: nil)
-        let shareView = nib[0] as! ShareTemplate
-        shareView.messageLabel.text = sender.messageLabel.text
-        shareView.urlLabel.text = "share_url".localizedString
-        let rect = shareView.bounds
-        UIGraphicsBeginImageContext(rect.size)
-        let context = UIGraphicsGetCurrentContext()
-        shareView.layer.renderInContext(context!)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        var sharingItems = [AnyObject]()
-        sharingItems.append(image)
-        let activityController = UIActivityViewController(activityItems: sharingItems, applicationActivities: nil)
-        activityController.popoverPresentationController?.sourceView = sender.shareButton
-        presentViewController(activityController, animated: true, completion: nil)
+        shareImageWithMessage(sender.messageLabel.text, popoverSourceView: sender.shareButton)
     }
 }
 

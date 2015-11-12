@@ -44,6 +44,8 @@
 		FC0CEA531BD3BFAF00E6DBAD /* UIAlertController+SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA521BD3BFAF00E6DBAD /* UIAlertController+SimpleAlert.swift */; };
 		FC0CEA551BD3BFBB00E6DBAD /* String+Replacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA541BD3BFBB00E6DBAD /* String+Replacing.swift */; };
 		FC0D54BA1BE2A85800990527 /* UIColor+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0D54B91BE2A85800990527 /* UIColor+Default.swift */; };
+		FC0FB7BB1BF5218B00E91CED /* UIViewController+Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0FB7BA1BF5218B00E91CED /* UIViewController+Share.swift */; };
+		FC0FB7BD1BF544F600E91CED /* VoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0FB7BC1BF544F600E91CED /* VoteManager.swift */; };
 		FC11BD5C1BD284BF0082F43C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11BD5B1BD284BF0082F43C /* Constants.swift */; };
 		FC11BD5E1BD291170082F43C /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC11BD5D1BD291170082F43C /* ComposeViewController.swift */; };
 		FC14C0301BE95578009ACDC0 /* NSProcessInfo+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC14C02F1BE95578009ACDC0 /* NSProcessInfo+Version.swift */; };
@@ -103,6 +105,8 @@
 		FC0CEA521BD3BFAF00E6DBAD /* UIAlertController+SimpleAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+SimpleAlert.swift"; sourceTree = "<group>"; };
 		FC0CEA541BD3BFBB00E6DBAD /* String+Replacing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Replacing.swift"; sourceTree = "<group>"; };
 		FC0D54B91BE2A85800990527 /* UIColor+Default.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Default.swift"; sourceTree = "<group>"; };
+		FC0FB7BA1BF5218B00E91CED /* UIViewController+Share.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Share.swift"; sourceTree = "<group>"; };
+		FC0FB7BC1BF544F600E91CED /* VoteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteManager.swift; sourceTree = "<group>"; };
 		FC11BD5B1BD284BF0082F43C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FC11BD5D1BD291170082F43C /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		FC14C02F1BE95578009ACDC0 /* NSProcessInfo+Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSProcessInfo+Version.swift"; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 				FC11BD5B1BD284BF0082F43C /* Constants.swift */,
 				FC0A1DE91BE14EF9005F4F67 /* ShareTemplate.xib */,
 				FC78C90A1BEC0E0A0055C89A /* fml-Bridging-Header.h */,
+				FC0FB7BC1BF544F600E91CED /* VoteManager.swift */,
 			);
 			path = fml;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 		FC11BD5A1BD284AB0082F43C /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				FC0FB7BA1BF5218B00E91CED /* UIViewController+Share.swift */,
 				FC5C1BC01BD98BCD00B4AAC0 /* NSObject+Delay.swift */,
 				FC0CEA541BD3BFBB00E6DBAD /* String+Replacing.swift */,
 				FC0CEA521BD3BFAF00E6DBAD /* UIAlertController+SimpleAlert.swift */,
@@ -413,7 +419,9 @@
 				FC0369FF1BD27FF800F9AEAC /* AppDelegate.swift in Sources */,
 				FC06BCB11BDCDDC20001C973 /* Array+RemoveObjects.swift in Sources */,
 				FC0CEA4F1BD3BEFB00E6DBAD /* ConfirmPostViewController.swift in Sources */,
+				FC0FB7BD1BF544F600E91CED /* VoteManager.swift in Sources */,
 				FC04FB9A1BF13C36008D6312 /* VoteView.swift in Sources */,
+				FC0FB7BB1BF5218B00E91CED /* UIViewController+Share.swift in Sources */,
 				FC022C621BED563100DA652A /* Label.swift in Sources */,
 				FC0CEA4B1BD3B69B00E6DBAD /* AuthorViewController.swift in Sources */,
 				FC03CEE71BE66484004CCFB7 /* NSBundle+Lang.swift in Sources */,

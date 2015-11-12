@@ -29,7 +29,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var commentButton: SmartButton!
     var postObject: PFObject!
-    var voteKind: String?
+//    var voteKind: String?
     var dataSouce = [CommentModel]()
     var refreshControl = UIRefreshControl()
     let dateformatter = NSDateFormatter()
@@ -105,11 +105,11 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         postDeserveItButton.countVotesLabel.text = "\(countDownvotes)"
         postSuxxsButton.resetView()
         postDeserveItButton.resetView()
-        if let vote = voteKind {
+        if let vote = VoteManager.sharedInstance.votes[postObject.objectId!] {
             if vote == Constants.upvote {
                 postSuxxsButton.selectView()
                 postDeserveItButton.disableView()
-            } else if voteKind == Constants.downvote {
+            } else if vote == Constants.downvote {
                 postDeserveItButton.selectView()
                 postSuxxsButton.disableView()
             }
@@ -271,23 +271,19 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     // PostActions
-    @IBAction func sharePostTouched(sender: AnyObject) {
-        
+    @IBAction func sharePostTouched(sender: UIButton) {
+        shareImageWithMessage(postMessageLabel.text, popoverSourceView: sender)
     }
     
     @IBAction func deserveTouched(sender: AnyObject) {
-//        if !didVote {
-//            setDeserveSelected()
-//            delegate?.postCellDidTouchDeserveButton(self)
-//        }
-        print("deserve")
+        VoteManager.sharedInstance.saveVote(Constants.downvote, post: postObject) { () -> () in
+            self.setupPostContent()
+        }
     }
     
     @IBAction func suxxsTouched(sender: AnyObject) {
-        print("suxxs")
-//        if !didVote {
-//            setSuxxsSelected()
-//            delegate?.postCellDidTouchSuxxsButton(self)
-//        }
+        VoteManager.sharedInstance.saveVote(Constants.upvote, post: postObject) { () -> () in
+            self.setupPostContent()
+        }
     }
 }
