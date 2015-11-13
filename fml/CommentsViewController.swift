@@ -29,7 +29,6 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var commentButton: SmartButton!
     var postObject: PFObject!
-//    var voteKind: String?
     var dataSouce = [CommentModel]()
     var refreshControl = UIRefreshControl()
     let dateformatter = NSDateFormatter()

@@ -24,11 +24,11 @@ class ConfirmPostViewController: UIViewController {
     }
     
     @IBAction func closeTouched(sender: AnyObject) {
-        if let navController = self.presentingViewController as? UINavigationController {
-            if let vc = navController.viewControllers[0] as? ViewController {
-                vc.loadPosts(true, keepScrollPosition: false, success: nil)
-            }
-        }
+//        if let navController = self.presentingViewController as? UINavigationController {
+//            if let vc = navController.viewControllers[0] as? ViewController {
+//                vc.loadPosts(true, keepScrollPosition: false, success: nil)
+//            }
+//        }
         presentingViewController?.dismissViewControllerAnimated(true, completion: { () -> Void in
             
         })

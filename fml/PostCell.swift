@@ -34,6 +34,7 @@ class PostCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .None
         if !NSProcessInfo.iOS9OrGreater() {
             messageLabel.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 24
         }
@@ -76,7 +77,11 @@ class PostCell: UITableViewCell {
                 genderLabel.text = ""
             }
         }
-        createdAtLabel.text = dateformatter.stringFromDate(object.createdAt!)
+        var releaseDate = NSDate(timeIntervalSince1970: 0)
+        if let realReleaseDate = object["releaseDate"] as? NSDate {
+            releaseDate = realReleaseDate
+        }
+        createdAtLabel.text = dateformatter.stringFromDate(releaseDate)
         authorLabel.text = object["author"] as? String
         var countComments = 0
         if let remoteCountComments = object["countComments"] as? NSNumber {

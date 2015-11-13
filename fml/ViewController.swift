@@ -16,7 +16,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loadNewPostsButton: UIButton!
     var dataSouce = [PFObject]()
-//    var votes = [String : String]()
     let refreshControl = UIRefreshControl()
     var timer: NSTimer?
     var viewjustloaded = true
@@ -37,7 +36,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.estimatedRowHeight = 200
         tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: "pullToRefreshUpdateRemote", forControlEvents: .ValueChanged)
-//        updateVotesArray()
         VoteManager.sharedInstance
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didEnterBackground:", name: UIApplicationDidEnterBackgroundNotification, object: nil)
         scheduleTimer()
@@ -56,10 +54,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        if Defaults[.lastRemoteUpdated] == nil {
-            loadPosts(false, keepScrollPosition: false, success: nil)
+        if Defaults[.lastRemoteUpdated] == nil || viewjustloaded {
+            if viewjustloaded {
+                updateLocal(false, success: { () -> () in
+                    self.updateRemote({ () -> () in
+                        self.updateLocal(false, success: nil)
+                    })
+                })
+            } else {
+                updateRemote({ () -> () in
+                    self.updateLocal(true, success: nil)
+                })
+            }
+            viewjustloaded = false
         } else {
-            loadPosts(true, keepScrollPosition: true, success: { () -> () in
+            updateLocal(false, success: { () -> () in
                 if self.viewjustloaded {
                     self.tableView.contentOffset.y = CGFloat(Defaults[.lastTableViewContentOffsetY])
                     self.viewjustloaded = false
@@ -78,31 +87,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         timer?.invalidate()
     }
     
-//    func updateVotesArray() {
-//        // TODO remote download the votes from the user. Use Case: App reinstall, Local Datastore may get deleted. Worst case scenario: User can vote multiple times. Minor case... fml saves votes locally with coockies.
-//        let query = PFQuery(className: "Vote")
-//        query.whereKeyExists("post")
-//        query.whereKeyDoesNotExist("comment")
-//        query.fromLocalDatastore()
-//        query.limit = 1000 // TODO add support for more than 1000 votes
-//        query.findObjectsInBackgroundWithBlock { (votes: [PFObject]?, error: NSError?) -> Void in
-//            if let error = error {
-//                print("searching local vote failed: \(error)")
-//            } else if let votes = votes {
-//                self.votes.removeAll()
-//                for vote in votes {
-//                    let votePost = vote["post"] as! PFObject
-//                    self.votes[votePost.objectId!] = vote["kind"] as? String
-//                }
-//            }
-//        }
-//    }
-    
     func updateLoadNewPostsButtonState() {
-        if Defaults[.countNewPosts] > 0 {
+        let countNew = Defaults[.countNewPosts]
+        if countNew > 0 {
             loadNewPostsButton.hidden = false
-            var title = "load_new_posts_button_title".localizedString
-            title = title.stringByReplacingString("#count#", with: "\(Defaults[.countNewPosts])")
+            var title = "load_new_posts_button_title_singular".localizedString
+            if countNew > 1 {
+                title = "load_new_posts_button_title_plural".localizedString
+            }
+
+            title = title.stringByReplacingString("#count#", with: "\(countNew)")
             loadNewPostsButton.setTitle(title, forState: .Normal)
         } else {
             loadNewPostsButton.hidden = true
@@ -114,14 +108,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let networkStatus = reach.currentReachabilityStatus()
         if (networkStatus != .NotReachable) {
             self.updateRemote({ () -> () in
-                self.loadPosts(true, keepScrollPosition: true, success: nil)
+                if NSProcessInfo.iOS9OrGreater() {
+                    self.updateLocal(false, success: nil)
+                }
             })
         }
     }
     
     func pullToRefreshUpdateRemote() {
         updateRemote { () -> () in
-            self.loadPosts(true, keepScrollPosition: false, success: nil)
+            self.updateLocal(true, success: nil)
         }
     }
     
@@ -133,20 +129,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         saveLastTableViewContentOffsetY()
     }
     
-    func loadPosts(locally: Bool, keepScrollPosition: Bool, success: (() -> ())?) {
+    func updateLocal(showNewPosts: Bool, success: (() -> ())?) {
         let query = getQuery()
-        query.addDescendingOrder("createdAt")
-        if locally {
-            query.fromLocalDatastore()
-        }
-        if keepScrollPosition {
+        query.addDescendingOrder("releaseDate")
+        query.fromLocalDatastore()
+        query.whereKeyExists("releaseDate")
+        if !showNewPosts {
             var lastLocalUpdated = NSDate(timeIntervalSinceNow: 0)
             if let savedLastLocalUpdated = Defaults[.lastLocalUpdated] {
                 lastLocalUpdated = savedLastLocalUpdated
             } else {
                 Defaults[.lastLocalUpdated] = lastLocalUpdated
             }
-            query.whereKey("createdAt", lessThanOrEqualTo: lastLocalUpdated)
+            query.whereKey("releaseDate", lessThanOrEqualTo: lastLocalUpdated)
         } else {
             Defaults[.countNewPosts] = 0
             Defaults[.lastLocalUpdated] = NSDate(timeIntervalSinceNow: 0)
@@ -161,25 +156,62 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 if !NSProcessInfo.iOS9OrGreater() { // ios 8 bug fix
                     self.reloadData()
                 }
-                if locally {
-                    if objects.count == 0 { // no data in local storage. reset last remote updated
-                        Defaults[.lastRemoteUpdated] = NSDate(timeIntervalSinceReferenceDate: 0)
-                    }
-                } else {
-                    Defaults[.lastRemoteUpdated] = NSDate(timeIntervalSinceNow: 0)
-                }
                 if let success = success {
                     success()
                 }
             }
         }
+
+    }
+    
+    func updateRemote(completion: (() -> ())?) {
+        var lastUpdated = NSDate(timeIntervalSince1970: 0)
+        if let storedLastUpdated = Defaults[.lastRemoteUpdated] {
+            lastUpdated = storedLastUpdated
+        }
+        let query = getQuery()
+        query.whereKey("updatedAt", greaterThan: lastUpdated)
+        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
+            self.refreshControl.endRefreshing()
+            if let error = error {
+                if self.dataSouce.count == 0 {
+                    UIAlertController.showAlertWithError(error)
+                } else {
+                    print("silent error: update remote failed with error \(error)\nShowing cached content")
+                }
+            } else if let objects = objects {
+                if objects.count > 0 {
+                    // if lastRemoteUpdated is never set, than it's first load
+                    if Defaults[.lastRemoteUpdated] != nil {
+                        var newPosts = [PFObject]()
+                        for newPost in objects {
+                            if let releaseDate = newPost["releaseDate"] as? NSDate {
+                                if releaseDate > lastUpdated {
+                                    newPosts.append(newPost)
+                                }
+                            }
+                        }
+                        Defaults[.countNewPosts] += newPosts.count
+                        self.showNewPostsIndicator(Defaults[.countNewPosts])
+                    }
+                    
+                    Defaults[.lastRemoteUpdated] = NSDate(timeIntervalSinceNow: 0)
+                    PFObject.pinAllInBackground(objects, block: { (success: Bool, error: NSError?) -> Void in
+                        if let error = error {
+                            UIAlertController.showAlertWithError(error)
+                        } else {
+                            if let completion = completion {
+                                completion()
+                            }
+                        }
+                    })
+                }
+                print("delta update \(objects)")
+            }
+        }
     }
     
     func reloadData() {
-//        let contentOffset = tableView.contentOffset
-//        tableView.reloadData()
-//        tableView.layoutIfNeeded()
-//        tableView.contentOffset = contentOffset
         if NSProcessInfo.iOS9OrGreater() { // another iOS8 bug
             tableView.reloadData()
         } else {
@@ -201,79 +233,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return query
     }
     
-    func updateRemote(completion: (() -> ())?) {
-        if let lastUpdated = Defaults[.lastRemoteUpdated] {
-            let query = getQuery()
-            query.whereKey("updatedAt", greaterThan: lastUpdated)
-            query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
-                self.refreshControl.endRefreshing()
-                if let error = error {
-                    if self.dataSouce.count == 0 {
-                        UIAlertController.showAlertWithError(error)
-                    } else {
-                        print("silent error: update remote failed with error \(error)\nShowing cached content")
-                    }
-                } else if let objects = objects {
-                    let lastUpdated = Defaults[.lastRemoteUpdated]
-                    var newPosts = [PFObject]()
-                    for newPost in objects {
-                        if newPost.createdAt > lastUpdated {
-                            newPosts.append(newPost)
-                        }
-                    }
-                    Defaults[.countNewPosts] += newPosts.count
-                    self.showNewPostsIndicator(Defaults[.countNewPosts])
-                    Defaults[.lastRemoteUpdated] = NSDate(timeIntervalSinceNow: 0)
-                    PFObject.pinAllInBackground(objects, block: { (success: Bool, error: NSError?) -> Void in
-                        if let error = error {
-                            UIAlertController.showAlertWithError(error)
-                        } else {
-                            if let completion = completion {
-                                completion()
-                            }
-                        }
-                    })
-                    print("delta update \(objects)")
-                }
-            }
-        } else {
-            refreshControl.endRefreshing()
-            print("cannot update because there is no base data")
-        }
-    }
-    
     func saveVote(kind: String, sender: PostCell) {
         if let indexPath = tableView.indexPathForCell(sender) {
             let object = dataSouce[indexPath.row]
             VoteManager.sharedInstance.saveVote(kind, post: object, completion: { () -> () in
                 self.reloadData()
             })
-//            if let postObjectId = object.objectId {
-//                votes[postObjectId] = kind
-//            }
-//            if kind == Constants.upvote {
-//                object.incrementKey(Constants.countUpvotes)
-//            } else {
-//                object.incrementKey(Constants.countDownvotes)
-//            }
-//            object.saveEventually()
-//            let voteObject = PFObject(className: "Vote")
-//            voteObject["owner"] = PFUser.currentUser()
-//            voteObject["post"] = object
-//            voteObject["kind"] = kind
-//            voteObject.pinInBackgroundWithName("Votes", block: { (success: Bool, error: NSError?) -> Void in
-//                if success {
-//                    self.reloadData()
-//                }
-//            })
-//            voteObject.saveEventually()
         }
     }
     
     // MARK: - Actions
     
     @IBAction func loadNewPostsTouched(sender: AnyObject) {
-        loadPosts(true, keepScrollPosition: false) { () -> () in
+        updateLocal(true) { () -> () in
             self.tableView.setContentOffset(CGPointZero, animated: true)
         }
         Defaults[.countNewPosts] = 0
@@ -298,6 +270,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! PostCell
+        postCellDidTouchComments(cell)
     }
     
     // MARK: - PostCellDelegate

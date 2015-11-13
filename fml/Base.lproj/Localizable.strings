@@ -6,7 +6,8 @@
   Copyright © 2015 zeiteisens. All rights reserved.
 */
 
-"load_new_posts_button_title" = "#count# neuer FMLs";
+"load_new_posts_button_title_singular" = "#count# neuer FML";
+"load_new_posts_button_title_plural" = "#count# neue FMLs";
 "compose_title" = "Neuer FML";
 "compose_next_button_title" = "Weiter";
 "compose_textview_placeholder" = "Heute habe ich ein FML geschrieben und vergessen, dass es mit \"Heute\" beginnt und mit \"FML\" enden soll. FML";
