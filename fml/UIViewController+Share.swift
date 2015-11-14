@@ -9,11 +9,15 @@
 import UIKit
 
 extension UIViewController {
-    func shareImageWithMessage(message: String?, popoverSourceView: UIView) {
+    func shareImageWithMessage(message: String?, author: String?, popoverSourceView: UIView) {
         let nib = NSBundle.mainBundle().loadNibNamed("ShareTemplate", owner: self, options: nil)
         let shareView = nib[0] as! ShareTemplate
         shareView.messageLabel.text = message
-        shareView.urlLabel.text = "share_url".localizedString
+        var author2 = "anonymous".localizedString
+        if author != nil {
+            author2 = author!
+        }
+        shareView.authorLabel.text = "– " + author2
         let rect = shareView.bounds
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()

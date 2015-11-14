@@ -271,7 +271,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // PostActions
     @IBAction func sharePostTouched(sender: UIButton) {
-        shareImageWithMessage(postMessageLabel.text, popoverSourceView: sender)
+        shareImageWithMessage(postMessageLabel.text, author: postAuthorLabel.text, popoverSourceView: sender)
     }
     
     @IBAction func deserveTouched(sender: AnyObject) {

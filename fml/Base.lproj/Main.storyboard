@@ -491,6 +491,13 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ct5-yk-L5V">
+                                <rect key="frame" x="48" y="230" width="241" height="30"/>
+                                <animations/>
+                                <state key="normal" title="TODO Add Push Permission Button">
+                                    <color key="titleColor" red="0.129202178" green="0.129202178" blue="0.129202178" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

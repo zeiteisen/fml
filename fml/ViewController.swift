@@ -299,7 +299,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func postCellDidTouchShare(sender: PostCell) {
-        shareImageWithMessage(sender.messageLabel.text, popoverSourceView: sender.shareButton)
+        shareImageWithMessage(sender.messageLabel.text, author: sender.authorLabel.text, popoverSourceView: sender.shareButton)
     }
 }
 

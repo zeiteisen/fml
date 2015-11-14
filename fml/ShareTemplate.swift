@@ -11,4 +11,13 @@ import UIKit
 class ShareTemplate: UIView {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var urlLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        urlLabel.text = "share_url".localizedString
+        let random = arc4random_uniform(10)
+        imageView.image = UIImage(named: "face_\(random).png")
+    }
 }
