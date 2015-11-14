@@ -12,6 +12,7 @@ class ConfirmPostViewController: UIViewController {
     
     @IBOutlet weak var confirmPostMessageLabel: UILabel!
     @IBOutlet weak var closeButton: SmartButton!
+    @IBOutlet weak var enablePushButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,15 +21,19 @@ class ConfirmPostViewController: UIViewController {
         view.backgroundColor = UIColor.backgroundColor()
         closeButton.setTitle("close_button_title".localizedString, forState: .Normal)
         confirmPostMessageLabel.text = "confirm_post_message".localizedString
+        enablePushButton.setTitle("enable_push_button".localizedString, forState: .Normal)
+        if UIApplication.sharedApplication().isRegisteredForRemoteNotifications() {
+           enablePushButton.hidden = true
+        }
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func enablePushTouched(sender: AnyObject) {
+        let url = NSURL(string: UIApplicationOpenSettingsURLString)
+        UIApplication.sharedApplication().openURL(url!)
+    }
+    
     @IBAction func closeTouched(sender: AnyObject) {
-//        if let navController = self.presentingViewController as? UINavigationController {
-//            if let vc = navController.viewControllers[0] as? ViewController {
-//                vc.loadPosts(true, keepScrollPosition: false, success: nil)
-//            }
-//        }
         presentingViewController?.dismissViewControllerAnimated(true, completion: { () -> Void in
             
         })

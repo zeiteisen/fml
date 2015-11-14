@@ -491,30 +491,45 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ct5-yk-L5V">
-                                <rect key="frame" x="48" y="230" width="241" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ct5-yk-L5V">
+                                <rect key="frame" x="20" y="103" width="560" height="50"/>
                                 <animations/>
-                                <state key="normal" title="TODO Add Push Permission Button">
-                                    <color key="titleColor" red="0.129202178" green="0.129202178" blue="0.129202178" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="13s-8g-dmE">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="80"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Add Push Permission Button"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="enablePushTouched:" destination="3Pw-v6-CxI" eventType="touchUpInside" id="0Pm-Ar-eeN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ct5-yk-L5V" secondAttribute="trailing" id="2bq-Jb-UUE"/>
                             <constraint firstItem="19h-5m-6dz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fi9-kJ-5aH" secondAttribute="leadingMargin" id="D8Y-Ec-mig"/>
+                            <constraint firstItem="KK4-qb-oOu" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ct5-yk-L5V" secondAttribute="bottom" constant="20" id="K90-uh-j3t"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="19h-5m-6dz" secondAttribute="trailing" id="Lwi-4N-bEi"/>
-                            <constraint firstItem="KK4-qb-oOu" firstAttribute="top" relation="greaterThanOrEqual" secondItem="19h-5m-6dz" secondAttribute="bottom" constant="8" id="SyT-66-p0G"/>
                             <constraint firstAttribute="trailing" secondItem="KK4-qb-oOu" secondAttribute="trailing" id="WND-oY-krI"/>
                             <constraint firstItem="19h-5m-6dz" firstAttribute="top" secondItem="I5F-SD-lf7" secondAttribute="bottom" constant="40" id="Zs5-mV-oeR"/>
                             <constraint firstItem="qPq-ge-4rr" firstAttribute="top" secondItem="KK4-qb-oOu" secondAttribute="bottom" id="bSq-CG-cFO"/>
                             <constraint firstItem="19h-5m-6dz" firstAttribute="centerX" secondItem="fi9-kJ-5aH" secondAttribute="centerX" id="d5o-sk-sax"/>
                             <constraint firstItem="KK4-qb-oOu" firstAttribute="leading" secondItem="fi9-kJ-5aH" secondAttribute="leading" id="lyj-uC-Pfe"/>
+                            <constraint firstItem="Ct5-yk-L5V" firstAttribute="top" secondItem="19h-5m-6dz" secondAttribute="bottom" constant="22.5" id="oQt-DD-D4b"/>
+                            <constraint firstItem="Ct5-yk-L5V" firstAttribute="leading" secondItem="fi9-kJ-5aH" secondAttribute="leadingMargin" id="xAd-uG-Kl0"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="KK4-qb-oOu" id="Qwh-BC-eom"/>
                         <outlet property="confirmPostMessageLabel" destination="19h-5m-6dz" id="M6H-uc-Jd6"/>
+                        <outlet property="enablePushButton" destination="Ct5-yk-L5V" id="Itc-7a-bcb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YsA-wE-AB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -890,7 +905,7 @@
                                                 <constraint firstItem="0g0-ud-cxh" firstAttribute="top" secondItem="Ub4-vd-4lh" secondAttribute="top" constant="8" id="AFW-WS-yPS"/>
                                                 <constraint firstAttribute="trailing" secondItem="0g0-ud-cxh" secondAttribute="trailing" constant="8" id="UJw-e6-LqT"/>
                                                 <constraint firstItem="0g0-ud-cxh" firstAttribute="leading" secondItem="Ub4-vd-4lh" secondAttribute="leading" constant="8" id="VWy-Rx-4sR"/>
-                                                <constraint firstAttribute="bottom" secondItem="0g0-ud-cxh" secondAttribute="bottom" id="wqZ-tM-l9J"/>
+                                                <constraint firstAttribute="bottom" secondItem="0g0-ud-cxh" secondAttribute="bottom" constant="1" id="wqZ-tM-l9J"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>

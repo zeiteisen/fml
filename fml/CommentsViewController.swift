@@ -47,10 +47,6 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.backgroundColor = UIColor.clearColor()
         refreshControl.addTarget(self, action: "pullToRefreshUpdateRemote", forControlEvents: .ValueChanged)
         tableView.addSubview(refreshControl)
-        updateVotesArray()
-        updateRemoteComments { () -> () in
-            self.updateLocalComments()
-        }
         setupPostContent()
     }
     
@@ -62,11 +58,16 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        if !viewjustloaded {
-            updateVotesArray()
-            updateLocalComments()
-        } else {
+        if viewjustloaded {
             viewjustloaded = false
+            updateVotesArray()
+            updateLocalComments({ () -> () in
+                self.updateRemoteComments({ () -> () in
+                    self.updateLocalComments(nil)
+                })
+            })
+        } else {
+            updateLocalComments(nil)
         }
     }
     
@@ -117,7 +118,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func pullToRefreshUpdateRemote() {
         updateRemoteComments { () -> () in
-            self.updateLocalComments()
+            self.updateLocalComments(nil)
         }
     }
     
@@ -155,7 +156,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    func updateLocalComments() {
+    func updateLocalComments(success: (() -> ())?) {
         let query = getCommentsQuery()
         query.whereKey("hidden", equalTo: NSNumber(bool: false))
         query.fromLocalDatastore()
@@ -175,6 +176,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
                     self.dataSouce.append(model)
                 }
                 self.tableView.reloadData()
+                success?()
             }
         }
     }
@@ -246,7 +248,6 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         let object = dataSouce[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier(object.reuseIdentifier, forIndexPath: indexPath)
         if let postCell = cell as? PostCell {
-//            postCell.delegate = self
             postCell.updateWithParseObject(object.parseObject, voteKind: "")
         } else if let commentCell = cell as? CommentCell {
             commentCell.delegate = self

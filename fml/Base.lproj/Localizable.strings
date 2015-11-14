@@ -32,8 +32,8 @@
 "Health" = "Gesundheit";
 "Intimacy" = "Intim";
 "Miscellaneous" = "Sonstiges";
-"suxxs_button_title" = "dein Leben.";
-"deserve_button_title" = "Selbst schuld.";
+"suxxs_button_title" = "dein Leben";
+"deserve_button_title" = "Selbst schuld";
 "comments_title" = "Kommentare";
 "write_comment_button_title" = "Kommentar schreiben";
 "write_comment_title" = "Kommentieren";
@@ -42,3 +42,4 @@
 "write_comment_placeholder" = "Jetzt Kommentar schreiben";
 "top_comments_label" = "Top Kommentare";
 "anonymous" = "Anonym";
+"enable_push_button" = "Push Nachrichten aktivieren";

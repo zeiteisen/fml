@@ -191,7 +191,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                 }
                             }
                         }
-                        Defaults[.countNewPosts] += newPosts.count
+                        Defaults[.countNewPosts] = newPosts.count
                         self.showNewPostsIndicator(Defaults[.countNewPosts])
                     }
                     

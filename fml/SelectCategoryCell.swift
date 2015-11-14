@@ -13,7 +13,7 @@ class SelectCategoryCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = UIColor.backgroundColor()
-        var fontSize : CGFloat = 14.0
+        var fontSize : CGFloat = 18.0
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
             fontSize = 30.0
         }
