@@ -57,6 +57,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if Defaults[.lastRemoteUpdated] == nil || viewjustloaded {
             if viewjustloaded {
                 updateLocal(false, success: { () -> () in
+                    self.tableView.contentOffset.y = CGFloat(Defaults[.lastTableViewContentOffsetY])
                     self.updateRemote({ () -> () in
                         self.updateLocal(false, success: nil)
                     })

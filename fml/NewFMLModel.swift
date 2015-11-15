@@ -23,9 +23,10 @@ enum Categories: String {
     case Work = "Work"
     case Health = "Health"
     case Intimacy = "Intimacy"
+    case School = "School"
     case Miscellaneous = "Miscellaneous"
     
-    static let allValues = [Love, Animals, Money, Kids, Work, Health, Intimacy, Miscellaneous]
+    static let allValues = [Love, Animals, Money, Kids, Work, Health, Intimacy, School, Miscellaneous]
 }
 
 class NewFMLModel {

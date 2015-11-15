@@ -75,6 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("devicetoken: \(deviceToken)")
         let installation = PFInstallation.currentInstallation()
         installation.setDeviceTokenFromData(deviceToken)
+        installation["user"] = PFUser.currentUser()
         installation.saveInBackground()
     }
 }
