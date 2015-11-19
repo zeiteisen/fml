@@ -7,7 +7,9 @@
 // A8eZrWg0pcx1Qcmsnmhv5oVWbr1WlvqWg1oa8Oji
 // TODOs
 /*
- Für das iPad anpassen
+    Farben anpassen
+    Endless Scroller
+    Analytics wann share
 */
 
 import UIKit

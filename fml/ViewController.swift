@@ -243,6 +243,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    func loadMore(lastReleaseDate: NSDate) {
+        let query = getQuery()
+        query.limit = 10
+        query.whereKey("releaseDate", lessThan: lastReleaseDate)
+        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
+            if let objects = objects {
+                self.dataSouce += objects
+                self.reloadData()
+            }
+        }
+    }
+    
     // MARK: - Actions
     
     @IBAction func loadNewPostsTouched(sender: AnyObject) {
@@ -273,6 +285,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! PostCell
         postCellDidTouchComments(cell)
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (indexPath.row == dataSouce.count - 1) {
+            if let lastObject = dataSouce.last {
+                loadMore(lastObject["releaseDate"] as! NSDate)
+            }
+        }
     }
     
     // MARK: - PostCellDelegate

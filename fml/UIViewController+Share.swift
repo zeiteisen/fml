@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 extension UIViewController {
     func shareImageWithMessage(message: String?, author: String?, popoverSourceView: UIView) {
@@ -26,7 +27,22 @@ extension UIViewController {
         UIGraphicsEndImageContext()
         var sharingItems = [AnyObject]()
         sharingItems.append(image)
+        if let url = NSURL(string: "share_url".localizedString) {
+            sharingItems.append(url)
+        }
         let activityController = UIActivityViewController(activityItems: sharingItems, applicationActivities: nil)
+        activityController.completionWithItemsHandler = { (activity: String?, success: Bool, items: [AnyObject]?, error: NSError?) in
+            var dimensions = [ "text" : message!]
+            if let activity = activity {
+                dimensions["activity"] = activity
+            }
+            if success {
+                dimensions["success"] = "true"
+            } else {
+                dimensions["success"] = "false"
+            }
+            PFAnalytics.trackEvent("share", dimensions: dimensions)
+        }
         activityController.popoverPresentationController?.sourceView = popoverSourceView
         presentViewController(activityController, animated: true, completion: nil)
     }
