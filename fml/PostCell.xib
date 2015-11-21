@@ -22,7 +22,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="639" height="409.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WOz-AI-sZm" customClass="RoundTopCornerView" customModule="fml" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WOz-AI-sZm" customClass="RoundCornerView" customModule="fml" customModuleProvider="target">
                         <rect key="frame" x="8" y="8" width="623" height="393.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1YQ-34-f1R" customClass="Label" customModule="fml" customModuleProvider="target">
@@ -118,7 +118,7 @@
                                     </label>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" red="0.086274509799999996" green="0.086274509799999996" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.1215686275" green="0.1215686275" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Vf4-nE-6sk" secondAttribute="bottom" id="0JL-d2-Tnu"/>
                                     <constraint firstItem="BPk-di-y9D" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="657-Ix-39I" secondAttribute="trailing" constant="8" id="BV7-7h-UPD"/>

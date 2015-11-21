@@ -13,15 +13,12 @@ extension UIColor {
         return UIColor(red: 0.094, green: 0.094, blue: 0.094, alpha: 1.00)
     }
     
-//    class func subtleTextColor() -> UIColor {
-//        return UIColor.whiteColor()
-//    }
-    
     class func accentColor() -> UIColor {
         return UIColor(red: 0.910, green: 0.345, blue: 0.329, alpha: 1.00)
     }
     
     class func backgroundColor() -> UIColor {
+//        return UIColor(red:0.88, green:0.88, blue:0.88, alpha:1.0)
         return UIColor.whiteColor()
     }
     

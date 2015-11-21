@@ -138,7 +138,7 @@
                             </label>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="0Iw-HU-d9l" firstAttribute="top" secondItem="qFV-Lt-A3V" secondAttribute="bottom" id="NaW-ND-Sfy"/>
                             <constraint firstItem="qFV-Lt-A3V" firstAttribute="top" secondItem="NSx-YI-D6u" secondAttribute="bottom" id="Q0j-IR-GtV"/>
@@ -220,7 +220,7 @@
                             </textView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="sHO-B7-uCL" firstAttribute="top" secondItem="OEN-Rk-ZcH" secondAttribute="bottom" constant="225" id="2VG-UU-uO9"/>
                             <constraint firstItem="OEN-Rk-ZcH" firstAttribute="top" secondItem="9Ts-wj-Ooe" secondAttribute="bottom" id="PXG-hP-Qk8"/>
@@ -331,7 +331,7 @@
                             </button>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="b15-kt-MxL" firstAttribute="centerY" secondItem="uId-9S-uDS" secondAttribute="centerY" id="2o2-kr-vNg"/>
                             <constraint firstItem="uId-9S-uDS" firstAttribute="leading" secondItem="zR6-XK-xuh" secondAttribute="leadingMargin" id="3ji-si-wsW"/>
@@ -424,7 +424,7 @@
                             </button>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Z0e-wP-kFh" firstAttribute="leading" secondItem="YoP-ew-c8r" secondAttribute="leading" id="6CG-lV-58E"/>
                             <constraint firstItem="K03-U6-lfv" firstAttribute="leading" secondItem="YoP-ew-c8r" secondAttribute="leading" id="F4t-TP-ok7"/>
@@ -494,7 +494,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ct5-yk-L5V">
                                 <rect key="frame" x="20" y="103" width="560" height="50"/>
                                 <animations/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="13s-8g-dmE">
                                         <variation key="heightClass=regular-widthClass=regular" constant="80"/>
@@ -511,7 +511,7 @@
                             </button>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Ct5-yk-L5V" secondAttribute="trailing" id="2bq-Jb-UUE"/>
                             <constraint firstItem="19h-5m-6dz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fi9-kJ-5aH" secondAttribute="leadingMargin" id="D8Y-Ec-mig"/>
@@ -546,7 +546,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
-                        <color key="barTintColor" red="0.086274509799999996" green="0.086274509799999996" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.12156862745098039" green="0.12156862745098039" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -566,7 +566,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
-                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.1215686275" green="0.1215686275" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -928,7 +928,7 @@
                             </tableView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.88235294117647056" green="0.88235294117647056" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="27e-Dy-oXX" firstAttribute="top" secondItem="Yv5-Jp-Q4X" secondAttribute="bottom" id="CuN-s7-4uX"/>
                             <constraint firstAttribute="trailing" secondItem="Yv5-Jp-Q4X" secondAttribute="trailing" id="E0r-hx-GTv"/>

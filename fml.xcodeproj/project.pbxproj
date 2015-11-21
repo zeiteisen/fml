@@ -35,6 +35,7 @@
 		FC0B152A1BD8294000CD1D5F /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC0B15291BD8294000CD1D5F /* fontawesome-webfont.ttf */; };
 		FC0B93AB1BEF7389006E8117 /* RoundTopCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0B93AA1BEF7389006E8117 /* RoundTopCornerView.swift */; };
 		FC0B93B71BEFB552006E8117 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC0B93B51BEFB552006E8117 /* PostCell.xib */; };
+		FC0C63351C00AE17008DBAF3 /* RoundCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0C63341C00AE17008DBAF3 /* RoundCornerView.swift */; };
 		FC0CEA461BD3B36E00E6DBAD /* SmartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA451BD3B36E00E6DBAD /* SmartButton.swift */; };
 		FC0CEA491BD3B49700E6DBAD /* NewFMLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA481BD3B49700E6DBAD /* NewFMLModel.swift */; };
 		FC0CEA4B1BD3B69B00E6DBAD /* AuthorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0CEA4A1BD3B69B00E6DBAD /* AuthorViewController.swift */; };
@@ -96,6 +97,7 @@
 		FC0B152E1BD830C200CD1D5F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		FC0B93AA1BEF7389006E8117 /* RoundTopCornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundTopCornerView.swift; sourceTree = "<group>"; };
 		FC0B93B51BEFB552006E8117 /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		FC0C63341C00AE17008DBAF3 /* RoundCornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundCornerView.swift; sourceTree = "<group>"; };
 		FC0CEA451BD3B36E00E6DBAD /* SmartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartButton.swift; sourceTree = "<group>"; };
 		FC0CEA481BD3B49700E6DBAD /* NewFMLModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFMLModel.swift; sourceTree = "<group>"; };
 		FC0CEA4A1BD3B69B00E6DBAD /* AuthorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				FC0B93AA1BEF7389006E8117 /* RoundTopCornerView.swift */,
 				FC04FB991BF13C36008D6312 /* VoteView.swift */,
 				FC04FB951BF13A9F008D6312 /* VoteView.xib */,
+				FC0C63341C00AE17008DBAF3 /* RoundCornerView.swift */,
 			);
 			name = "View Subclasses";
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				FC14C0301BE95578009ACDC0 /* NSProcessInfo+Version.swift in Sources */,
 				FC06B69A1BEABAA10016CB2D /* FontAwesomeButton.swift in Sources */,
 				FC06B6981BEAB64C0016CB2D /* FontAwesomeLabel.swift in Sources */,
+				FC0C63351C00AE17008DBAF3 /* RoundCornerView.swift in Sources */,
 				FC11BD5C1BD284BF0082F43C /* Constants.swift in Sources */,
 				FC11BD5E1BD291170082F43C /* ComposeViewController.swift in Sources */,
 				FC022C641BED582200DA652A /* GrayLabel.swift in Sources */,

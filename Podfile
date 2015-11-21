@@ -10,5 +10,7 @@ pod 'Parse'
 pod 'SZTextView'
 pod 'SwiftyUserDefaults'
 pod 'LaunchKit'
+pod 'FBSDKCoreKit', '~> 4.8'
+pod 'FBSDKShareKit', '~> 4.8'
 
 end

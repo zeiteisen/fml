@@ -10,8 +10,9 @@ import UIKit
 import Parse
 import SwiftyUserDefaults
 import Reachability
+import FBSDKShareKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PostCellDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PostCellDelegate, FBSDKSharingDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loadNewPostsButton: UIButton!
@@ -40,6 +41,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didEnterBackground:", name: UIApplicationDidEnterBackgroundNotification, object: nil)
         scheduleTimer()
         updateLoadNewPostsButtonState()
+
+        let likeButton = FBSDKLikeButton()
+        likeButton.objectID = "https://www.facebook.com/FMeinLeben-1009814069040399/"
+        let barButton = UIBarButtonItem(customView: likeButton)
+        navigationItem.leftBarButtonItem = barButton
     }
     
     override func viewDidLayoutSubviews() {
@@ -81,7 +87,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func scheduleTimer() {
         timer?.invalidate()
-        timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "updateInBackground", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(Double(PFConfig.getBackgroundRefreshTimeSeconds()), target: self, selector: "updateInBackground", userInfo: nil, repeats: true)
     }
     
     func stopTimer() {
@@ -118,7 +124,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func pullToRefreshUpdateRemote() {
         updateRemote { () -> () in
-            self.updateLocal(true, success: nil)
+            self.loadNewPostsTouched(self.loadNewPostsButton)
         }
     }
     
@@ -206,6 +212,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                             }
                         }
                     })
+                } else {
+                    if let completion = completion {
+                        completion()
+                    }
                 }
                 print("delta update \(objects)")
             }
@@ -320,7 +330,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func postCellDidTouchShare(sender: PostCell) {
-        shareImageWithMessage(sender.messageLabel.text, author: sender.authorLabel.text, popoverSourceView: sender.shareButton)
+//        let content = FBSDKShareLinkContent()
+////        content.contentURL = NSURL(string: "share_url".localizedString)
+//        content.contentURL = NSURL(string: "http://www.fmeinleben.de")
+//        content.contentDescription = "Voll witzige Sachen und so. Auf jeden Fall runterladen und los lachen!"
+//        content.contentTitle = "Abgefahren komisch."
+//        content.imageURL = NSURL(string: "http://guardian-angel.parseapp.com/invite_grafik_1200x630_de.jpg")
+//        let dialog = FBSDKShareDialog()
+//        dialog.fromViewController = self
+//        dialog.shareContent = content
+//        dialog.mode = .FeedBrowser
+//        dialog.delegate = self
+//        dialog.show()
+        
+        shareImageWithMessage(sender.messageLabel.text, author: sender.authorLabel.text, popoverSourceView: sender.shareButton, gender: sender.genderLabel.text)
+    }
+    
+    // MARK: - FBSDKSharingDelegate
+    
+    func sharer(sharer: FBSDKSharing!, didCompleteWithResults results: [NSObject : AnyObject]!) {
+        
+    }
+    
+    func sharer(sharer: FBSDKSharing!, didFailWithError error: NSError!) {
+        
+    }
+    
+    func sharerDidCancel(sharer: FBSDKSharing!) {
+        
     }
 }
 

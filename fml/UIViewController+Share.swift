@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 extension UIViewController {
-    func shareImageWithMessage(message: String?, author: String?, popoverSourceView: UIView) {
+    func shareImageWithMessage(message: String?, author: String?, popoverSourceView: UIView, gender: String?) {
         let nib = NSBundle.mainBundle().loadNibNamed("ShareTemplate", owner: self, options: nil)
         let shareView = nib[0] as! ShareTemplate
         shareView.messageLabel.text = message
@@ -19,6 +19,7 @@ extension UIViewController {
             author2 = author!
         }
         shareView.authorLabel.text = "– " + author2
+        shareView.genderLabel.text = gender
         let rect = shareView.bounds
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
