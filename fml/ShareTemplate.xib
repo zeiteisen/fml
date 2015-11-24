@@ -3,11 +3,10 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="fontawesome-webfont.ttf">
-            <string>FontAwesome</string>
+        <mutableArray key="Amaranth-Regular.otf">
+            <string>Amaranth-Regular</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -17,100 +16,38 @@
             <rect key="frame" x="0.0" y="0.0" width="640" height="640"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="2ju-7f-AZe">
-                    <rect key="frame" x="16" y="16" width="608" height="448"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bubble" translatesAutoresizingMaskIntoConstraints="NO" id="hOl-yI-gXe">
+                    <rect key="frame" x="0.0" y="0.0" width="640" height="640"/>
                     <animations/>
-                    <string key="text">Heute wollte ich auf der Arbeit etwas professioneller aussehen und beschloss, Highheels zu tragen. Mein Chef entschied jedoch, dass heute ein guter Tag wäre um auf der Straße mit einem Werbeschild rum zu laufen anstatt meinen eigentlichen Job zu machen. FML</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                    <color key="textColor" red="0.90546085858585856" green="0.90546085858585856" blue="0.90546085858585856" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="fmeinleben.de" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1bq-in-TD2">
-                    <rect key="frame" x="229" y="544" width="189" height="80"/>
-                    <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <color key="textColor" red="0.90546085860000003" green="0.90546085860000003" blue="0.90546085860000003" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" image="face_0" translatesAutoresizingMaskIntoConstraints="NO" id="7ec-Dc-1lP">
-                    <rect key="frame" x="426" y="484" width="206" height="140"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="206" id="sdA-TS-OCq"/>
-                        <constraint firstAttribute="height" constant="140" id="v4Q-It-suO"/>
-                    </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="CyY-56-8Ca">
-                    <rect key="frame" x="161" y="554.5" width="60" height="60"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Dieser Text ist ein wenig kürzer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="2ju-7f-AZe">
+                    <rect key="frame" x="49" y="112" width="542" height="422"/>
                     <animations/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="93E-ei-yNT"/>
-                        <constraint firstAttribute="width" constant="60" id="RA6-SR-cdg"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="E2n-un-Y7T">
-                    <rect key="frame" x="142" y="484" width="275.5" height="60"/>
-                    <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                    <color key="textColor" red="0.90546085860000003" green="0.90546085860000003" blue="0.90546085860000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Amaranth-Regular" family="Amaranth" pointSize="40"/>
                     <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPu-8d-uUm">
-                    <rect key="frame" x="34" y="484" width="100" height="140"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="100" id="Gqe-Gp-QpT"/>
-                        <constraint firstAttribute="height" constant="140" id="P0D-eR-Joh"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="130"/>
-                    <color key="textColor" red="0.91372549020000005" green="0.34509803919999998" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="iPhoneFontSize">
-                            <real key="value" value="14"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="iPadFontSize">
-                            <real key="value" value="20"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                 </label>
             </subviews>
             <animations/>
-            <color key="backgroundColor" red="0.1974037247474747" green="0.1974037247474747" blue="0.1974037247474747" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.1215686275" green="0.1215686275" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="E2n-un-Y7T" firstAttribute="leading" secondItem="aPu-8d-uUm" secondAttribute="trailing" constant="8" id="0sD-J5-zgL"/>
-                <constraint firstAttribute="bottom" secondItem="7ec-Dc-1lP" secondAttribute="bottom" constant="16" id="7Na-3o-p27"/>
-                <constraint firstItem="1bq-in-TD2" firstAttribute="leading" secondItem="CyY-56-8Ca" secondAttribute="trailing" constant="8" id="7pC-dJ-fhb"/>
-                <constraint firstItem="aPu-8d-uUm" firstAttribute="bottom" secondItem="7ec-Dc-1lP" secondAttribute="bottom" id="8du-71-TZt"/>
-                <constraint firstItem="CyY-56-8Ca" firstAttribute="centerY" secondItem="1bq-in-TD2" secondAttribute="centerY" id="920-3X-PjD"/>
-                <constraint firstItem="7ec-Dc-1lP" firstAttribute="leading" secondItem="E2n-un-Y7T" secondAttribute="trailing" constant="8" id="ATn-1P-zML"/>
-                <constraint firstItem="aPu-8d-uUm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" constant="26" id="DS2-mF-msM"/>
-                <constraint firstAttribute="trailing" secondItem="2ju-7f-AZe" secondAttribute="trailing" constant="16" id="H2h-Nk-AbH"/>
-                <constraint firstItem="7ec-Dc-1lP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2ju-7f-AZe" secondAttribute="bottom" constant="20" id="HpN-Dg-8mG"/>
-                <constraint firstItem="E2n-un-Y7T" firstAttribute="top" secondItem="7ec-Dc-1lP" secondAttribute="top" id="Mam-3L-aPU"/>
-                <constraint firstItem="7ec-Dc-1lP" firstAttribute="leading" secondItem="1bq-in-TD2" secondAttribute="trailing" constant="8" id="Rp4-Un-Me6"/>
-                <constraint firstItem="2ju-7f-AZe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="Y4K-js-nqI"/>
-                <constraint firstItem="1bq-in-TD2" firstAttribute="top" secondItem="E2n-un-Y7T" secondAttribute="bottom" id="Yta-uJ-Zg9"/>
-                <constraint firstItem="2ju-7f-AZe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="aFl-VJ-ksx"/>
-                <constraint firstAttribute="trailing" secondItem="7ec-Dc-1lP" secondAttribute="trailing" constant="8" id="dkj-jq-zlT"/>
-                <constraint firstItem="1bq-in-TD2" firstAttribute="bottom" secondItem="7ec-Dc-1lP" secondAttribute="bottom" id="hOB-ew-ZBL"/>
-                <constraint firstItem="aPu-8d-uUm" firstAttribute="top" secondItem="7ec-Dc-1lP" secondAttribute="top" id="lKy-qA-KzS"/>
-                <constraint firstAttribute="bottomMargin" secondItem="aPu-8d-uUm" secondAttribute="bottom" constant="8" id="tgH-wL-YpA"/>
+                <constraint firstAttribute="trailing" secondItem="2ju-7f-AZe" secondAttribute="trailing" constant="49" id="H2h-Nk-AbH"/>
+                <constraint firstItem="hOl-yI-gXe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="SpV-Wp-SK4"/>
+                <constraint firstItem="2ju-7f-AZe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="49" id="Y4K-js-nqI"/>
+                <constraint firstItem="2ju-7f-AZe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="112" id="aFl-VJ-ksx"/>
+                <constraint firstAttribute="bottom" secondItem="hOl-yI-gXe" secondAttribute="bottom" id="bJw-fi-hHl"/>
+                <constraint firstAttribute="bottom" secondItem="2ju-7f-AZe" secondAttribute="bottom" constant="106" id="gZM-lX-keW"/>
+                <constraint firstItem="hOl-yI-gXe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xCp-pi-fPS"/>
+                <constraint firstAttribute="trailing" secondItem="hOl-yI-gXe" secondAttribute="trailing" id="xFc-ao-MnN"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="authorLabel" destination="E2n-un-Y7T" id="u2C-Gq-sQ3"/>
-                <outlet property="genderLabel" destination="aPu-8d-uUm" id="4RG-5p-f6P"/>
-                <outlet property="imageView" destination="7ec-Dc-1lP" id="f8f-Ka-ZC0"/>
                 <outlet property="messageLabel" destination="2ju-7f-AZe" id="A1I-bV-Ghg"/>
-                <outlet property="urlLabel" destination="1bq-in-TD2" id="t0c-1Q-dwF"/>
             </connections>
             <point key="canvasLocation" x="311" y="323"/>
         </view>
     </objects>
     <resources>
-        <image name="Icon" width="105" height="70"/>
-        <image name="face_0" width="280" height="252"/>
+        <image name="Bubble" width="320" height="320"/>
     </resources>
 </document>

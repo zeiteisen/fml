@@ -92,6 +92,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-fml/Reachability.framework"
   install_framework "Pods-fml/SZTextView.framework"
   install_framework "Pods-fml/SwiftyUserDefaults.framework"
+  install_framework "Pods-fml/TLYShyNavBar.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-fml/Bolts.framework"
@@ -102,4 +103,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-fml/Reachability.framework"
   install_framework "Pods-fml/SZTextView.framework"
   install_framework "Pods-fml/SwiftyUserDefaults.framework"
+  install_framework "Pods-fml/TLYShyNavBar.framework"
 fi

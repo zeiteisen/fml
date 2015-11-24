@@ -44,3 +44,22 @@ Parse.Cloud.define("moderatePost", function(request, response) {
 		response.error(error);
 	});
 });
+
+// Parse.Cloud.afterSave("Post", function(request) {
+// 	var object = request.object;
+// 	if (!object.get("shareImage") && object.get("moderation") === "approved") {
+// 		Parse.Cloud.httpRequest({
+// 	  		url: 'https://fmeinleben.herokuapp.com/image?name=Cheer'
+// 		}).then(function(httpResponse) {
+// 	  		var imgFile = new Parse.File("imgFile1.png", {base64: httpResponse.buffer.toString('base64')});
+// 	  		return imgFile.save();                                              
+// 		}).then(function(file) {
+// 			request.object.set("shareImage", file);
+// 			return request.object.save();
+// 		}).then(function(object) {
+// 			console.log("image saved");
+// 		}, function(error) {
+// 			console.error('Request failed: ' + error);
+// 		});	
+// 	}
+// });

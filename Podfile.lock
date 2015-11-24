@@ -22,6 +22,7 @@ PODS:
   - Reachability (3.2)
   - SwiftyUserDefaults (2.0.0)
   - SZTextView (1.2.1)
+  - TLYShyNavBar (1.0.0)
 
 DEPENDENCIES:
   - FBSDKCoreKit (~> 4.8)
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - Reachability (~> 3.2)
   - SwiftyUserDefaults
   - SZTextView
+  - TLYShyNavBar
 
 SPEC CHECKSUMS:
   Bolts: 805a4a87413e49d4a0c2b7d469084cbc46b09342
@@ -41,5 +43,6 @@ SPEC CHECKSUMS:
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SwiftyUserDefaults: 1266e9734c68bcfbac8294ee84173dc8ba6db312
   SZTextView: 906df45afd3c1b24fc5252088d5ef8061513c238
+  TLYShyNavBar: d313a1c50c58cb7af744829120eaa33ca8a998ce
 
 COCOAPODS: 0.39.0

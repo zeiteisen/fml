@@ -56,6 +56,7 @@
 		FC1BB1EE1BD40AB500E24ED7 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BB1ED1BD40AB500E24ED7 /* CommentCell.swift */; };
 		FC1BB1F01BD40B8300E24ED7 /* CommentTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BB1EF1BD40B8300E24ED7 /* CommentTableHeaderView.swift */; };
 		FC1BB1F21BD411AA00E24ED7 /* WriteCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BB1F11BD411AA00E24ED7 /* WriteCommentViewController.swift */; };
+		FC29A8BF1C04F5920094BCC8 /* Amaranth-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FC29A8BE1C04F5920094BCC8 /* Amaranth-Regular.otf */; };
 		FC5C1BBF1BD97DD600B4AAC0 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C1BBE1BD97DD600B4AAC0 /* DefaultsKeys.swift */; };
 		FC5C1BC11BD98BCD00B4AAC0 /* NSObject+Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C1BC01BD98BCD00B4AAC0 /* NSObject+Delay.swift */; };
 		FC78C9091BEC09E70055C89A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FC78C9081BEC09E70055C89A /* InfoPlist.strings */; };
@@ -118,6 +119,7 @@
 		FC1BB1ED1BD40AB500E24ED7 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		FC1BB1EF1BD40B8300E24ED7 /* CommentTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableHeaderView.swift; sourceTree = "<group>"; };
 		FC1BB1F11BD411AA00E24ED7 /* WriteCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteCommentViewController.swift; sourceTree = "<group>"; };
+		FC29A8BE1C04F5920094BCC8 /* Amaranth-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Amaranth-Regular.otf"; sourceTree = "<group>"; };
 		FC5C1BBE1BD97DD600B4AAC0 /* DefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
 		FC5C1BC01BD98BCD00B4AAC0 /* NSObject+Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Delay.swift"; sourceTree = "<group>"; };
 		FC78C9081BEC09E70055C89A /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				FC036A0A1BD27FF800F9AEAC /* Info.plist */,
 				FC78C9081BEC09E70055C89A /* InfoPlist.strings */,
 				FC06BCB61BDD02590001C973 /* Localizable.strings */,
+				FC29A8BE1C04F5920094BCC8 /* Amaranth-Regular.otf */,
 				FC11BD5B1BD284BF0082F43C /* Constants.swift */,
 				FC0A1DE91BE14EF9005F4F67 /* ShareTemplate.xib */,
 				FC78C90A1BEC0E0A0055C89A /* fml-Bridging-Header.h */,
@@ -341,6 +344,7 @@
 				FC04FB961BF13A9F008D6312 /* VoteView.xib in Resources */,
 				FC036A061BD27FF800F9AEAC /* Assets.xcassets in Resources */,
 				FC036A041BD27FF800F9AEAC /* Main.storyboard in Resources */,
+				FC29A8BF1C04F5920094BCC8 /* Amaranth-Regular.otf in Resources */,
 				FC0A1DEA1BE14EF9005F4F67 /* ShareTemplate.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

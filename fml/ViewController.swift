@@ -11,6 +11,7 @@ import Parse
 import SwiftyUserDefaults
 import Reachability
 import FBSDKShareKit
+import TLYShyNavBar
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PostCellDelegate, FBSDKSharingDelegate {
 
@@ -46,6 +47,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         likeButton.objectID = "https://www.facebook.com/FMeinLeben-1009814069040399/"
         let barButton = UIBarButtonItem(customView: likeButton)
         navigationItem.leftBarButtonItem = barButton
+        shyNavBarManager.scrollView = tableView;
     }
     
     override func viewDidLayoutSubviews() {
@@ -138,6 +140,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func updateLocal(showNewPosts: Bool, success: (() -> ())?) {
         let query = getQuery()
+        query.whereKey("hidden", equalTo: NSNumber(bool: false))
         query.addDescendingOrder("releaseDate")
         query.fromLocalDatastore()
         query.whereKeyExists("releaseDate")
@@ -177,6 +180,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             lastUpdated = storedLastUpdated
         }
         let query = getQuery()
+        query.whereKey("moderation", equalTo: "approved")
         query.whereKey("updatedAt", greaterThan: lastUpdated)
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             self.refreshControl.endRefreshing()
@@ -240,7 +244,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func getQuery() -> PFQuery {
         let query = PFQuery(className: Constants.parsePostClassName)
         query.whereKey("lang", equalTo: NSBundle.mainBundle().getPrefrerredLang())
-        query.whereKey("hidden", equalTo: NSNumber(bool: false))
         return query
     }
     
@@ -330,8 +333,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func postCellDidTouchShare(sender: PostCell) {
+        //        content.contentURL = NSURL(string: "share_url".localizedString)
 //        let content = FBSDKShareLinkContent()
-////        content.contentURL = NSURL(string: "share_url".localizedString)
 //        content.contentURL = NSURL(string: "http://www.fmeinleben.de")
 //        content.contentDescription = "Voll witzige Sachen und so. Auf jeden Fall runterladen und los lachen!"
 //        content.contentTitle = "Abgefahren komisch."

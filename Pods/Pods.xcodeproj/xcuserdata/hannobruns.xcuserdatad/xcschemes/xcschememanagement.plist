@@ -49,20 +49,35 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TLYShyNavBar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>2DBF8CF0A766B4892602C86611B96A56</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3FD0EF7FDC5024AD4CC831619D665DBE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>57ADC05E440A960212657DE6DA1FEDD5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>773C24EEB8B502AB571B782C1D9C984E</key>
+		<key>6601889AE0C7CA3E4498D16A1D7B5632</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A50A05ABAD5E2885900D6EE2E41281CD</key>
+		<key>9E081BB72D569E695098AC070508D98E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,17 +87,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C8874A46CA4C7EAD34F97B41CEB3E499</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CD90B4A7416DC556577CD08D0BAA9FB3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>D8470470292BC39EE263E6103508E41A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DBEA8436AB1D7133DBACED1ADA9CA0C4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
