@@ -11,9 +11,9 @@ import Parse
 import SwiftyUserDefaults
 import Reachability
 import FBSDKShareKit
-import TLYShyNavBar
+import AMScrollingNavbar
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PostCellDelegate, FBSDKSharingDelegate {
+class ViewController: ScrollingNavigationViewController, UITableViewDelegate, UITableViewDataSource, PostCellDelegate, FBSDKSharingDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loadNewPostsButton: UIButton!
@@ -47,7 +47,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         likeButton.objectID = "https://www.facebook.com/FMeinLeben-1009814069040399/"
         let barButton = UIBarButtonItem(customView: likeButton)
         navigationItem.leftBarButtonItem = barButton
-        shyNavBarManager.scrollView = tableView;
     }
     
     override func viewDidLayoutSubviews() {
@@ -62,12 +61,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        if let navigationController = self.navigationController as? ScrollingNavigationController {
+            navigationController.followScrollView(tableView, delay: 50.0)
+        }
+        
         if Defaults[.lastRemoteUpdated] == nil || viewjustloaded {
             if viewjustloaded {
                 updateLocal(false, success: { () -> () in
                     self.tableView.contentOffset.y = CGFloat(Defaults[.lastTableViewContentOffsetY])
                     self.updateRemote({ () -> () in
-                        self.updateLocal(false, success: nil)
+                        self.updateLocal(false, success: { () -> () in
+                        })
                     })
                 })
             } else {
@@ -130,12 +134,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    func saveLastTableViewContentOffsetY() {
-        Defaults[.lastTableViewContentOffsetY] = Double(tableView.contentOffset.y)
-    }
-    
     func didEnterBackground(notification: NSNotification) {
-        saveLastTableViewContentOffsetY()
+        var offset = Double(self.tableView.contentOffset.y)
+        print("offset: \(offset)")
+        if let navigationController = self.navigationController as? ScrollingNavigationController {
+            if navigationController.state == .Expanded {
+                Defaults[.lastTableViewContentOffsetY] = offset
+            } else {
+                let barHeight = Double(navigationController.navigationBar.bounds.size.height)
+                offset += barHeight
+                print("collapsed calc offset \(offset)")
+                Defaults[.lastTableViewContentOffsetY] = offset
+            }
+        }
     }
     
     func updateLocal(showNewPosts: Bool, success: (() -> ())?) {

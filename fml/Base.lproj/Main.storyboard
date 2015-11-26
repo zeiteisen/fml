@@ -539,7 +539,7 @@
         <!--Item-->
         <scene sceneID="aaR-wX-a5c">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HtJ-5y-qJy" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HtJ-5y-qJy" customClass="ScrollingNavigationController" customModule="AMScrollingNavbar" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="xUD-ax-Gf0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="JZl-j6-QI0">

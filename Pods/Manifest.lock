@@ -1,4 +1,5 @@
 PODS:
+  - AMScrollingNavbar (2.0.9)
   - Bolts (1.3.0):
     - Bolts/AppLinks (= 1.3.0)
     - Bolts/Tasks (= 1.3.0)
@@ -22,9 +23,9 @@ PODS:
   - Reachability (3.2)
   - SwiftyUserDefaults (2.0.0)
   - SZTextView (1.2.1)
-  - TLYShyNavBar (1.0.0)
 
 DEPENDENCIES:
+  - AMScrollingNavbar (~> 2.0.1)
   - FBSDKCoreKit (~> 4.8)
   - FBSDKShareKit (~> 4.8)
   - LaunchKit
@@ -32,9 +33,9 @@ DEPENDENCIES:
   - Reachability (~> 3.2)
   - SwiftyUserDefaults
   - SZTextView
-  - TLYShyNavBar
 
 SPEC CHECKSUMS:
+  AMScrollingNavbar: 6ee57388f84b8f33f31a7944abf51b9afa16bafd
   Bolts: 805a4a87413e49d4a0c2b7d469084cbc46b09342
   FBSDKCoreKit: 66a935d17b6e00b6b64e604f2eb9b72c9ab7deb8
   FBSDKShareKit: e7577ee3adf80fc04fb656dd133fbb522250672b
@@ -43,6 +44,5 @@ SPEC CHECKSUMS:
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SwiftyUserDefaults: 1266e9734c68bcfbac8294ee84173dc8ba6db312
   SZTextView: 906df45afd3c1b24fc5252088d5ef8061513c238
-  TLYShyNavBar: d313a1c50c58cb7af744829120eaa33ca8a998ce
 
 COCOAPODS: 0.39.0

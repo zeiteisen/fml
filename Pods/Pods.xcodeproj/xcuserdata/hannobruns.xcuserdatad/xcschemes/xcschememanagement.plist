@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AMScrollingNavbar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -49,20 +54,15 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>TLYShyNavBar.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2DBF8CF0A766B4892602C86611B96A56</key>
+		<key>50657E1DC1D9EE9472C9FEE4BC896423</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3FD0EF7FDC5024AD4CC831619D665DBE</key>
+		<key>536B9F35AFF1A6725F02302B5F55F59B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,12 +72,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6601889AE0C7CA3E4498D16A1D7B5632</key>
+		<key>694D448A68C65382D215B7AC8EAAE1CC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9E081BB72D569E695098AC070508D98E</key>
+		<key>B315D543C9966F267A7929DD1DD6B02C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,12 +87,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D8470470292BC39EE263E6103508E41A</key>
+		<key>D2F2638AD6AA4A74ABA2C27B8835E0D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DBEA8436AB1D7133DBACED1ADA9CA0C4</key>
+		<key>D8470470292BC39EE263E6103508E41A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

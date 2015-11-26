@@ -12,6 +12,6 @@ pod 'SwiftyUserDefaults'
 pod 'LaunchKit'
 pod 'FBSDKCoreKit', '~> 4.8'
 pod 'FBSDKShareKit', '~> 4.8'
-pod 'TLYShyNavBar'
+pod 'AMScrollingNavbar', '~> 2.0.1'
 
 end
