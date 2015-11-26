@@ -36,7 +36,11 @@ class PostCell: UITableViewCell {
         super.awakeFromNib()
         selectionStyle = .None
         if !NSProcessInfo.iOS9OrGreater() {
-            messageLabel.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 24
+            if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+                messageLabel.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 70
+            } else {
+                messageLabel.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 42
+            }
         }
         backgroundColor = UIColor.clearColor()
         contentView.backgroundColor = UIColor.clearColor()

@@ -126,8 +126,8 @@
                                     <outlet property="delegate" destination="xhW-gi-Jcp" id="5Iw-T2-iiB"/>
                                 </connections>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08/15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4E-3X-7aL" customClass="GrayLabel" customModule="fml" customModuleProvider="target">
-                                <rect key="frame" x="528.5" y="233" width="51.5" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="08/15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4E-3X-7aL" customClass="GrayLabel" customModule="fml" customModuleProvider="target">
+                                <rect key="frame" x="529" y="233" width="51" height="20"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -293,7 +293,7 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uId-9S-uDS" customClass="Label" customModule="fml" customModuleProvider="target">
-                                <rect key="frame" x="20" y="25" width="51.5" height="20.5"/>
+                                <rect key="frame" x="20" y="25" width="52" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -303,7 +303,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYW-nH-j1d" customClass="Label" customModule="fml" customModuleProvider="target">
-                                <rect key="frame" x="20" y="62" width="57" height="20.5"/>
+                                <rect key="frame" x="20" y="62" width="57" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -393,7 +393,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5R4-sH-EGu" id="Pcg-jz-y6F">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -482,7 +482,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Erfolg. Dein Beitrag wird geprüft." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19h-5m-6dz" customClass="Label" customModule="fml" customModuleProvider="target">
-                                <rect key="frame" x="175" y="60" width="251" height="20.5"/>
+                                <rect key="frame" x="175" y="60" width="251" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -617,7 +617,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMK-46-JYv" customClass="Label" customModule="fml" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="32" width="568" height="95.5"/>
+                                            <rect key="frame" x="16" y="32" width="568" height="96"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -645,8 +645,8 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvG-SS-MA2">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="32"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Hans" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZK-gd-jPT" customClass="Label" customModule="fml" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="0.0" width="33.5" height="32"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Hans" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zZK-gd-jPT" customClass="Label" customModule="fml" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="0.0" width="34" height="32"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -670,8 +670,8 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSm-Mz-ea8" customClass="Label" customModule="fml" customModuleProvider="target">
-                                                    <rect key="frame" x="553.5" y="0.0" width="30.5" height="32"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gSm-Mz-ea8" customClass="Label" customModule="fml" customModuleProvider="target">
+                                                    <rect key="frame" x="553" y="0.0" width="31" height="32"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -684,6 +684,7 @@
                                             <animations/>
                                             <constraints>
                                                 <constraint firstItem="gSm-Mz-ea8" firstAttribute="top" secondItem="pvG-SS-MA2" secondAttribute="top" id="6pT-jP-R9o"/>
+                                                <constraint firstItem="gSm-Mz-ea8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Jie-Rb-rNY" secondAttribute="trailing" constant="8" id="6vO-Rg-vJ0"/>
                                                 <constraint firstItem="zZK-gd-jPT" firstAttribute="top" secondItem="pvG-SS-MA2" secondAttribute="top" id="T08-li-gRk"/>
                                                 <constraint firstItem="Jie-Rb-rNY" firstAttribute="leading" secondItem="zZK-gd-jPT" secondAttribute="trailing" constant="7.5" id="Waw-S9-dsZ"/>
                                                 <constraint firstItem="Jie-Rb-rNY" firstAttribute="centerY" secondItem="zZK-gd-jPT" secondAttribute="centerY" id="k2G-UG-cZb"/>
@@ -704,7 +705,7 @@
                                             <rect key="frame" x="0.0" y="244" width="600" height="50"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzk-4t-0eu">
-                                                    <rect key="frame" x="16" y="0.0" width="116.5" height="50"/>
+                                                    <rect key="frame" x="16" y="0.0" width="117" height="50"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -774,11 +775,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="162"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0g0-ud-cxh">
-                                                    <rect key="frame" x="8" y="8" width="584" height="153.5"/>
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0g0-ud-cxh">
+                                                    <rect key="frame" x="8" y="8" width="584" height="154"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Qo-xC-5eN" customClass="Label" customModule="fml" customModuleProvider="target">
-                                                            <rect key="frame" x="545" y="8" width="30.5" height="17"/>
+                                                            <rect key="frame" x="545" y="8" width="31" height="17"/>
                                                             <animations/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -788,7 +789,7 @@
                                                             </variation>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Hans" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Thn-Iv-L3G" customClass="Label" customModule="fml" customModuleProvider="target">
-                                                            <rect key="frame" x="8" y="8" width="33.5" height="17"/>
+                                                            <rect key="frame" x="8" y="8" width="34" height="17"/>
                                                             <animations/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -798,7 +799,7 @@
                                                             </variation>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1337" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kdw-ue-D4B" customClass="Label" customModule="fml" customModuleProvider="target">
-                                                            <rect key="frame" x="536" y="73" width="40" height="20.5"/>
+                                                            <rect key="frame" x="536" y="73" width="40" height="21"/>
                                                             <animations/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -837,7 +838,7 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRk-3m-xSZ" customClass="FontAwesomeButton" customModule="fml" customModuleProvider="target">
-                                                            <rect key="frame" x="536" y="93.5" width="40" height="40"/>
+                                                            <rect key="frame" x="536" y="94" width="40" height="40"/>
                                                             <animations/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="bbC-ww-3Ja"/>
@@ -866,7 +867,7 @@
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9is-m6-cdp" customClass="Label" customModule="fml" customModuleProvider="target">
-                                                            <rect key="frame" x="8" y="33" width="520" height="20.5"/>
+                                                            <rect key="frame" x="8" y="33" width="520" height="21"/>
                                                             <animations/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

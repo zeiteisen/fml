@@ -62,7 +62,9 @@ class ViewController: ScrollingNavigationViewController, UITableViewDelegate, UI
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if let navigationController = self.navigationController as? ScrollingNavigationController {
-            navigationController.followScrollView(tableView, delay: 50.0)
+            if NSProcessInfo.iOS9OrGreater() {
+                navigationController.followScrollView(tableView, delay: 50.0)
+            }
         }
         
         if Defaults[.lastRemoteUpdated] == nil || viewjustloaded {

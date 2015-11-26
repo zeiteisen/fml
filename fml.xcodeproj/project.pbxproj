@@ -596,7 +596,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.zeiteisens.fml;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7971834a-12a4-4fc6-808b-f8e0b7c29ace";
+				PROVISIONING_PROFILE = "4e26be0a-47f3-4e66-9ce4-02d40f6a3fe1";
 				SWIFT_OBJC_BRIDGING_HEADER = "fml/fml-Bridging-Header.h";
 			};
 			name = Release;

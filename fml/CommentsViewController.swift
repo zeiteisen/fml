@@ -41,6 +41,15 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         title = "comments_title".localizedString
         topCommentsLabel.text = "top_comments_label".localizedString
         commentButton.setTitle("write_comment_button_title".localizedString, forState: .Normal);
+        
+        if !NSProcessInfo.iOS9OrGreater() {
+            if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+                postMessageLabel.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 70
+            } else {
+                postMessageLabel.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 42
+            }
+        }
+        
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
