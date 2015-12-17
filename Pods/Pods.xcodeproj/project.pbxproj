@@ -3770,6 +3770,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CF1C4764B98D1D8968590BFC1F74C30D /* LaunchKit.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -4082,6 +4083,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CF1C4764B98D1D8968590BFC1F74C30D /* LaunchKit.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;

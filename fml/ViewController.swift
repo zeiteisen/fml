@@ -157,6 +157,7 @@ class ViewController: ScrollingNavigationViewController, UITableViewDelegate, UI
         query.addDescendingOrder("releaseDate")
         query.fromLocalDatastore()
         query.whereKeyExists("releaseDate")
+        query.limit = 1000
         if !showNewPosts {
             var lastLocalUpdated = NSDate(timeIntervalSinceNow: 0)
             if let savedLastLocalUpdated = Defaults[.lastLocalUpdated] {
@@ -193,6 +194,7 @@ class ViewController: ScrollingNavigationViewController, UITableViewDelegate, UI
             lastUpdated = storedLastUpdated
         }
         let query = getQuery()
+        query.limit = 1000
         query.whereKey("moderation", equalTo: "approved")
         query.whereKey("updatedAt", greaterThan: lastUpdated)
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
@@ -269,6 +271,7 @@ class ViewController: ScrollingNavigationViewController, UITableViewDelegate, UI
         }
     }
     
+    // todo, fix this buggy shit
     func loadMore(lastReleaseDate: NSDate) {
         let query = getQuery()
         query.limit = 10
@@ -315,9 +318,10 @@ class ViewController: ScrollingNavigationViewController, UITableViewDelegate, UI
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if (indexPath.row == dataSouce.count - 1) {
-            if let lastObject = dataSouce.last {
-                loadMore(lastObject["releaseDate"] as! NSDate)
-            }
+//            if let lastObject = dataSouce.last {
+                // is buggy
+//                loadMore(lastObject["releaseDate"] as! NSDate)
+//            }
         }
     }
     
